@@ -147,7 +147,10 @@
             this.cmbRoomType.Items.AddRange(new object[] {
             "",
             "Lecture",
-            "Laboratory"});
+            "Computer Laboratory",
+            "Food Laboratory",
+            "Physics Laboratory",
+            "Chemistry Laboratory"});
             this.cmbRoomType.Location = new System.Drawing.Point(218, 59);
             this.cmbRoomType.Name = "cmbRoomType";
             this.cmbRoomType.Size = new System.Drawing.Size(241, 28);

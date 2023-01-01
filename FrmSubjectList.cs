@@ -21,7 +21,7 @@ namespace AutomatedRoomScheduling
         DataSet ds;
         DataTable dt;
         SqlDataReader reader;
-        String query, ID = "" , txt;
+        String query, ID = "" , txt , mess = "";
 
         FrmSubject FrmSub;
 
@@ -31,9 +31,16 @@ namespace AutomatedRoomScheduling
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+       
         public FrmSubjectList()
         {
             InitializeComponent();
+        }
+        public FrmSubjectList(string mess)
+        {
+            InitializeComponent();
+            btnUpdate.Enabled = false;
+            this.mess = mess;
         }
 
         private void FrmSubjectList_Load(object sender, EventArgs e)
@@ -60,11 +67,26 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                
+                if (mess.Trim().Equals(""))
+                {
                     FrmSub = new FrmSubject();
                     FrmSub.Show();
                     this.Close();
-                
+                }
+                else 
+                {
+                    if (ID.Equals(""))
+                    {
+                        MessageBox.Show("Select a file!", "Warning!",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else 
+                    { 
+                      ClassCRUD.SubjectCode = ID;
+                        this.Close();
+                    }
+
+                }
             }
             catch (Exception) { }
         }

@@ -36,6 +36,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbClassType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbHoursNeed = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.cmbSubType = new System.Windows.Forms.ComboBox();
             this.txtSubDesc = new System.Windows.Forms.TextBox();
             this.txtSubCode = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -121,7 +121,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbClassType);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbHoursNeed);
             this.groupBox1.Controls.Add(this.label4);
@@ -139,6 +139,31 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Subject Information";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(40, 113);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 20);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Class Type:";
+            // 
+            // cmbClassType
+            // 
+            this.cmbClassType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbClassType.FormattingEnabled = true;
+            this.cmbClassType.Items.AddRange(new object[] {
+            "",
+            "Lecture",
+            "Computer Laboratory",
+            "Food Laboratory",
+            "Physics Laboratory",
+            "Chemistry Laboratory"});
+            this.cmbClassType.Location = new System.Drawing.Point(216, 105);
+            this.cmbClassType.Name = "cmbClassType";
+            this.cmbClassType.Size = new System.Drawing.Size(262, 28);
+            this.cmbClassType.TabIndex = 10;
             // 
             // label5
             // 
@@ -244,34 +269,12 @@
             this.txtSubCode.Size = new System.Drawing.Size(262, 27);
             this.txtSubCode.TabIndex = 0;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "",
-            "Major",
-            "Minor"});
-            this.comboBox1.Location = new System.Drawing.Point(216, 105);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(262, 28);
-            this.comboBox1.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(40, 113);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(105, 20);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Subject Type:";
-            // 
             // FrmSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(570, 495);
+            this.ClientSize = new System.Drawing.Size(570, 421);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -308,6 +311,6 @@
         private System.Windows.Forms.TextBox txtSubDesc;
         private System.Windows.Forms.TextBox txtSubCode;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbClassType;
     }
 }

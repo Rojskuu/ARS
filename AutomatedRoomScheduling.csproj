@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminChecker.cs" />
+    <Compile Include="Algo.cs" />
     <Compile Include="ClassCRUD.cs" />
     <Compile Include="ClassList.cs">
       <SubType>Form</SubType>

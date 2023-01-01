@@ -87,7 +87,8 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                FrmTeachList TL = new FrmTeachList();
+                string mess = "This is Class";
+                FrmTeachList TL = new FrmTeachList(mess);
                 TL.ShowDialog();
                 PoptxtTeach();
             }
@@ -102,7 +103,8 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                FrmSectionList SC = new FrmSectionList();
+                string mess = "This is Class";
+                FrmSectionList SC = new FrmSectionList(mess);
                 SC.ShowDialog();
                 PoptxtSec();
             }
@@ -222,7 +224,8 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                FrmSubjectList SC = new FrmSubjectList();
+                string mess = "This is Class";
+                FrmSubjectList SC = new FrmSubjectList(mess);
                 SC.ShowDialog();
 
                 PoptxtSub();

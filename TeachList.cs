@@ -21,7 +21,7 @@ namespace AutomatedRoomScheduling
         DataSet ds;
         DataTable dt;
         SqlDataReader reader;
-        String query, ID = "", txt;
+        String query, ID = "", txt , mess="";
         private TeachCRUD TC = new TeachCRUD();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -35,6 +35,14 @@ namespace AutomatedRoomScheduling
             InitializeComponent();
            
             con = new SqlConnection(server);
+        }
+        public FrmTeachList(string mess)
+        {
+
+            InitializeComponent();
+            con = new SqlConnection(server);
+            btnUpdate.Enabled = false;
+            this.mess = mess;
         }
 
 
@@ -92,9 +100,25 @@ namespace AutomatedRoomScheduling
         {
             try 
             {
-               FrmTeach frmTeach = new FrmTeach();
-               frmTeach.Show();
-                this.Close();
+                if (mess.Trim().Equals(""))
+                {
+                    FrmTeach frmTeach = new FrmTeach();
+                    frmTeach.Show();
+                    this.Close();
+                }
+                else 
+                {
+                    if (ID.Equals(""))
+                    {
+                        MessageBox.Show("Select a file!", "Warning!",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else 
+                    { 
+                    ClassCRUD.TeacherID = ID;
+                        this.Close();
+                    }
+                }
 
             } catch (Exception) { }
         }

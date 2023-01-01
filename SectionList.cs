@@ -21,7 +21,7 @@ namespace AutomatedRoomScheduling
         DataSet ds;
         DataTable dt;
         SqlDataReader reader;
-        String query, ID = "" , txt;
+        String query, ID = "" , txt, mess="";
         private SectionCRUD SC = new SectionCRUD();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -33,7 +33,12 @@ namespace AutomatedRoomScheduling
         {
             InitializeComponent();
         }
-
+        public FrmSectionList(string mess)
+        {
+            InitializeComponent();
+            btnUpdate.Enabled = false;
+            this.mess = mess;
+        }
         private void dtgTeach_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
@@ -78,9 +83,25 @@ namespace AutomatedRoomScheduling
             {
                 try
                 {
-                FrmSection frmSection = new FrmSection();
-                frmSection.Show();
-                this.Close();
+                if (mess.Trim().Equals(""))
+                {
+                    FrmSection frmSection = new FrmSection();
+                    frmSection.Show();
+                    this.Close();
+                }
+                else 
+                {
+                    if (ID.Equals(""))
+                    {
+                        MessageBox.Show("Select a file!", "Warning!",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    { 
+                    ClassCRUD.SectionID = ID;
+                        this.Close();
+                    }
+                }
                 }
                 catch (Exception) { }
             }

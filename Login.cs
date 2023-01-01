@@ -19,6 +19,7 @@ namespace AutomatedRoomScheduling
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         FrmDash dash;
+        int attempt = 3;
 
         SqlConnection con;
         SqlDataReader reader;
@@ -64,7 +65,7 @@ namespace AutomatedRoomScheduling
             if (txtPassword.Text.Equals("Password"))
             {
                 txtPassword.Clear();
-                txtPassword.PasswordChar = '•';
+                
             }
         }
 
@@ -113,10 +114,22 @@ namespace AutomatedRoomScheduling
                     else
                     {
                         con.Close();
-                        MessageBox.Show("Invalid username or password \n" + " attempts left", "Invalid!",
+                        MessageBox.Show("Invalid username or password \n" + " attempts left "+ attempt, "Invalid!",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                       
                         
+                        txtPassword.Text = "";
+                        txtUsername.Text = "";
 
+                        if (attempt == 0) 
+                        { 
+                            btnLogin.Enabled = false;
+                            txtUsername.Enabled = false;
+                            txtPassword.Enabled = false;
+                            MessageBox.Show("You have exceeded the number of attemps, the system will temporary block login ", "Log in failed!",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        attempt--;
                     }
 
 
