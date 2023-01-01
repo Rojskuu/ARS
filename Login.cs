@@ -114,7 +114,7 @@ namespace AutomatedRoomScheduling
                     else
                     {
                         con.Close();
-                        MessageBox.Show("Invalid username or password \n" + " attempts left "+ attempt, "Invalid!",
+                        MessageBox.Show("Invalid username or password. \n" + " Attempts left "+ attempt, "Invalid!",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                        
                         
@@ -126,7 +126,8 @@ namespace AutomatedRoomScheduling
                             btnLogin.Enabled = false;
                             txtUsername.Enabled = false;
                             txtPassword.Enabled = false;
-                            MessageBox.Show("You have exceeded the number of attemps, the system will temporary block login ", "Log in failed!",
+                            MessageBox.Show("You have exceeded the number of login attempts." +
+                                "\nPlease try again later.", "Log in failed!",
                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         attempt--;

@@ -39,7 +39,7 @@ namespace AutomatedRoomScheduling
         }
         private void FrmTeach_Load(object sender, EventArgs e)
         {
-
+            dtBday.MaxDate = DateTime.Now;
         }
 
         public void Poptxt() 
@@ -185,39 +185,20 @@ namespace AutomatedRoomScheduling
         }
 
       
-
-        private void btnFind_Click(object sender, EventArgs e)
+        private void cmbEmpType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void cmbEmpType_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (cmbEmpType.Text.Trim().Equals("Part-Time"))
+            try 
             {
-                FrmPT pt = new FrmPT();
-
-
-                pt.Show();
-
-            }
-        }
-
-      
-
-        private void FrmTeach_KeyDown_1(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.Control && e.KeyCode == Keys.F)
+                if (cmbEmpType.Text.Trim().Equals("Part-Time"))
                 {
-                    FrmTeachList TL = new FrmTeachList();
-                    TL.ShowDialog();
-                    Poptxt();
+                    FrmPT pt = new FrmPT();
+
+
+                    pt.ShowDialog();
+
                 }
             }
-            catch (Exception ex) { }
-
+            catch(Exception ex) { MessageBox.Show(ex + ""); }
         }
     }
 }

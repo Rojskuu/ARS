@@ -172,7 +172,7 @@
             this.cmbEmpType.Name = "cmbEmpType";
             this.cmbEmpType.Size = new System.Drawing.Size(279, 28);
             this.cmbEmpType.TabIndex = 20;
-            this.cmbEmpType.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbEmpType_MouseClick);
+            this.cmbEmpType.SelectedIndexChanged += new System.EventHandler(this.cmbEmpType_SelectedIndexChanged);
             // 
             // cmbCS
             // 
@@ -370,7 +370,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FrmTeach_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmTeach_KeyDown_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.grpPInfo.ResumeLayout(false);

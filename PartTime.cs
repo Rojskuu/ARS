@@ -93,7 +93,11 @@ namespace AutomatedRoomScheduling
 
         private void btnMini_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
+            try 
+            { 
+                WindowState = FormWindowState.Minimized; 
+            } catch (Exception ex) { MessageBox.Show(ex+""); }
+            
         }
     }
 }
