@@ -108,7 +108,7 @@ namespace AutomatedRoomScheduling
             cmbSubUnit.Text = "";
             cmbSubType.Text = "";
             cmbHoursNeed.Text = "";
-
+            cmbClassType.Text = "";
             btnAdd.Text = "ADD";
         }
 
@@ -118,7 +118,7 @@ namespace AutomatedRoomScheduling
             {
                 if (txtSubCode.Text.Trim().Equals("") || txtSubDesc.Text.Trim().Equals("") ||
                     cmbSubType.Text.Trim().Equals("") || cmbSubUnit.Text.Trim().Equals("") ||
-                    cmbHoursNeed.Text.Trim().Equals(""))
+                    cmbHoursNeed.Text.Trim().Equals("") || cmbClassType.Text.Trim().Equals(""))
                 {
                     MessageBox.Show("Please fill up all the fields. "
                         , "Field cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -131,6 +131,7 @@ namespace AutomatedRoomScheduling
                     SubjectCRUD.SubjectUnit = Convert.ToInt32(cmbSubUnit.Text);
                     SubjectCRUD.SubjectType = cmbSubType.Text;
                     SubjectCRUD.SubjectHrsndd = Convert.ToInt32(cmbHoursNeed.Text);
+                    SubjectCRUD.ClassType = cmbClassType.Text;
 
                     if (btnAdd.Text.Equals("ADD"))
                     {
