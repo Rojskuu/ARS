@@ -27,7 +27,7 @@ namespace AutomatedRoomScheduling
         public static int SubjectUnit { get; set; }
         public static String SubjectHrsndd { get; set; }
         public static String ClassType { get; set; }
-
+        public static String Department { get; set; }
         public static int Hrs { get; set; }
         public static int Min { get; set; }
 
@@ -42,9 +42,10 @@ namespace AutomatedRoomScheduling
                 con.Open();
 
                 query = $"insert into Subj " +
-                    "(SubCode, SubDescript, ClassType, SubType, unit, Hrs, Archive,Username)" +
+                    "(SubCode, SubDescript, ClassType, SubType, unit, Hrs,Department, Archive,Username)" +
                     "values('" + SubjectCode + "', '" + SubjectDesc + "', '"+ClassType+"', '" + SubjectType + "', " +
-                    "'" + SubjectUnit + "', '" + SubjectHrsndd + "', '" +0+ "', '"+AdminChecker.Admin+"')";
+                    "'" + SubjectUnit + "', '" + SubjectHrsndd + "', '"+Department+"', " +
+                    "'" +0+ "', '"+AdminChecker.Admin+"')";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
@@ -68,7 +69,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select SubDescript, ClassType, SubType, unit, Hrs " +
+                query = "Select SubDescript, ClassType, SubType, unit, Hrs, Department " +
                         "from Subj where SubCode = '" + SubjectCode + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -90,6 +91,7 @@ namespace AutomatedRoomScheduling
                         Hrs = ts.Hours;
                         Min = ts.Minutes;
                     }
+                    Department = rdr.GetString(5);
 
                 }
 
@@ -111,8 +113,9 @@ namespace AutomatedRoomScheduling
                        + "ClassType = '" + ClassType + "', "
                        + "SubType = '" + SubjectType + "', "
                        + "unit = '" + SubjectUnit + "', "
-                       + "Hrs = '"+SubjectHrsndd+"' " +
-                       "WHERE SubCode = '"+SubjectCode+"'";
+                       + "Hrs = '"+SubjectHrsndd+"' , " 
+                       + "Department = '"+Department + "' "
+                       + "WHERE SubCode = '"+SubjectCode+"'";
 
 
                 SqlCommand cmd = new SqlCommand(query, con);

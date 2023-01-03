@@ -51,6 +51,8 @@
             this.txtSubCode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbDept = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
@@ -114,7 +116,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(237, 354);
+            this.btnAdd.Location = new System.Drawing.Point(251, 383);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 4;
@@ -125,6 +127,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.cmbDept);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.numMin);
@@ -143,7 +147,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 72);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(554, 276);
+            this.groupBox1.Size = new System.Drawing.Size(554, 305);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Subject Information";
@@ -155,7 +159,7 @@
             0,
             0,
             0});
-            this.numMin.Location = new System.Drawing.Point(350, 208);
+            this.numMin.Location = new System.Drawing.Point(351, 242);
             this.numMin.Maximum = new decimal(new int[] {
             45,
             0,
@@ -167,7 +171,7 @@
             // 
             // numHrs
             // 
-            this.numHrs.Location = new System.Drawing.Point(217, 208);
+            this.numHrs.Location = new System.Drawing.Point(218, 242);
             this.numHrs.Maximum = new decimal(new int[] {
             6,
             0,
@@ -190,7 +194,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(40, 113);
+            this.label7.Location = new System.Drawing.Point(41, 147);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 20);
             this.label7.TabIndex = 11;
@@ -207,7 +211,7 @@
             "Food Laboratory",
             "Physics Laboratory",
             "Chemistry Laboratory"});
-            this.cmbClassType.Location = new System.Drawing.Point(216, 105);
+            this.cmbClassType.Location = new System.Drawing.Point(217, 139);
             this.cmbClassType.Name = "cmbClassType";
             this.cmbClassType.Size = new System.Drawing.Size(262, 28);
             this.cmbClassType.TabIndex = 10;
@@ -215,7 +219,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(40, 215);
+            this.label5.Location = new System.Drawing.Point(41, 249);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 20);
             this.label5.TabIndex = 9;
@@ -224,7 +228,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 181);
+            this.label4.Location = new System.Drawing.Point(40, 215);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 7;
@@ -233,7 +237,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 147);
+            this.label3.Location = new System.Drawing.Point(41, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 20);
             this.label3.TabIndex = 6;
@@ -268,7 +272,7 @@
             "3",
             "4",
             "5"});
-            this.cmbSubUnit.Location = new System.Drawing.Point(216, 173);
+            this.cmbSubUnit.Location = new System.Drawing.Point(217, 207);
             this.cmbSubUnit.Name = "cmbSubUnit";
             this.cmbSubUnit.Size = new System.Drawing.Size(262, 28);
             this.cmbSubUnit.TabIndex = 3;
@@ -281,7 +285,7 @@
             "",
             "Major",
             "Minor"});
-            this.cmbSubType.Location = new System.Drawing.Point(216, 139);
+            this.cmbSubType.Location = new System.Drawing.Point(217, 173);
             this.cmbSubType.Name = "cmbSubType";
             this.cmbSubType.Size = new System.Drawing.Size(262, 28);
             this.cmbSubType.TabIndex = 2;
@@ -303,7 +307,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(295, 215);
+            this.label8.Location = new System.Drawing.Point(296, 249);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 20);
             this.label8.TabIndex = 14;
@@ -312,18 +316,42 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(428, 215);
+            this.label9.Location = new System.Drawing.Point(429, 249);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 20);
             this.label9.TabIndex = 15;
             this.label9.Text = "Min";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(40, 116);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 20);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Department:";
+            // 
+            // cmbDept
+            // 
+            this.cmbDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDept.FormattingEnabled = true;
+            this.cmbDept.Items.AddRange(new object[] {
+            "",
+            "General",
+            "BSIT",
+            "BSHM",
+            "BSCPE"});
+            this.cmbDept.Location = new System.Drawing.Point(217, 105);
+            this.cmbDept.Name = "cmbDept";
+            this.cmbDept.Size = new System.Drawing.Size(262, 28);
+            this.cmbDept.TabIndex = 17;
             // 
             // FrmSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(570, 389);
+            this.ClientSize = new System.Drawing.Size(570, 440);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -366,5 +394,7 @@
         private System.Windows.Forms.NumericUpDown numHrs;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbDept;
+        private System.Windows.Forms.Label label10;
     }
 }

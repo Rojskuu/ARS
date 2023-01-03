@@ -39,30 +39,10 @@ namespace AutomatedRoomScheduling
             Poptxt();
 
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
+        
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -70,12 +50,7 @@ namespace AutomatedRoomScheduling
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
-        {
-            dash = new FrmDash();
-            dash.Show();
-            this.Hide();    
-        }
+        
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -101,7 +76,8 @@ namespace AutomatedRoomScheduling
             cmbSubType.Text = SubjectCRUD.SubjectType;
             cmbClassType.Text = SubjectCRUD.ClassType;
             numHrs.Value = SubjectCRUD.Hrs;
-            numMin.Value = SubjectCRUD.Min; 
+            numMin.Value = SubjectCRUD.Min;
+            cmbDept.Text = SubjectCRUD.Department;
            
             Hrs = SubjectCRUD.SubjectHrsndd+"";
 
@@ -126,7 +102,8 @@ namespace AutomatedRoomScheduling
             {
                 if (txtSubCode.Text.Trim().Equals("") || txtSubDesc.Text.Trim().Equals("") ||
                     cmbSubType.Text.Trim().Equals("") || cmbSubUnit.Text.Trim().Equals("") ||
-                    numHrs.Value.Equals(0) || cmbClassType.Text.Trim().Equals(""))
+                    numHrs.Value.Equals(0) || cmbClassType.Text.Trim().Equals("") ||
+                    cmbDept.Text.Equals(""))
                 {
                     MessageBox.Show("Please fill up all the fields. "
                         , "Field cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -141,6 +118,7 @@ namespace AutomatedRoomScheduling
                     Hrs = numHrs.Value + ":" + numMin.Value;
                     SubjectCRUD.SubjectHrsndd = Hrs;
                     SubjectCRUD.ClassType = cmbClassType.Text;
+                    SubjectCRUD.Department = cmbDept.Text;
 
                     if (btnAdd.Text.Equals("ADD"))
                     {
@@ -166,14 +144,6 @@ namespace AutomatedRoomScheduling
 
         }
 
-        private void btnElipsis_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numMin_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
