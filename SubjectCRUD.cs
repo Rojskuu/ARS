@@ -19,24 +19,26 @@ namespace AutomatedRoomScheduling
         DataTable dt;
         SqlDataReader reader;
         String query;
+        TimeSpan ts;
 
         public static String SubjectCode { get; set; }
         public static String SubjectDesc { get; set; }
         public static String SubjectType { get; set; }
-        public static int  SubjectUnit { get; set; }
-        public static int SubjectHrsndd { get; set; }
+        public static int SubjectUnit { get; set; }
+        public static String SubjectHrsndd { get; set; }
         public static String ClassType { get; set; }
 
+        public static int Hrs { get; set; }
+        public static int Min { get; set; }
+
         public static String SubDisplay = "Select SubCode AS 'Subject Code', SubDescript AS 'Subject Description'," +
-            "SubType AS 'Subject Type', unit AS 'Subject Unit' , Hrs AS 'Hours Required' From Subj Where Archive = 0"; 
+            "SubType AS 'Subject Type', unit AS 'Subject Unit' From Subj Where Archive = 0"; 
        
         public void Create()
         {
-           
-            try
-            {
-                
-                con = new SqlConnection(server);
+           try
+           {
+                 con = new SqlConnection(server);
                 con.Open();
 
                 query = $"insert into Subj " +
@@ -48,10 +50,8 @@ namespace AutomatedRoomScheduling
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 con.Close();
-
-
-            }
-            catch (Exception) { }
+           }
+           catch (Exception) { }
 
         }
 
@@ -82,7 +82,14 @@ namespace AutomatedRoomScheduling
                     ClassType = rdr.GetString(1);
                     SubjectType = rdr.GetString(2) + "";
                     SubjectUnit = Convert.ToInt32(rdr.GetValue(3));
-                    SubjectHrsndd = Convert.ToInt32(rdr.GetValue(4));
+
+                    SubjectHrsndd = rdr.GetString(4);
+
+                    if (TimeSpan.TryParse(SubjectHrsndd, out ts)) 
+                    {
+                        Hrs = ts.Hours;
+                        Min = ts.Minutes;
+                    }
 
                 }
 

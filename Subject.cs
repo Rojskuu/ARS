@@ -20,12 +20,15 @@ namespace AutomatedRoomScheduling
 
         FrmDash dash;
         SubjectCRUD SubjectCRUD;
+        String Hrs;
 
 
         public FrmSubject()
         {
             InitializeComponent();
              SubjectCRUD = new SubjectCRUD();
+            
+            
         }
         public FrmSubject(String ID)
         {
@@ -96,7 +99,11 @@ namespace AutomatedRoomScheduling
             txtSubDesc.Text = SubjectCRUD.SubjectDesc;
             cmbSubUnit.Text = SubjectCRUD.SubjectUnit+"";
             cmbSubType.Text = SubjectCRUD.SubjectType;
-            cmbHoursNeed.Text = SubjectCRUD.SubjectHrsndd+"";
+            cmbClassType.Text = SubjectCRUD.ClassType;
+            numHrs.Value = SubjectCRUD.Hrs;
+            numMin.Value = SubjectCRUD.Min; 
+           
+            Hrs = SubjectCRUD.SubjectHrsndd+"";
 
             btnAdd.Text = "UPDATE";
         }
@@ -107,7 +114,8 @@ namespace AutomatedRoomScheduling
             txtSubDesc.Text = "";
             cmbSubUnit.Text = "";
             cmbSubType.Text = "";
-            cmbHoursNeed.Text = "";
+            numHrs.Value = 0;
+            numMin.Value = 0;
             cmbClassType.Text = "";
             btnAdd.Text = "ADD";
         }
@@ -118,7 +126,7 @@ namespace AutomatedRoomScheduling
             {
                 if (txtSubCode.Text.Trim().Equals("") || txtSubDesc.Text.Trim().Equals("") ||
                     cmbSubType.Text.Trim().Equals("") || cmbSubUnit.Text.Trim().Equals("") ||
-                    cmbHoursNeed.Text.Trim().Equals("") || cmbClassType.Text.Trim().Equals(""))
+                    numHrs.Value.Equals(0) || cmbClassType.Text.Trim().Equals(""))
                 {
                     MessageBox.Show("Please fill up all the fields. "
                         , "Field cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -130,7 +138,8 @@ namespace AutomatedRoomScheduling
                     SubjectCRUD.SubjectDesc = txtSubDesc.Text;
                     SubjectCRUD.SubjectUnit = Convert.ToInt32(cmbSubUnit.Text);
                     SubjectCRUD.SubjectType = cmbSubType.Text;
-                    SubjectCRUD.SubjectHrsndd = Convert.ToInt32(cmbHoursNeed.Text);
+                    Hrs = numHrs.Value + ":" + numMin.Value;
+                    SubjectCRUD.SubjectHrsndd = Hrs;
                     SubjectCRUD.ClassType = cmbClassType.Text;
 
                     if (btnAdd.Text.Equals("ADD"))
@@ -158,6 +167,11 @@ namespace AutomatedRoomScheduling
         }
 
         private void btnElipsis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numMin_ValueChanged(object sender, EventArgs e)
         {
 
         }

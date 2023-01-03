@@ -144,7 +144,7 @@
             this.grpPInfo.Controls.Add(this.txtFName);
             this.grpPInfo.Controls.Add(this.txtLName);
             this.grpPInfo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPInfo.Location = new System.Drawing.Point(32, 70);
+            this.grpPInfo.Location = new System.Drawing.Point(21, 70);
             this.grpPInfo.Name = "grpPInfo";
             this.grpPInfo.Size = new System.Drawing.Size(618, 422);
             this.grpPInfo.TabIndex = 8;

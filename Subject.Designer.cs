@@ -36,10 +36,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numMin = new System.Windows.Forms.NumericUpDown();
+            this.numHrs = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbClassType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbHoursNeed = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,8 +49,12 @@
             this.cmbSubType = new System.Windows.Forms.ComboBox();
             this.txtSubDesc = new System.Windows.Forms.TextBox();
             this.txtSubCode = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numHrs)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -109,7 +114,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(240, 370);
+            this.btnAdd.Location = new System.Drawing.Point(237, 354);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 4;
@@ -120,10 +125,13 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.numMin);
+            this.groupBox1.Controls.Add(this.numHrs);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cmbClassType);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.cmbHoursNeed);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -135,10 +143,49 @@
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 72);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(554, 292);
+            this.groupBox1.Size = new System.Drawing.Size(554, 276);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Subject Information";
+            // 
+            // numMin
+            // 
+            this.numMin.Increment = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numMin.Location = new System.Drawing.Point(350, 208);
+            this.numMin.Maximum = new decimal(new int[] {
+            45,
+            0,
+            0,
+            0});
+            this.numMin.Name = "numMin";
+            this.numMin.Size = new System.Drawing.Size(72, 27);
+            this.numMin.TabIndex = 13;
+            // 
+            // numHrs
+            // 
+            this.numHrs.Location = new System.Drawing.Point(217, 208);
+            this.numHrs.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numHrs.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numHrs.Name = "numHrs";
+            this.numHrs.Size = new System.Drawing.Size(72, 27);
+            this.numHrs.TabIndex = 12;
+            this.numHrs.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label7
             // 
@@ -173,22 +220,6 @@
             this.label5.Size = new System.Drawing.Size(115, 20);
             this.label5.TabIndex = 9;
             this.label5.Text = "Hours needed:";
-            // 
-            // cmbHoursNeed
-            // 
-            this.cmbHoursNeed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbHoursNeed.FormattingEnabled = true;
-            this.cmbHoursNeed.Items.AddRange(new object[] {
-            "",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.cmbHoursNeed.Location = new System.Drawing.Point(216, 207);
-            this.cmbHoursNeed.Name = "cmbHoursNeed";
-            this.cmbHoursNeed.Size = new System.Drawing.Size(262, 28);
-            this.cmbHoursNeed.TabIndex = 8;
             // 
             // label4
             // 
@@ -269,12 +300,30 @@
             this.txtSubCode.Size = new System.Drawing.Size(262, 27);
             this.txtSubCode.TabIndex = 0;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(295, 215);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 20);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Hrs";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(428, 215);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 20);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Min";
+            // 
             // FrmSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(570, 421);
+            this.ClientSize = new System.Drawing.Size(570, 389);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -287,6 +336,8 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numHrs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -301,7 +352,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbHoursNeed;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -312,5 +362,9 @@
         private System.Windows.Forms.TextBox txtSubCode;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbClassType;
+        private System.Windows.Forms.NumericUpDown numMin;
+        private System.Windows.Forms.NumericUpDown numHrs;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }
