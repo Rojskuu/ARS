@@ -18,11 +18,17 @@ namespace AutomatedRoomScheduling
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        int Mon = 0 , Tue = 0, Wed = 0, Thu = 0 , Fri = 0, Sat = 0;
+        public static int Mon { get; set; }
+        public static int Tue { get; set; }
+        public static int Wed { get; set; }
+        public static int Thu { get; set; }
+        public static int Fri { get; set; }
+        public static int Sat { get; set; }
 
         public FrmPT()
         {
             InitializeComponent();
+            HoldValues();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -69,7 +75,12 @@ namespace AutomatedRoomScheduling
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+            HoldValues();
+
+
+        }
+        public void HoldValues() 
+        {
             cbMon.Checked = Convert.ToBoolean(TeachCRUD.Mon);
             cbTue.Checked = Convert.ToBoolean(TeachCRUD.Tue);
             cbWed.Checked = Convert.ToBoolean(TeachCRUD.Wed);

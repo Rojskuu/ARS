@@ -143,7 +143,7 @@ namespace AutomatedRoomScheduling
 
 
                     FrmTeach frmTeach = new FrmTeach(ID);
-                    frmTeach.Show();
+                    frmTeach.ShowDialog();
                     this.Close();
 
 

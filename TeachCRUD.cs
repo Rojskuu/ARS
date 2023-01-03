@@ -38,6 +38,7 @@ namespace AutomatedRoomScheduling
         public static String Deg { get; set; }
         public static String CS { get; set; }
         public static String EmpType { get; set; }
+        public static String Department { get; set; }
 
         //For Bday Retrieve
         public static String year { get; set; }
@@ -61,9 +62,9 @@ namespace AutomatedRoomScheduling
                 con.Open();
 
                 query = $"insert into Teacher " +
-                    "(TeacherID, Fname, Mname, Lname, Sex, Religion, Bday, Contact, Degree, CivilStat, EmpType, Username, Archive)" +
+                    "(TeacherID, Fname, Mname, Lname, Sex, Religion, Bday, Contact, Degree, CivilStat, EmpType, Department , Username, Archive)" +
                     "values('" + TeacherID + "', '" + FName + "', '" + MName + "', '" + LName + "', '" + Sex + "', '" + Religion + "', " +
-                    "'" + Bday + "', '" + ConNum + "','" + Deg + "', '" + CS + "', '" + EmpType + "', '" + AdminChecker.Admin + "', '" + 0 + "')";
+                    "'" + Bday + "', '" + ConNum + "','" + Deg + "', '" + CS + "', '" + EmpType + "', '"+Department +"', '" + AdminChecker.Admin + "', '" + 0 + "')";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
@@ -136,7 +137,7 @@ namespace AutomatedRoomScheduling
 
                 query = "select Fname, Mname, Lname, Sex, Religion," +
                     "  FORMAT(Bday,'yyyy') , FORMAT(Bday,'MM') , FORMAT(Bday,'dd'), " +
-                    "Contact, Degree, CivilStat, EmpType " +
+                    "Contact, Degree, CivilStat, EmpType, Department " +
                     "from Teacher where TeacherID = '" + TeacherID + "'";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -155,15 +156,70 @@ namespace AutomatedRoomScheduling
                     Deg = rdr.GetString(9) + "";
                     CS = rdr.GetString(10) + "";
                     EmpType = rdr.GetString(11) + "";
-
+                    Department = rdr.GetString(12) + "";
                 }
-
                 con.Close();
 
+                if (EmpType.Trim().Equals("Part-Time")) 
+                {
+                    RetrievePT();
+                }
             }
             catch (Exception) { }
 
+        }
+        public void UpdatePT() 
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
 
+                query = "update PartT set "  +
+                        "Mon = "+Mon + ", " +
+                        "Tue = "+Tue + ", " +
+                        "Wed = "+Wed + ", " +
+                        "Thu = "+Thu + ", " +
+                        "Fri = "+Fri + ", " +
+                        "Sat = "+Sat + " "  +
+                        "where TeacherID = '" + TeacherID + "'";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+
+                cmd.Dispose();
+                con.Close();
+
+
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+        public void RetrievePT()
+        {
+            try 
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "select Mon, Tue, Wed, Thu, Fri, Sat " +
+                     "FROM PartT where TeacherID = '" + TeacherID + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Mon = Convert.ToInt32(rdr.GetValue(0));
+                    Tue = Convert.ToInt32(rdr.GetValue(1));
+                    Wed = Convert.ToInt32(rdr.GetValue(2));
+                    Thu = Convert.ToInt32(rdr.GetValue(3));
+                    Fri = Convert.ToInt32(rdr.GetValue(4));
+                    Sat = Convert.ToInt32(rdr.GetValue(5));
+                }
+                con.Close();
+                
+                } catch (Exception ex) { }
+        
         }
 
         public delegate void RetCallback();
@@ -187,7 +243,8 @@ namespace AutomatedRoomScheduling
                        + "Contact = '" + ConNum + "', "
                        + "Degree = '" + Deg + "'," 
                        + "CivilStat = '" + CS + "', "
-                       + "EmpType = '" + EmpType + "' " 
+                       + "EmpType = '" + EmpType + "', " 
+                       + "Department = '"+Department+"' " 
                        + "where TeacherID = '"+TeacherID+"'";
             
                 SqlCommand cmd = new SqlCommand(query, con);

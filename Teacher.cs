@@ -56,8 +56,9 @@ namespace AutomatedRoomScheduling
             cmbDegree.Text = TeachCRUD.Deg;
             cmbCS.Text = TeachCRUD.CS;
             cmbEmpType.Text = TeachCRUD.EmpType;
+            cmbDept.Text = TeachCRUD.Department;
 
-            cmbEmpType.Enabled = false;
+            
             txtTeacherID.Enabled = false;
             btnAdd.Text = "UPDATE";
         }
@@ -99,7 +100,7 @@ namespace AutomatedRoomScheduling
                      || cmbSex.Text.Trim().Equals("") || txtReligion.Text.Trim().Equals("")
                      || dtBday.Value.Equals(DateTime.Now) || txtConNum.Text.Trim().Equals("")
                      || cmbDegree.Text.Trim().Equals("") || cmbCS.Text.Trim().Equals("")
-                     || cmbEmpType.Text.Trim().Equals(""))
+                     || cmbEmpType.Text.Trim().Equals("") || cmbDept.Text.Trim().Equals(""))
                 {
                     MessageBox.Show("Please fill up all the fields. "
                         , "Field cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -118,6 +119,7 @@ namespace AutomatedRoomScheduling
                     TeachCRUD.Deg = cmbDegree.Text.Trim();
                     TeachCRUD.CS = cmbCS.Text.Trim();
                     TeachCRUD.EmpType = cmbEmpType.Text.Trim();
+                    TeachCRUD.Department = cmbDept.Text.Trim();
 
                     if (btnAdd.Text.Equals("ADD"))
                     {
@@ -150,11 +152,13 @@ namespace AutomatedRoomScheduling
                     {
 
                         TeachCRUD.Update();
+                        TeachCRUD.UpdatePT();
 
                         MessageBox.Show("Teacher updated successfully. "
                       , "Updated Successfully.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnAdd.Text = "ADD";
                         ClearValues();
+
                     }
 
                 }
@@ -184,10 +188,10 @@ namespace AutomatedRoomScheduling
   
         }
 
-      
-        private void cmbEmpType_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void cmbEmpType_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 if (cmbEmpType.Text.Trim().Equals("Part-Time"))
                 {
@@ -198,7 +202,7 @@ namespace AutomatedRoomScheduling
 
                 }
             }
-            catch(Exception ex) { MessageBox.Show(ex + ""); }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
     }
 }

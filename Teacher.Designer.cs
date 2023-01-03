@@ -176,7 +176,7 @@
             this.cmbEmpType.Name = "cmbEmpType";
             this.cmbEmpType.Size = new System.Drawing.Size(279, 28);
             this.cmbEmpType.TabIndex = 20;
-            this.cmbEmpType.SelectedIndexChanged += new System.EventHandler(this.cmbEmpType_SelectedIndexChanged);
+            this.cmbEmpType.Click += new System.EventHandler(this.cmbEmpType_Click);
             // 
             // cmbCS
             // 
