@@ -197,9 +197,9 @@ namespace AutomatedRoomScheduling
             {
                 foreach (DataGridViewRow row in dtgTeach.SelectedRows)
                 {
-                    //ID = row.Cells[0].Value + "";
+                    
                     ID = dtgTeach.Rows[e.RowIndex].Cells[0].Value + "";
-                    //TeachCRUD.TeacherID = ID;
+                    
                 }
             }catch (Exception) { }
         }

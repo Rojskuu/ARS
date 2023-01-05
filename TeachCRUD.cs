@@ -222,7 +222,7 @@ namespace AutomatedRoomScheduling
                 cmd.Dispose();
                 con.Close();
 
-
+                
 
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }

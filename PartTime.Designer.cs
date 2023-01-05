@@ -33,6 +33,26 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbSatOut = new System.Windows.Forms.ComboBox();
+            this.cmbSatIn = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cmbFriOut = new System.Windows.Forms.ComboBox();
+            this.cmbFriIn = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbThuOut = new System.Windows.Forms.ComboBox();
+            this.cmbThuIn = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbWedOut = new System.Windows.Forms.ComboBox();
+            this.cmbWedIn = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbTueOut = new System.Windows.Forms.ComboBox();
+            this.cmbTueIn = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbMonOut = new System.Windows.Forms.ComboBox();
+            this.cmbMonIn = new System.Windows.Forms.ComboBox();
             this.cbSat = new System.Windows.Forms.CheckBox();
             this.cbFri = new System.Windows.Forms.CheckBox();
             this.cbThu = new System.Windows.Forms.CheckBox();
@@ -47,26 +67,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.cmbMonIn = new System.Windows.Forms.ComboBox();
-            this.cmbMonOut = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbTueOut = new System.Windows.Forms.ComboBox();
-            this.cmbTueIn = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cmbWedOut = new System.Windows.Forms.ComboBox();
-            this.cmbWedIn = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cmbThuOut = new System.Windows.Forms.ComboBox();
-            this.cmbThuIn = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cmbFriOut = new System.Windows.Forms.ComboBox();
-            this.cmbFriIn = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmbSatOut = new System.Windows.Forms.ComboBox();
-            this.cmbSatIn = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -148,6 +148,666 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Days of Work";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(334, 23);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(46, 21);
+            this.label15.TabIndex = 31;
+            this.label15.Text = "OUT";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(206, 23);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 21);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "IN";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(275, 221);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(24, 21);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "to";
+            // 
+            // cmbSatOut
+            // 
+            this.cmbSatOut.Enabled = false;
+            this.cmbSatOut.FormattingEnabled = true;
+            this.cmbSatOut.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbSatOut.Location = new System.Drawing.Point(316, 216);
+            this.cmbSatOut.Name = "cmbSatOut";
+            this.cmbSatOut.Size = new System.Drawing.Size(80, 29);
+            this.cmbSatOut.TabIndex = 28;
+            this.cmbSatOut.SelectedIndexChanged += new System.EventHandler(this.cmbSatOut_SelectedIndexChanged);
+            // 
+            // cmbSatIn
+            // 
+            this.cmbSatIn.Enabled = false;
+            this.cmbSatIn.FormattingEnabled = true;
+            this.cmbSatIn.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbSatIn.Location = new System.Drawing.Point(176, 216);
+            this.cmbSatIn.Name = "cmbSatIn";
+            this.cmbSatIn.Size = new System.Drawing.Size(80, 29);
+            this.cmbSatIn.TabIndex = 27;
+            this.cmbSatIn.SelectedIndexChanged += new System.EventHandler(this.cmbSatIn_SelectedIndexChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(275, 187);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(24, 21);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "to";
+            // 
+            // cmbFriOut
+            // 
+            this.cmbFriOut.Enabled = false;
+            this.cmbFriOut.FormattingEnabled = true;
+            this.cmbFriOut.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbFriOut.Location = new System.Drawing.Point(316, 182);
+            this.cmbFriOut.Name = "cmbFriOut";
+            this.cmbFriOut.Size = new System.Drawing.Size(80, 29);
+            this.cmbFriOut.TabIndex = 25;
+            this.cmbFriOut.SelectedIndexChanged += new System.EventHandler(this.cmbFriOut_SelectedIndexChanged);
+            // 
+            // cmbFriIn
+            // 
+            this.cmbFriIn.Enabled = false;
+            this.cmbFriIn.FormattingEnabled = true;
+            this.cmbFriIn.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbFriIn.Location = new System.Drawing.Point(176, 182);
+            this.cmbFriIn.Name = "cmbFriIn";
+            this.cmbFriIn.Size = new System.Drawing.Size(80, 29);
+            this.cmbFriIn.TabIndex = 24;
+            this.cmbFriIn.SelectedIndexChanged += new System.EventHandler(this.cmbFriIn_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(275, 152);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(24, 21);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "to";
+            // 
+            // cmbThuOut
+            // 
+            this.cmbThuOut.Enabled = false;
+            this.cmbThuOut.FormattingEnabled = true;
+            this.cmbThuOut.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbThuOut.Location = new System.Drawing.Point(316, 147);
+            this.cmbThuOut.Name = "cmbThuOut";
+            this.cmbThuOut.Size = new System.Drawing.Size(80, 29);
+            this.cmbThuOut.TabIndex = 22;
+            this.cmbThuOut.SelectedIndexChanged += new System.EventHandler(this.cmbThuOut_SelectedIndexChanged);
+            // 
+            // cmbThuIn
+            // 
+            this.cmbThuIn.Enabled = false;
+            this.cmbThuIn.FormattingEnabled = true;
+            this.cmbThuIn.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbThuIn.Location = new System.Drawing.Point(176, 147);
+            this.cmbThuIn.Name = "cmbThuIn";
+            this.cmbThuIn.Size = new System.Drawing.Size(80, 29);
+            this.cmbThuIn.TabIndex = 21;
+            this.cmbThuIn.SelectedIndexChanged += new System.EventHandler(this.cmbThuIn_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(275, 119);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 21);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "to";
+            // 
+            // cmbWedOut
+            // 
+            this.cmbWedOut.Enabled = false;
+            this.cmbWedOut.FormattingEnabled = true;
+            this.cmbWedOut.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbWedOut.Location = new System.Drawing.Point(316, 114);
+            this.cmbWedOut.Name = "cmbWedOut";
+            this.cmbWedOut.Size = new System.Drawing.Size(80, 29);
+            this.cmbWedOut.TabIndex = 19;
+            this.cmbWedOut.SelectedIndexChanged += new System.EventHandler(this.cmbWedOut_SelectedIndexChanged);
+            // 
+            // cmbWedIn
+            // 
+            this.cmbWedIn.Enabled = false;
+            this.cmbWedIn.FormattingEnabled = true;
+            this.cmbWedIn.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbWedIn.Location = new System.Drawing.Point(176, 114);
+            this.cmbWedIn.Name = "cmbWedIn";
+            this.cmbWedIn.Size = new System.Drawing.Size(80, 29);
+            this.cmbWedIn.TabIndex = 18;
+            this.cmbWedIn.SelectedIndexChanged += new System.EventHandler(this.cmbWedIn_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(275, 85);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(24, 21);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "to";
+            // 
+            // cmbTueOut
+            // 
+            this.cmbTueOut.Enabled = false;
+            this.cmbTueOut.FormattingEnabled = true;
+            this.cmbTueOut.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbTueOut.Location = new System.Drawing.Point(316, 80);
+            this.cmbTueOut.Name = "cmbTueOut";
+            this.cmbTueOut.Size = new System.Drawing.Size(80, 29);
+            this.cmbTueOut.TabIndex = 16;
+            this.cmbTueOut.SelectedIndexChanged += new System.EventHandler(this.cmbTueOut_SelectedIndexChanged);
+            // 
+            // cmbTueIn
+            // 
+            this.cmbTueIn.Enabled = false;
+            this.cmbTueIn.FormattingEnabled = true;
+            this.cmbTueIn.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbTueIn.Location = new System.Drawing.Point(176, 80);
+            this.cmbTueIn.Name = "cmbTueIn";
+            this.cmbTueIn.Size = new System.Drawing.Size(80, 29);
+            this.cmbTueIn.TabIndex = 15;
+            this.cmbTueIn.SelectedIndexChanged += new System.EventHandler(this.cmbTueIn_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(275, 52);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(24, 21);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "to";
+            // 
+            // cmbMonOut
+            // 
+            this.cmbMonOut.Enabled = false;
+            this.cmbMonOut.FormattingEnabled = true;
+            this.cmbMonOut.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbMonOut.Location = new System.Drawing.Point(316, 47);
+            this.cmbMonOut.Name = "cmbMonOut";
+            this.cmbMonOut.Size = new System.Drawing.Size(80, 29);
+            this.cmbMonOut.TabIndex = 13;
+            this.cmbMonOut.SelectedIndexChanged += new System.EventHandler(this.cmbMonOut_SelectedIndexChanged);
+            // 
+            // cmbMonIn
+            // 
+            this.cmbMonIn.Enabled = false;
+            this.cmbMonIn.FormattingEnabled = true;
+            this.cmbMonIn.Items.AddRange(new object[] {
+            "",
+            "7:00",
+            "7:15",
+            "7:30",
+            "8:00",
+            "8:15",
+            "8:30",
+            "9:00",
+            "9:15",
+            "9:30",
+            "10:00",
+            "10:15",
+            "10:30",
+            "11:00",
+            "11:15",
+            "11:30",
+            "12:00",
+            "12:15",
+            "12:30",
+            "13:00",
+            "13:15",
+            "13:30",
+            "14:00",
+            "14:15",
+            "14:30",
+            "15:00",
+            "15:15",
+            "15:30",
+            "16:00",
+            "16:15",
+            "16:30",
+            "17:00",
+            "17:15",
+            "17:30",
+            "18:00",
+            "18:15",
+            "18:30",
+            "19:00"});
+            this.cmbMonIn.Location = new System.Drawing.Point(176, 47);
+            this.cmbMonIn.Name = "cmbMonIn";
+            this.cmbMonIn.Size = new System.Drawing.Size(80, 29);
+            this.cmbMonIn.TabIndex = 12;
+            this.cmbMonIn.SelectedIndexChanged += new System.EventHandler(this.cmbMonIn_SelectedIndexChanged);
             // 
             // cbSat
             // 
@@ -273,666 +933,6 @@
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // cmbMonIn
-            // 
-            this.cmbMonIn.Enabled = false;
-            this.cmbMonIn.FormattingEnabled = true;
-            this.cmbMonIn.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbMonIn.Location = new System.Drawing.Point(176, 47);
-            this.cmbMonIn.Name = "cmbMonIn";
-            this.cmbMonIn.Size = new System.Drawing.Size(80, 29);
-            this.cmbMonIn.TabIndex = 12;
-            this.cmbMonIn.SelectedIndexChanged += new System.EventHandler(this.cmbMonIn_SelectedIndexChanged);
-            // 
-            // cmbMonOut
-            // 
-            this.cmbMonOut.Enabled = false;
-            this.cmbMonOut.FormattingEnabled = true;
-            this.cmbMonOut.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbMonOut.Location = new System.Drawing.Point(316, 47);
-            this.cmbMonOut.Name = "cmbMonOut";
-            this.cmbMonOut.Size = new System.Drawing.Size(80, 29);
-            this.cmbMonOut.TabIndex = 13;
-            this.cmbMonOut.SelectedIndexChanged += new System.EventHandler(this.cmbMonOut_SelectedIndexChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(275, 52);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 21);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "to";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(275, 85);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 21);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "to";
-            // 
-            // cmbTueOut
-            // 
-            this.cmbTueOut.Enabled = false;
-            this.cmbTueOut.FormattingEnabled = true;
-            this.cmbTueOut.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbTueOut.Location = new System.Drawing.Point(316, 80);
-            this.cmbTueOut.Name = "cmbTueOut";
-            this.cmbTueOut.Size = new System.Drawing.Size(80, 29);
-            this.cmbTueOut.TabIndex = 16;
-            this.cmbTueOut.SelectedIndexChanged += new System.EventHandler(this.cmbTueOut_SelectedIndexChanged);
-            // 
-            // cmbTueIn
-            // 
-            this.cmbTueIn.Enabled = false;
-            this.cmbTueIn.FormattingEnabled = true;
-            this.cmbTueIn.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbTueIn.Location = new System.Drawing.Point(176, 80);
-            this.cmbTueIn.Name = "cmbTueIn";
-            this.cmbTueIn.Size = new System.Drawing.Size(80, 29);
-            this.cmbTueIn.TabIndex = 15;
-            this.cmbTueIn.SelectedIndexChanged += new System.EventHandler(this.cmbTueIn_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(275, 119);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 21);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "to";
-            // 
-            // cmbWedOut
-            // 
-            this.cmbWedOut.Enabled = false;
-            this.cmbWedOut.FormattingEnabled = true;
-            this.cmbWedOut.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbWedOut.Location = new System.Drawing.Point(316, 114);
-            this.cmbWedOut.Name = "cmbWedOut";
-            this.cmbWedOut.Size = new System.Drawing.Size(80, 29);
-            this.cmbWedOut.TabIndex = 19;
-            this.cmbWedOut.SelectedIndexChanged += new System.EventHandler(this.cmbWedOut_SelectedIndexChanged);
-            // 
-            // cmbWedIn
-            // 
-            this.cmbWedIn.Enabled = false;
-            this.cmbWedIn.FormattingEnabled = true;
-            this.cmbWedIn.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbWedIn.Location = new System.Drawing.Point(176, 114);
-            this.cmbWedIn.Name = "cmbWedIn";
-            this.cmbWedIn.Size = new System.Drawing.Size(80, 29);
-            this.cmbWedIn.TabIndex = 18;
-            this.cmbWedIn.SelectedIndexChanged += new System.EventHandler(this.cmbWedIn_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(275, 152);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(24, 21);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "to";
-            // 
-            // cmbThuOut
-            // 
-            this.cmbThuOut.Enabled = false;
-            this.cmbThuOut.FormattingEnabled = true;
-            this.cmbThuOut.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbThuOut.Location = new System.Drawing.Point(316, 147);
-            this.cmbThuOut.Name = "cmbThuOut";
-            this.cmbThuOut.Size = new System.Drawing.Size(80, 29);
-            this.cmbThuOut.TabIndex = 22;
-            this.cmbThuOut.SelectedIndexChanged += new System.EventHandler(this.cmbThuOut_SelectedIndexChanged);
-            // 
-            // cmbThuIn
-            // 
-            this.cmbThuIn.Enabled = false;
-            this.cmbThuIn.FormattingEnabled = true;
-            this.cmbThuIn.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbThuIn.Location = new System.Drawing.Point(176, 147);
-            this.cmbThuIn.Name = "cmbThuIn";
-            this.cmbThuIn.Size = new System.Drawing.Size(80, 29);
-            this.cmbThuIn.TabIndex = 21;
-            this.cmbThuIn.SelectedIndexChanged += new System.EventHandler(this.cmbThuIn_SelectedIndexChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(275, 187);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(24, 21);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "to";
-            // 
-            // cmbFriOut
-            // 
-            this.cmbFriOut.Enabled = false;
-            this.cmbFriOut.FormattingEnabled = true;
-            this.cmbFriOut.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbFriOut.Location = new System.Drawing.Point(316, 182);
-            this.cmbFriOut.Name = "cmbFriOut";
-            this.cmbFriOut.Size = new System.Drawing.Size(80, 29);
-            this.cmbFriOut.TabIndex = 25;
-            this.cmbFriOut.SelectedIndexChanged += new System.EventHandler(this.cmbFriOut_SelectedIndexChanged);
-            // 
-            // cmbFriIn
-            // 
-            this.cmbFriIn.Enabled = false;
-            this.cmbFriIn.FormattingEnabled = true;
-            this.cmbFriIn.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbFriIn.Location = new System.Drawing.Point(176, 182);
-            this.cmbFriIn.Name = "cmbFriIn";
-            this.cmbFriIn.Size = new System.Drawing.Size(80, 29);
-            this.cmbFriIn.TabIndex = 24;
-            this.cmbFriIn.SelectedIndexChanged += new System.EventHandler(this.cmbFriIn_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(275, 221);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(24, 21);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "to";
-            // 
-            // cmbSatOut
-            // 
-            this.cmbSatOut.Enabled = false;
-            this.cmbSatOut.FormattingEnabled = true;
-            this.cmbSatOut.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbSatOut.Location = new System.Drawing.Point(316, 216);
-            this.cmbSatOut.Name = "cmbSatOut";
-            this.cmbSatOut.Size = new System.Drawing.Size(80, 29);
-            this.cmbSatOut.TabIndex = 28;
-            this.cmbSatOut.SelectedIndexChanged += new System.EventHandler(this.cmbSatOut_SelectedIndexChanged);
-            // 
-            // cmbSatIn
-            // 
-            this.cmbSatIn.Enabled = false;
-            this.cmbSatIn.FormattingEnabled = true;
-            this.cmbSatIn.Items.AddRange(new object[] {
-            "",
-            "7:00",
-            "7:15",
-            "7:30",
-            "8:00",
-            "8:15",
-            "8:30",
-            "9:00",
-            "9:15",
-            "9:30",
-            "10:00",
-            "10:15",
-            "10:30",
-            "11:00",
-            "11:15",
-            "11:30",
-            "12:00",
-            "12:15",
-            "12:30",
-            "13:00",
-            "13:15",
-            "13:30",
-            "14:00",
-            "14:15",
-            "14:30",
-            "15:00",
-            "15:15",
-            "15:30",
-            "16:00",
-            "16:15",
-            "16:30",
-            "17:00",
-            "17:15",
-            "17:30",
-            "18:00",
-            "18:15",
-            "18:30",
-            "19:00"});
-            this.cmbSatIn.Location = new System.Drawing.Point(176, 216);
-            this.cmbSatIn.Name = "cmbSatIn";
-            this.cmbSatIn.Size = new System.Drawing.Size(80, 29);
-            this.cmbSatIn.TabIndex = 27;
-            this.cmbSatIn.SelectedIndexChanged += new System.EventHandler(this.cmbSatIn_SelectedIndexChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(206, 23);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(29, 21);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "IN";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(334, 23);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(46, 21);
-            this.label15.TabIndex = 31;
-            this.label15.Text = "OUT";
             // 
             // FrmPT
             // 

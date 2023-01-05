@@ -66,9 +66,20 @@ namespace AutomatedRoomScheduling
                 TeachCRUD.SatIn = cmbSatIn.Text;
                 TeachCRUD.SatOut = cmbSatOut.Text;
 
-
+                ClearCheck();
                 this.Close();
             }
+        }
+
+        public void ClearCheck() 
+        { 
+            cbMon.Checked = false;
+            cbTue.Checked = false;
+            cbWed.Checked = false;
+            cbThu.Checked = false;
+            cbFri.Checked = false;
+            cbSat.Checked = false;
+        
         }
 
         private void cbMon_CheckedChanged(object sender, EventArgs e)
@@ -399,5 +410,7 @@ namespace AutomatedRoomScheduling
                 cmbSatOut.SelectedIndex = 0;
             }
         }
+
+      
     }
 }

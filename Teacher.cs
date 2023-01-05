@@ -103,6 +103,7 @@ namespace AutomatedRoomScheduling
             TeachCRUD.Sat = 0;
             TeachCRUD.SatIn = "";
             TeachCRUD.SatOut = "";
+            MessageBox.Show("Cleared");
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -144,44 +145,35 @@ namespace AutomatedRoomScheduling
 
                     if (btnAdd.Text.Equals("ADD"))
                     {
-
-
-                        if (cmbEmpType.Text.Trim().Equals("Part-Time"))
-                        {
                             TeachCRUD.Create();
                             TeachCRUD.PT();
-
-                            MessageBox.Show("Part-Time Teacher successfully added. "
-                          , "Successfully added.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            ClearValues();
-                            Clear();
-                        }
-                        else
-                        {
-                            TeachCRUD.Create();
                             TeachCRUD.FT();
 
-                            MessageBox.Show("Full-Time Teacher successfully added. "
+                            MessageBox.Show("Teacher successfully added. "
                           , "Successfully added.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             ClearValues();
                             Clear();
-                        }
+                        
 
 
                     }
                     else if (btnAdd.Text.Equals("UPDATE"))
                     {
+                            TeachCRUD.Update();
 
-                        TeachCRUD.Update();
-                        TeachCRUD.UpdatePT();
+                        if (cmbEmpType.Text.Trim().Equals("Part-Time"))
+                        {
+                            TeachCRUD.UpdatePT();
+
+                        }
+
                         
                         MessageBox.Show("Teacher updated successfully. "
                       , "Updated Successfully.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnAdd.Text = "ADD";
 
-                        //ClearValues();
+                        ClearValues();
                         Clear();
 
                     }
@@ -222,7 +214,14 @@ namespace AutomatedRoomScheduling
                 {
                     FrmPT pt = new FrmPT();
 
+                    MessageBox.Show("Mon " + TeachCRUD.Mon +
+                        "Tue " + TeachCRUD.Tue +
+                        "Wed " + TeachCRUD.Wed +
+                        "Thu " + TeachCRUD.Thu +
+                        "Fri " + TeachCRUD.Fri +
+                        "Sat " + TeachCRUD.Sat 
 
+                        );
                     pt.ShowDialog();
 
                 }
