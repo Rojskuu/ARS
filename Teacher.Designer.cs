@@ -35,6 +35,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.grpPInfo = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbDept = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cmbEmpType = new System.Windows.Forms.ComboBox();
             this.cmbCS = new System.Windows.Forms.ComboBox();
@@ -57,8 +59,6 @@
             this.txtMName = new System.Windows.Forms.TextBox();
             this.txtFName = new System.Windows.Forms.TextBox();
             this.txtLName = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmbDept = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.grpPInfo.SuspendLayout();
             this.SuspendLayout();
@@ -154,6 +154,30 @@
             this.grpPInfo.TabIndex = 8;
             this.grpPInfo.TabStop = false;
             this.grpPInfo.Text = "PERSONAL INFORMATION";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(105, 401);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 20);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Department:";
+            // 
+            // cmbDept
+            // 
+            this.cmbDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDept.FormattingEnabled = true;
+            this.cmbDept.Items.AddRange(new object[] {
+            "",
+            "General",
+            "BSIT",
+            "BSHM",
+            "BSCPE"});
+            this.cmbDept.Location = new System.Drawing.Point(295, 393);
+            this.cmbDept.Name = "cmbDept";
+            this.cmbDept.Size = new System.Drawing.Size(279, 28);
+            this.cmbDept.TabIndex = 22;
             // 
             // label12
             // 
@@ -325,6 +349,7 @@
             this.txtTeacherID.Name = "txtTeacherID";
             this.txtTeacherID.Size = new System.Drawing.Size(279, 27);
             this.txtTeacherID.TabIndex = 0;
+            this.txtTeacherID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTeacherID_KeyUp);
             // 
             // cmbSex
             // 
@@ -358,30 +383,6 @@
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(279, 27);
             this.txtLName.TabIndex = 3;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(105, 401);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 20);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "Department:";
-            // 
-            // cmbDept
-            // 
-            this.cmbDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDept.FormattingEnabled = true;
-            this.cmbDept.Items.AddRange(new object[] {
-            "",
-            "General",
-            "BSIT",
-            "BSHM",
-            "BSCPE"});
-            this.cmbDept.Location = new System.Drawing.Point(295, 393);
-            this.cmbDept.Name = "cmbDept";
-            this.cmbDept.Size = new System.Drawing.Size(279, 28);
-            this.cmbDept.TabIndex = 22;
             // 
             // FrmTeach
             // 

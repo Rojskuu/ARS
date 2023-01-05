@@ -65,7 +65,7 @@ namespace AutomatedRoomScheduling
         {
             txtRoomID.Text = "";
             txtCap.Text = "";
-            cmbFloor.SelectedIndex = 0;
+            
             cmbRoomType.SelectedIndex = 0;
 
             btnADD.Text = "ADD";
@@ -75,7 +75,7 @@ namespace AutomatedRoomScheduling
             try
             {
                 if (txtRoomID.Text.Equals("") || txtCap.Text.Equals("")
-                    || cmbFloor.SelectedIndex.Equals(0) || cmbRoomType.SelectedIndex.Equals(0))
+                    || cmbRoomType.SelectedIndex.Equals(0))
                 {
                     MessageBox.Show("Please fill up all the fields. "
                           , "Field cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,7 +87,7 @@ namespace AutomatedRoomScheduling
                     RoomCRUD.RoomID = txtRoomID.Text;
                     RoomCRUD.RoomCap = Convert.ToInt32(txtCap.Text);
                     RoomCRUD.RoomType = cmbRoomType.Text;
-                    RoomCRUD.RoomFloor = cmbFloor.Text;
+                   
 
                     if (btnADD.Text.Equals("ADD"))
                     {
@@ -116,7 +116,7 @@ namespace AutomatedRoomScheduling
             txtRoomID.Text = RoomCRUD.RoomID ;
             txtCap.Text = RoomCRUD.RoomCap+"";
             cmbRoomType.Text = RoomCRUD.RoomType;
-            cmbFloor.Text = RoomCRUD.RoomFloor;
+            
 
             btnADD.Text = "UPDATE";
         }

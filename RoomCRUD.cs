@@ -23,10 +23,10 @@ namespace AutomatedRoomScheduling
         public static String RoomID { get; set; }
         public static String RoomType { get; set; }
         public static int RoomCap { get; set; }
-        public static String RoomFloor { get; set; }
+        
 
         public static String RoomDisplay = "Select RoomID AS 'Room ID' , RoomType AS 'Room Type', " +
-            "Cap AS 'Capacity' , Flooor AS 'Floor' FROM ROOM WHERE Archive = 0";
+            "Cap AS 'Capacity'  FROM ROOM WHERE Archive = 0";
 
         public void Create()
         {
@@ -38,8 +38,8 @@ namespace AutomatedRoomScheduling
 
 
                 query = "insert into Room " +
-                "(RoomID, RoomType, Cap, Flooor , Archive , Username ) " +
-                "values('" + RoomID + "', '" + RoomType + "', '" + RoomCap + "', '" + RoomFloor+"' ," +
+                "(RoomID, RoomType, Cap , Archive , Username ) " +
+                "values('" + RoomID + "', '" + RoomType + "', '" + RoomCap + "', '" +
                 "'" + 0 + "', '" + AdminChecker.Admin + "')";
 
 
@@ -65,7 +65,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select RoomType, Cap, Flooor " +
+                query = "Select RoomType, Cap " +
                         "from Room where RoomID = '" + RoomID + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -75,7 +75,7 @@ namespace AutomatedRoomScheduling
                 {
                     RoomType = rdr.GetString(0);
                     RoomCap = Convert.ToInt32(rdr.GetValue(1));
-                    RoomFloor = rdr.GetString (2);
+                    
 
                 }
 
@@ -94,9 +94,8 @@ namespace AutomatedRoomScheduling
 
                 query = "update Room set " +
                          "RoomType = '" + RoomType + "', "
-                       + "Cap = '" + RoomCap + "', "
-                       + "Flooor = '" + RoomFloor + "'" +
-                       "WHERE RoomID = '" + RoomID + "'";
+                       + "Cap = '" + RoomCap + "' "
+                       + "WHERE RoomID = '" + RoomID + "'";
 
 
                 SqlCommand cmd = new SqlCommand(query, con);

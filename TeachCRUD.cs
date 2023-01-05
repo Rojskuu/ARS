@@ -112,7 +112,7 @@ namespace AutomatedRoomScheduling
                 cmd.Dispose();
                 con.Close();
 
-                MessageBox.Show("PT");
+                
 
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
@@ -136,7 +136,7 @@ namespace AutomatedRoomScheduling
                 cmd.Dispose();
                 con.Close();
 
-                MessageBox.Show("FT");
+                
 
             }
             catch (Exception) { }
@@ -149,6 +149,33 @@ namespace AutomatedRoomScheduling
 
         }
 
+        public void CheckIDifExist(String txt)
+        {
+            try 
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "SELECT * FROM Teacher WHERE TeacherID = '" + txt + "'";
+                    
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@TeacherID", txt);
+                
+                dt = new DataTable();
+
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count == 1)
+                {
+                    MessageBox.Show("Teacher ID already exist. "
+                        , "Existing ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+                }
+            } 
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+        
+        }
         public void Retrieve()
         {
             try

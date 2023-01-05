@@ -214,19 +214,21 @@ namespace AutomatedRoomScheduling
                 {
                     FrmPT pt = new FrmPT();
 
-                    MessageBox.Show("Mon " + TeachCRUD.Mon +
-                        "Tue " + TeachCRUD.Tue +
-                        "Wed " + TeachCRUD.Wed +
-                        "Thu " + TeachCRUD.Thu +
-                        "Fri " + TeachCRUD.Fri +
-                        "Sat " + TeachCRUD.Sat 
-
-                        );
                     pt.ShowDialog();
 
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        private void txtTeacherID_KeyUp(object sender, KeyEventArgs e)
+        {
+            try 
+            {
+                String txt = txtTeacherID.Text;
+                TeachCRUD.CheckIDifExist(txt);
+            
+            } catch (Exception ex) { MessageBox.Show(ex + "");}
         }
     }
 }

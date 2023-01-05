@@ -39,8 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbRoomType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbFloor = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCap = new System.Windows.Forms.TextBox();
             this.txtRoomID = new System.Windows.Forms.TextBox();
@@ -118,15 +116,13 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cmbRoomType);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cmbFloor);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtCap);
             this.groupBox1.Controls.Add(this.txtRoomID);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(54, 87);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(506, 201);
+            this.groupBox1.Size = new System.Drawing.Size(506, 147);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Room Information";
@@ -165,30 +161,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Capacity:";
             // 
-            // cmbFloor
-            // 
-            this.cmbFloor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbFloor.FormattingEnabled = true;
-            this.cmbFloor.Items.AddRange(new object[] {
-            "",
-            "1st Floor",
-            "2nd Floor",
-            "3rd Floor",
-            "4th Floor"});
-            this.cmbFloor.Location = new System.Drawing.Point(218, 125);
-            this.cmbFloor.Name = "cmbFloor";
-            this.cmbFloor.Size = new System.Drawing.Size(241, 28);
-            this.cmbFloor.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 141);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Floor:";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -214,7 +186,7 @@
             // 
             // btnADD
             // 
-            this.btnADD.Location = new System.Drawing.Point(262, 310);
+            this.btnADD.Location = new System.Drawing.Point(272, 252);
             this.btnADD.Name = "btnADD";
             this.btnADD.Size = new System.Drawing.Size(75, 23);
             this.btnADD.TabIndex = 6;
@@ -227,7 +199,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(623, 361);
+            this.ClientSize = new System.Drawing.Size(623, 292);
             this.Controls.Add(this.btnADD);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -254,8 +226,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbFloor;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCap;
         private System.Windows.Forms.TextBox txtRoomID;
