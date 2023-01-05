@@ -77,12 +77,33 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-           
+            Clear();
             FrmTeachList frmTeachList = new FrmTeachList();
             frmTeachList.Show();
+
             this.Close();
         }
-
+        public void Clear() 
+        {
+            TeachCRUD.Mon = 0;
+            TeachCRUD.MonIn = "";
+            TeachCRUD.MonOut = "";
+            TeachCRUD.Tue = 0;
+            TeachCRUD.TueIn = "";
+            TeachCRUD.TueOut = "";
+            TeachCRUD.Wed = 0;
+            TeachCRUD.WedIn = "";
+            TeachCRUD.WedOut = "";
+            TeachCRUD.Thu = 0;
+            TeachCRUD.ThuIn = "";
+            TeachCRUD.ThuOut = "";
+            TeachCRUD.Fri = 0;
+            TeachCRUD.FriIn = "";
+            TeachCRUD.FriOut = "";
+            TeachCRUD.Sat = 0;
+            TeachCRUD.SatIn = "";
+            TeachCRUD.SatOut = "";
+        }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -134,6 +155,7 @@ namespace AutomatedRoomScheduling
                           , "Successfully added.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             ClearValues();
+                            Clear();
                         }
                         else
                         {
@@ -144,6 +166,7 @@ namespace AutomatedRoomScheduling
                           , "Successfully added.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             ClearValues();
+                            Clear();
                         }
 
 
@@ -153,11 +176,13 @@ namespace AutomatedRoomScheduling
 
                         TeachCRUD.Update();
                         TeachCRUD.UpdatePT();
-
+                        
                         MessageBox.Show("Teacher updated successfully. "
                       , "Updated Successfully.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnAdd.Text = "ADD";
-                        ClearValues();
+
+                        //ClearValues();
+                        Clear();
 
                     }
 

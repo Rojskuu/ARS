@@ -47,11 +47,23 @@ namespace AutomatedRoomScheduling
 
 
         public static int Mon { get; set; }
+        public static String MonIn { get; set; }
+        public static String MonOut { get; set; }
         public static int Tue { get; set; }
+        public static String TueIn { get; set; }
+        public static String TueOut { get; set; }
         public static int Wed { get; set; }
+        public static String WedIn { get; set; }
+        public static String WedOut { get; set; }
         public static int Thu { get; set; }
+        public static String ThuIn { get; set; }
+        public static String ThuOut { get; set; }
         public static int Fri { get; set; }
+        public static String FriIn { get; set; }
+        public static String FriOut { get; set; }
         public static int Sat { get; set; }
+        public static String SatIn { get; set; }
+        public static String SatOut { get; set; }
 
 
         public void Create()
@@ -85,8 +97,15 @@ namespace AutomatedRoomScheduling
                 String ID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + "" + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "";
 
                 query = $"insert into PartT " +
-                    "(PartTID, TeacherID, Mon, Tue, Wed,Thu,Fri,Sat)" +
-                    "values('" + ID + "', '" + TeacherID + "', '" + Mon + "', '" + Tue + "', '" + Wed + "', '" + Thu + "', '" + Fri + "', '" + Sat + "')";
+                    "(PartTID, TeacherID, Mon, MonIn, MonOut, Tue, TueIn, TueOut," +
+                    " Wed, WedIn, WedOut, Thu, ThuIn, ThuOut, Fri, FriIn, FriOut, Sat, SatIn, SatOut)" +
+                    "values('" + ID + "', '" + TeacherID + "', '" 
+                    + Mon + "', '" +MonIn + "', '" +MonOut+"', "
+                    + Tue + "', '" +TueIn + "', '" +TueOut+"', " 
+                    + Wed + "', '" +WedIn + "', '" +WedOut+"' ,"
+                    + Thu + "', '" +ThuIn + "', '" +ThuOut+"', "
+                    + Fri + "', '" +FriIn + "', '" +FriOut+"' ,"
+                    + Sat + "', '" +SatIn + "', '" +SatOut+"')";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
@@ -168,6 +187,7 @@ namespace AutomatedRoomScheduling
             catch (Exception) { }
 
         }
+
         public void UpdatePT() 
         {
             try
@@ -175,13 +195,25 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "update PartT set "  +
-                        "Mon = "+Mon + ", " +
-                        "Tue = "+Tue + ", " +
-                        "Wed = "+Wed + ", " +
-                        "Thu = "+Thu + ", " +
-                        "Fri = "+Fri + ", " +
-                        "Sat = "+Sat + " "  +
+                query = "update PartT set "   +
+                        "Mon = "+Mon + ", "   +
+                        "MonIn = '"  + MonIn  + "', " +
+                        "MonOut= '"  + MonOut + "', " +
+                        "Tue = "+Tue + ", "   +
+                        "TueIn = '"  + TueIn  + "', " +
+                        "TueOut= '"  + TueOut + "', " +
+                        "Wed = "+Wed + ", "   +
+                        "WedIn = '"  + WedIn  + "', " +
+                        "WedOut= '"  + WedOut + "', " +
+                        "Thu = "+Thu + ", "   +
+                        "ThuIn = '"  + ThuIn  + "', " +
+                        "ThuOut= '"  + ThuOut + "', " +
+                        "Fri = "+Fri + ", "   +
+                        "FriIn = '"  + FriIn  + "', " +
+                        "FriOut= '"  + FriOut + "', " +
+                        "Sat = "+Sat + ", "   +
+                        "SatIn = '"  + SatIn  + "', " +
+                        "SatOut= '"  + SatOut + "' " +
                         "where TeacherID = '" + TeacherID + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -202,19 +234,33 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "select Mon, Tue, Wed, Thu, Fri, Sat " +
+                query = "select Mon, MonIn, MonOut, Tue, TueIn, TueOut," +
+                    " Wed, WedIn, WedOut, Thu, ThuIn, ThuOut, Fri, FriIn, FriOut, Sat, SatIn, SatOut " +
                      "FROM PartT where TeacherID = '" + TeacherID + "'";
+
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
-                    Mon = Convert.ToInt32(rdr.GetValue(0));
-                    Tue = Convert.ToInt32(rdr.GetValue(1));
-                    Wed = Convert.ToInt32(rdr.GetValue(2));
-                    Thu = Convert.ToInt32(rdr.GetValue(3));
-                    Fri = Convert.ToInt32(rdr.GetValue(4));
-                    Sat = Convert.ToInt32(rdr.GetValue(5));
+                    Mon   = Convert.ToInt32(rdr.GetValue(0));
+                    MonIn = rdr.GetString(1);
+                    MonOut= rdr.GetString(2);
+                    Tue   = Convert.ToInt32(rdr.GetValue(3));
+                    TueIn = rdr.GetString(4);
+                    TueOut= rdr.GetString(5);
+                    Wed   = Convert.ToInt32(rdr.GetValue(6));
+                    WedIn = rdr.GetString(7);
+                    WedOut= rdr.GetString(8);
+                    Thu   = Convert.ToInt32(rdr.GetValue(9));
+                    ThuIn = rdr.GetString(10);
+                    ThuOut= rdr.GetString(11);
+                    Fri   = Convert.ToInt32(rdr.GetValue(12));
+                    FriIn = rdr.GetString(13);
+                    FriOut= rdr.GetString(14);
+                    Sat   = Convert.ToInt32(rdr.GetValue(15));
+                    SatIn = rdr.GetString(16);
+                    SatOut= rdr.GetString(17);
                 }
                 con.Close();
                 

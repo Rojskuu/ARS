@@ -33,26 +33,58 @@ namespace AutomatedRoomScheduling
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            TeachCRUD.Mon = Mon;
-            TeachCRUD.Tue = Tue;
-            TeachCRUD.Wed = Wed;
-            TeachCRUD.Thu = Thu;
-            TeachCRUD.Fri = Fri;
-            TeachCRUD.Sat = Sat;
 
-            this.Close();
+            if (cbMon.Checked  && (cmbMonIn.SelectedIndex.Equals(0) || cmbMonOut.SelectedIndex.Equals(0)) ||
+                cbTue.Checked  && (cmbTueIn.SelectedIndex.Equals(0) || cmbTueOut.SelectedIndex.Equals(0)) ||
+                cbWed.Checked  && (cmbWedIn.SelectedIndex.Equals(0) || cmbWedOut.SelectedIndex.Equals(0)) ||
+                cbThu.Checked  && (cmbThuIn.SelectedIndex.Equals(0) || cmbThuOut.SelectedIndex.Equals(0)) ||
+                cbFri.Checked  && (cmbFriIn.SelectedIndex.Equals(0) || cmbFriOut.SelectedIndex.Equals(0)) ||
+                cbSat.Checked  && (cmbSatIn.SelectedIndex.Equals(0) || cmbSatOut.SelectedIndex.Equals(0)))
+            {
+                MessageBox.Show("Please fill up all the fields. "
+                              , "Field cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                TeachCRUD.Mon = Mon;
+                TeachCRUD.MonIn = cmbMonIn.Text;
+                TeachCRUD.MonOut = cmbMonOut.Text;
+                TeachCRUD.Tue = Tue;
+                TeachCRUD.TueIn = cmbTueIn.Text;
+                TeachCRUD.TueOut = cmbTueOut.Text;
+                TeachCRUD.Wed = Wed;
+                TeachCRUD.WedIn = cmbWedIn.Text;
+                TeachCRUD.WedOut = cmbWedOut.Text;
+                TeachCRUD.Thu = Thu;
+                TeachCRUD.ThuIn = cmbThuIn.Text;
+                TeachCRUD.ThuOut = cmbThuOut.Text;
+                TeachCRUD.Fri = Fri;
+                TeachCRUD.FriIn = cmbFriIn.Text;
+                TeachCRUD.FriOut = cmbFriOut.Text;
+                TeachCRUD.Sat = Sat;
+                TeachCRUD.SatIn = cmbSatIn.Text;
+                TeachCRUD.SatOut = cmbSatOut.Text;
+
+
+                this.Close();
+            }
         }
 
         private void cbMon_CheckedChanged(object sender, EventArgs e)
         {
-            if (Mon == 0) 
-            { 
-                Mon++;
+            if (cbMon.Checked) 
+            {
+                Mon = 1;
+
                 cmbMonIn.Enabled = true;
             }
-            else 
+            else if (cbMon.Checked == false)
             {
-                Mon--;
+                
+                Mon = 0;
+                
+
                 cmbMonIn.Enabled = false;
                 cmbMonIn.SelectedIndex = 0;
                 cmbMonOut.SelectedIndex = 0;
@@ -61,14 +93,20 @@ namespace AutomatedRoomScheduling
 
         private void cbTue_CheckedChanged(object sender, EventArgs e)
         {
-            if (Tue == 0) 
-            { 
-                Tue++; 
+            if (cbTue.Checked)
+            {
+                
+                Tue = 1;
+                
+
                 cmbTueIn.Enabled = true;
-            } 
-            else 
-            { 
-                Tue--; 
+            }
+            else if (cbTue.Checked == false)
+            {
+                
+                Tue = 0;
+                
+
                 cmbTueIn.Enabled = false;
                 cmbTueIn.SelectedIndex = 0;
                 cmbTueOut.SelectedIndex = 0;
@@ -77,14 +115,20 @@ namespace AutomatedRoomScheduling
 
         private void cbWed_CheckedChanged(object sender, EventArgs e)
         {
-            if (Wed == 0)
-            { 
-                Wed++; 
+            if (cbWed.Checked)
+            {
+                
+                Wed = 1;
+                
+
                 cmbWedIn.Enabled = true;
             }
-            else 
-            { 
-                Wed--;
+            else if (cbWed.Checked == false)
+            {
+               
+                Wed = 0;
+                
+
                 cmbWedIn.Enabled = false;
                 cmbWedIn.SelectedIndex = 0;
                 cmbWedOut.SelectedIndex = 0;
@@ -93,15 +137,21 @@ namespace AutomatedRoomScheduling
 
         private void cbThu_CheckedChanged(object sender, EventArgs e)
         {
-            if (Thu== 0) 
-            { 
-                Thu++; 
+            if (cbThu.Checked)
+            {
+                
+                Thu = 1;
+                
+
                 cmbThuIn.Enabled = true;
-            } 
-            else 
-            { 
-                Thu--; 
-                cmbThuIn.Enabled= false;
+            }
+            else if (cbThu.Checked == false)
+            {
+                
+                Thu = 0;
+                
+
+                cmbThuIn.Enabled = false;
                 cmbThuIn.SelectedIndex = 0;
                 cmbThuOut.SelectedIndex = 0;
             }
@@ -109,14 +159,20 @@ namespace AutomatedRoomScheduling
 
         private void cbFri_CheckedChanged(object sender, EventArgs e)
         {
-            if (Fri == 0) 
-            { 
-                Fri++; 
+            if (cbFri.Checked)
+            {
+                
+                Fri = 1;
+                
+
                 cmbFriIn.Enabled = true;
             }
-            else 
-            { 
-                Fri--;
+            else if (cbFri.Checked == false)
+            {
+               
+                Fri = 0;
+                
+
                 cmbFriIn.Enabled = false;
                 cmbFriIn.SelectedIndex = 0;
                 cmbFriOut.SelectedIndex = 0;
@@ -125,14 +181,20 @@ namespace AutomatedRoomScheduling
 
         private void cbSat_CheckedChanged(object sender, EventArgs e)
         {
-            if (Sat == 0) 
+            if (cbSat.Checked)
             {
-                Sat++; 
+                
+                Sat = 1;
+                
+
                 cmbSatIn.Enabled = true;
-            } 
-            else 
-            { 
-                Sat--; 
+            }
+            else if (cbSat.Checked == false)
+            {
+                
+                Sat = 0;
+                
+
                 cmbSatIn.Enabled = false;
                 cmbSatIn.SelectedIndex = 0;
                 cmbSatOut.SelectedIndex = 0;
@@ -142,17 +204,27 @@ namespace AutomatedRoomScheduling
         private void Form1_Load(object sender, EventArgs e)
         {
             HoldValues();
-
-
         }
         public void HoldValues() 
         {
-            cbMon.Checked = Convert.ToBoolean(TeachCRUD.Mon);
-            cbTue.Checked = Convert.ToBoolean(TeachCRUD.Tue);
-            cbWed.Checked = Convert.ToBoolean(TeachCRUD.Wed);
-            cbThu.Checked = Convert.ToBoolean(TeachCRUD.Thu);
-            cbFri.Checked = Convert.ToBoolean(TeachCRUD.Fri);
-            cbSat.Checked = Convert.ToBoolean(TeachCRUD.Sat);
+            cbMon.Checked  = Convert.ToBoolean(TeachCRUD.Mon);
+            cmbMonIn.Text  = TeachCRUD.MonIn;
+            cmbMonOut.Text = TeachCRUD.MonOut;
+            cbTue.Checked  = Convert.ToBoolean(TeachCRUD.Tue);
+            cmbTueIn.Text  = TeachCRUD.TueIn;
+            cmbTueOut.Text = TeachCRUD.TueOut;
+            cbWed.Checked  = Convert.ToBoolean(TeachCRUD.Wed);
+            cmbWedIn.Text  = TeachCRUD.WedIn;
+            cmbWedOut.Text = TeachCRUD.WedOut;
+            cbThu.Checked  = Convert.ToBoolean(TeachCRUD.Thu);
+            cmbThuIn.Text  = TeachCRUD.ThuIn;
+            cmbThuOut.Text = TeachCRUD.ThuOut;
+            cbFri.Checked  = Convert.ToBoolean(TeachCRUD.Fri);
+            cmbFriIn.Text  = TeachCRUD.FriIn;
+            cmbFriOut.Text = TeachCRUD.FriOut;
+            cbSat.Checked  = Convert.ToBoolean(TeachCRUD.Sat);
+            cmbSatIn.Text  = TeachCRUD.SatIn;
+            cmbSatOut.Text = TeachCRUD.SatOut;
         }
 
         

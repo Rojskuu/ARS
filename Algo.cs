@@ -26,8 +26,9 @@ namespace AutomatedRoomScheduling
         static int ctrClass = 0;
 
         //subject >> Teacher that will teach >> Day&Time of partTime >>
-        //department ---- 5-7 4 & 1st 7-7
+        //department ---- 3rd 5-7 4th & 1st 7-7
         //use genetic algo instead
+
 
         public Algo()
         {
