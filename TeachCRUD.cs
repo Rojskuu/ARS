@@ -82,7 +82,7 @@ namespace AutomatedRoomScheduling
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 con.Close();
-
+                
 
             } catch (Exception) { }
         }
@@ -96,24 +96,25 @@ namespace AutomatedRoomScheduling
 
                 String ID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + "" + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "";
 
-                query = $"insert into PartT " +
-                    "(PartTID, TeacherID, Mon, MonIn, MonOut, Tue, TueIn, TueOut," +
+                query = "insert into PartT " +
+                    "(PartTID, TeacherID, Mon, MonIn, MonOut, Tue, TueIn, TueOut, " +
                     " Wed, WedIn, WedOut, Thu, ThuIn, ThuOut, Fri, FriIn, FriOut, Sat, SatIn, SatOut)" +
-                    "values('" + ID + "', '" + TeacherID + "', '" 
-                    + Mon + "', '" +MonIn + "', '" +MonOut+"', "
-                    + Tue + "', '" +TueIn + "', '" +TueOut+"', " 
-                    + Wed + "', '" +WedIn + "', '" +WedOut+"' ,"
-                    + Thu + "', '" +ThuIn + "', '" +ThuOut+"', "
-                    + Fri + "', '" +FriIn + "', '" +FriOut+"' ,"
-                    + Sat + "', '" +SatIn + "', '" +SatOut+"')";
+                    "values('" + ID + "', '" + TeacherID + "', " 
+                    + Mon + ", '" +MonIn + "', '" +MonOut+"', "
+                    + Tue + ", '" +TueIn + "', '" +TueOut+"', " 
+                    + Wed + ", '" +WedIn + "', '" +WedOut+"', "
+                    + Thu + ", '" +ThuIn + "', '" +ThuOut+"', "
+                    + Fri + ", '" +FriIn + "', '" +FriOut+"', "
+                    + Sat + ", '" +SatIn + "', '" +SatOut+"')";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 con.Close();
 
+                MessageBox.Show("PT");
 
-            } catch (Exception) { }
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         public void FT()
@@ -126,7 +127,7 @@ namespace AutomatedRoomScheduling
                 String ID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day 
                     + "" + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "";
 
-                query = $"insert into FullT " +
+                query = "insert into FullT " +
                     "(FullTID,TeacherID)" +
                     "values('" + ID + "', '" + TeacherID + "')";
 
@@ -135,6 +136,7 @@ namespace AutomatedRoomScheduling
                 cmd.Dispose();
                 con.Close();
 
+                MessageBox.Show("FT");
 
             }
             catch (Exception) { }
