@@ -28,8 +28,8 @@ namespace AutomatedRoomScheduling
         FrmSubjectList Subject;
         FrmSchedule Sched;
 
-        ArrayList FrmCollection;
-
+        ArrayList FrmCollection, WeekDay, Time;
+        
 
         SqlCommand cmd;
         SqlConnection con;
@@ -54,7 +54,89 @@ namespace AutomatedRoomScheduling
         DateTime dtime = DateTime.Now;
 
 
+        public void DataGridDayTime()
+        {
+            try 
+            {
+                dtgTeach.ColumnCount = WeekDay.Count;
+                for (int i = 0; i < WeekDay.Count; i++)
+                {
+                    dtgTeach.Columns[i].Name = WeekDay.IndexOf(i) + "";
+                }
 
+                for (int i = 0; i < Time.Count; i++)
+                {
+                    dtgTeach.Rows.Add(Time.IndexOf(i));
+                }
+            
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+
+        public void PopulateDayTime() 
+        {
+            WeekDay = new ArrayList();
+            WeekDay.Add("Time");
+            WeekDay.Add("Mon");
+            WeekDay.Add("Tue");
+            WeekDay.Add("Wed");
+            WeekDay.Add("Thu");
+            WeekDay.Add("Fri");
+            WeekDay.Add("Sat");
+
+            Time = new ArrayList();
+            Time.Add("7:00-7:15");
+            Time.Add("7:15-7:30");
+            Time.Add("7:30-7:45");
+            Time.Add("7:45-8:00");
+            Time.Add("8:00-8:15");
+            Time.Add("8:15-8:30");
+            Time.Add("8:30-8:45");
+            Time.Add("8:45-9:00");
+            Time.Add("9:00-9:15");
+            Time.Add("9:15-9:30");
+            Time.Add("9:30-9:45");
+            Time.Add("9:45-10:00");
+            Time.Add("10:00-10:15");
+            Time.Add("10:15-10:30");
+            Time.Add("10:30-10:45");
+            Time.Add("10:45-11:00");
+            Time.Add("11:00-11:15");
+            Time.Add("11:15-11:30");
+            Time.Add("11:30-11:45");
+            Time.Add("11:45-12:00");
+            Time.Add("12:00-12:15");
+            Time.Add("12:15-12:30");
+            Time.Add("12:30-12:45");
+            Time.Add("12:45-13:00");
+            Time.Add("13:00-13:15");
+            Time.Add("13:15-13:30");
+            Time.Add("13:30-13:45");
+            Time.Add("13:45-14:00");
+            Time.Add("14:00-14:15");
+            Time.Add("14:15-14:30");
+            Time.Add("14:30-14:45");
+            Time.Add("14:45-15:00");
+            Time.Add("15:00-15:15");
+            Time.Add("15:15-15:30");
+            Time.Add("15:30-15:45");
+            Time.Add("15:45-16:00");
+            Time.Add("16:00-16:15");
+            Time.Add("16:15-16:30");
+            Time.Add("16:30-16:45");
+            Time.Add("16:45-17:00");
+            Time.Add("17:00-17:15");
+            Time.Add("17:15-17:30");
+            Time.Add("17:30-17:45");
+            Time.Add("17:45-18:00");
+            Time.Add("18:00-18:15");
+            Time.Add("18:15-18:30");
+            Time.Add("18:30-18:45");
+            Time.Add("18:45-19:00");
+
+            DataGridDayTime();
+        }
+        
 
         public FrmDash()
         {
@@ -76,7 +158,7 @@ namespace AutomatedRoomScheduling
 
             Timer timer = new Timer();
             PopulatedtgTeach();
-            
+            //PopulateDayTime();
             PopulatedtgRoom();
             PopulatedtgSec();
         }
