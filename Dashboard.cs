@@ -26,6 +26,7 @@ namespace AutomatedRoomScheduling
         FrmClassList Class;
         FrmRoomList Room;
         FrmSubjectList Subject;
+        FrmSchedule Sched;
 
         ArrayList FrmCollection;
 
@@ -452,6 +453,21 @@ namespace AutomatedRoomScheduling
             }
             catch (Exception ex) { }
             finally { con.Close(); }
+        }
+
+        private void btnSched_Click(object sender, EventArgs e)
+        {
+            if (WindowChecker.IsRunning == true)
+            {
+                MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
+                   "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                WindowChecker.IsRunning = true;
+                Sched = new FrmSchedule();
+                Sched.Show();
+            }
         }
 
         private void txtTeach_KeyUp(object sender, KeyEventArgs e)

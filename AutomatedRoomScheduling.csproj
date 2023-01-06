@@ -62,6 +62,12 @@
     <Compile Include="FrmRoomList.Designer.cs">
       <DependentUpon>FrmRoomList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSchedule.Designer.cs">
+      <DependentUpon>FrmSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSubjectList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRoomList.resx">
       <DependentUpon>FrmRoomList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSchedule.resx">
+      <DependentUpon>FrmSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSubjectList.resx">
       <DependentUpon>FrmSubjectList.cs</DependentUpon>

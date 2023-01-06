@@ -88,7 +88,7 @@ namespace AutomatedRoomScheduling
             txtSubCode.Text = "";
             txtSubDesc.Text = "";
             cmbSubUnit.Text = "";
-            cmbSubType.Text = "";
+            
             numHrs.Value = 0;
             numMin.Value = 0;
             cmbClassType.Text = "";
@@ -100,9 +100,8 @@ namespace AutomatedRoomScheduling
             try
             {
                 if (txtSubCode.Text.Trim().Equals("") || txtSubDesc.Text.Trim().Equals("") ||
-                    cmbSubType.Text.Trim().Equals("") || cmbSubUnit.Text.Trim().Equals("") ||
-                    numHrs.Value.Equals(0) || cmbClassType.Text.Trim().Equals("") ||
-                    cmbDept.Text.Equals(""))
+                    cmbSubUnit.Text.Trim().Equals("") || numHrs.Value.Equals(0) ||
+                    cmbClassType.Text.Trim().Equals("") || cmbDept.Text.Equals(""))
                 {
                     MessageBox.Show("Please fill up all the fields. "
                         , "Field cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);

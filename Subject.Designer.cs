@@ -204,6 +204,7 @@
             0,
             0});
             this.numMin.Name = "numMin";
+            this.numMin.ReadOnly = true;
             this.numMin.Size = new System.Drawing.Size(72, 27);
             this.numMin.TabIndex = 13;
             // 
@@ -221,6 +222,7 @@
             0,
             0});
             this.numHrs.Name = "numHrs";
+            this.numHrs.ReadOnly = true;
             this.numHrs.Size = new System.Drawing.Size(72, 27);
             this.numHrs.TabIndex = 12;
             this.numHrs.Value = new decimal(new int[] {

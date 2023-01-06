@@ -178,6 +178,7 @@
             // 
             // cmbSatOut
             // 
+            this.cmbSatOut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSatOut.Enabled = false;
             this.cmbSatOut.FormattingEnabled = true;
             this.cmbSatOut.Items.AddRange(new object[] {
@@ -227,6 +228,7 @@
             // 
             // cmbSatIn
             // 
+            this.cmbSatIn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSatIn.Enabled = false;
             this.cmbSatIn.FormattingEnabled = true;
             this.cmbSatIn.Items.AddRange(new object[] {
@@ -285,6 +287,7 @@
             // 
             // cmbFriOut
             // 
+            this.cmbFriOut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFriOut.Enabled = false;
             this.cmbFriOut.FormattingEnabled = true;
             this.cmbFriOut.Items.AddRange(new object[] {
@@ -334,6 +337,7 @@
             // 
             // cmbFriIn
             // 
+            this.cmbFriIn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFriIn.Enabled = false;
             this.cmbFriIn.FormattingEnabled = true;
             this.cmbFriIn.Items.AddRange(new object[] {
@@ -392,6 +396,7 @@
             // 
             // cmbThuOut
             // 
+            this.cmbThuOut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbThuOut.Enabled = false;
             this.cmbThuOut.FormattingEnabled = true;
             this.cmbThuOut.Items.AddRange(new object[] {
@@ -441,6 +446,7 @@
             // 
             // cmbThuIn
             // 
+            this.cmbThuIn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbThuIn.Enabled = false;
             this.cmbThuIn.FormattingEnabled = true;
             this.cmbThuIn.Items.AddRange(new object[] {
@@ -499,6 +505,7 @@
             // 
             // cmbWedOut
             // 
+            this.cmbWedOut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWedOut.Enabled = false;
             this.cmbWedOut.FormattingEnabled = true;
             this.cmbWedOut.Items.AddRange(new object[] {
@@ -548,6 +555,7 @@
             // 
             // cmbWedIn
             // 
+            this.cmbWedIn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWedIn.Enabled = false;
             this.cmbWedIn.FormattingEnabled = true;
             this.cmbWedIn.Items.AddRange(new object[] {
@@ -606,6 +614,7 @@
             // 
             // cmbTueOut
             // 
+            this.cmbTueOut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTueOut.Enabled = false;
             this.cmbTueOut.FormattingEnabled = true;
             this.cmbTueOut.Items.AddRange(new object[] {
@@ -655,6 +664,7 @@
             // 
             // cmbTueIn
             // 
+            this.cmbTueIn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTueIn.Enabled = false;
             this.cmbTueIn.FormattingEnabled = true;
             this.cmbTueIn.Items.AddRange(new object[] {
@@ -713,6 +723,7 @@
             // 
             // cmbMonOut
             // 
+            this.cmbMonOut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonOut.Enabled = false;
             this.cmbMonOut.FormattingEnabled = true;
             this.cmbMonOut.Items.AddRange(new object[] {
@@ -762,6 +773,7 @@
             // 
             // cmbMonIn
             // 
+            this.cmbMonIn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonIn.Enabled = false;
             this.cmbMonIn.FormattingEnabled = true;
             this.cmbMonIn.Items.AddRange(new object[] {
