@@ -36,23 +36,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbDept = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.numMin = new System.Windows.Forms.NumericUpDown();
             this.numHrs = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbClassType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbSubUnit = new System.Windows.Forms.ComboBox();
-            this.cmbSubType = new System.Windows.Forms.ComboBox();
             this.txtSubDesc = new System.Windows.Forms.TextBox();
             this.txtSubCode = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cmbDept = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
@@ -116,7 +114,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(251, 383);
+            this.btnAdd.Location = new System.Drawing.Point(247, 346);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 4;
@@ -137,20 +135,60 @@
             this.groupBox1.Controls.Add(this.cmbClassType);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbSubUnit);
-            this.groupBox1.Controls.Add(this.cmbSubType);
             this.groupBox1.Controls.Add(this.txtSubDesc);
             this.groupBox1.Controls.Add(this.txtSubCode);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(8, 72);
+            this.groupBox1.Location = new System.Drawing.Point(37, 72);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(554, 305);
+            this.groupBox1.Size = new System.Drawing.Size(492, 267);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Subject Information";
+            // 
+            // cmbDept
+            // 
+            this.cmbDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDept.FormattingEnabled = true;
+            this.cmbDept.Items.AddRange(new object[] {
+            "",
+            "General",
+            "BSIT",
+            "BSHM",
+            "BSCPE"});
+            this.cmbDept.Location = new System.Drawing.Point(217, 105);
+            this.cmbDept.Name = "cmbDept";
+            this.cmbDept.Size = new System.Drawing.Size(262, 28);
+            this.cmbDept.TabIndex = 17;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(40, 116);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 20);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Department:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(429, 215);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 20);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Min";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(296, 215);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 20);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Hrs";
             // 
             // numMin
             // 
@@ -159,7 +197,7 @@
             0,
             0,
             0});
-            this.numMin.Location = new System.Drawing.Point(351, 242);
+            this.numMin.Location = new System.Drawing.Point(351, 208);
             this.numMin.Maximum = new decimal(new int[] {
             45,
             0,
@@ -171,7 +209,7 @@
             // 
             // numHrs
             // 
-            this.numHrs.Location = new System.Drawing.Point(218, 242);
+            this.numHrs.Location = new System.Drawing.Point(218, 208);
             this.numHrs.Maximum = new decimal(new int[] {
             6,
             0,
@@ -219,7 +257,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(41, 249);
+            this.label5.Location = new System.Drawing.Point(41, 215);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 20);
             this.label5.TabIndex = 9;
@@ -228,20 +266,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 215);
+            this.label4.Location = new System.Drawing.Point(40, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Subject Unit:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Subject Type:";
             // 
             // label2
             // 
@@ -272,23 +301,10 @@
             "3",
             "4",
             "5"});
-            this.cmbSubUnit.Location = new System.Drawing.Point(217, 207);
+            this.cmbSubUnit.Location = new System.Drawing.Point(217, 173);
             this.cmbSubUnit.Name = "cmbSubUnit";
             this.cmbSubUnit.Size = new System.Drawing.Size(262, 28);
             this.cmbSubUnit.TabIndex = 3;
-            // 
-            // cmbSubType
-            // 
-            this.cmbSubType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSubType.FormattingEnabled = true;
-            this.cmbSubType.Items.AddRange(new object[] {
-            "",
-            "Major",
-            "Minor"});
-            this.cmbSubType.Location = new System.Drawing.Point(217, 173);
-            this.cmbSubType.Name = "cmbSubType";
-            this.cmbSubType.Size = new System.Drawing.Size(262, 28);
-            this.cmbSubType.TabIndex = 2;
             // 
             // txtSubDesc
             // 
@@ -304,54 +320,12 @@
             this.txtSubCode.Size = new System.Drawing.Size(262, 27);
             this.txtSubCode.TabIndex = 0;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(296, 249);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 20);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Hrs";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(429, 249);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 20);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Min";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(40, 116);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 20);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Department:";
-            // 
-            // cmbDept
-            // 
-            this.cmbDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDept.FormattingEnabled = true;
-            this.cmbDept.Items.AddRange(new object[] {
-            "",
-            "General",
-            "BSIT",
-            "BSHM",
-            "BSCPE"});
-            this.cmbDept.Location = new System.Drawing.Point(217, 105);
-            this.cmbDept.Name = "cmbDept";
-            this.cmbDept.Size = new System.Drawing.Size(262, 28);
-            this.cmbDept.TabIndex = 17;
-            // 
             // FrmSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(570, 440);
+            this.ClientSize = new System.Drawing.Size(570, 382);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -381,11 +355,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbSubUnit;
-        private System.Windows.Forms.ComboBox cmbSubType;
         private System.Windows.Forms.TextBox txtSubDesc;
         private System.Windows.Forms.TextBox txtSubCode;
         private System.Windows.Forms.Label label7;

@@ -103,8 +103,9 @@ namespace AutomatedRoomScheduling
                 if (mess.Trim().Equals(""))
                 {
                     FrmTeach frmTeach = new FrmTeach();
-                    frmTeach.Show();
                     this.Close();
+                    frmTeach.ShowDialog();
+                    
                 }
                 else 
                 {
@@ -143,8 +144,9 @@ namespace AutomatedRoomScheduling
 
 
                     FrmTeach frmTeach = new FrmTeach(ID);
-                    frmTeach.ShowDialog();
                     this.Close();
+                    frmTeach.ShowDialog();
+                    
 
 
 

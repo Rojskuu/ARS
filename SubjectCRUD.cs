@@ -23,7 +23,7 @@ namespace AutomatedRoomScheduling
 
         public static String SubjectCode { get; set; }
         public static String SubjectDesc { get; set; }
-        public static String SubjectType { get; set; }
+        
         public static int SubjectUnit { get; set; }
         public static String SubjectHrsndd { get; set; }
         public static String ClassType { get; set; }
@@ -32,7 +32,7 @@ namespace AutomatedRoomScheduling
         public static int Min { get; set; }
 
         public static String SubDisplay = "Select SubCode AS 'Subject Code', SubDescript AS 'Subject Description'," +
-            "SubType AS 'Subject Type', unit AS 'Subject Unit' From Subj Where Archive = 0"; 
+            " unit AS 'Subject Unit' From Subj Where Archive = 0"; 
        
         public void Create()
         {
@@ -42,8 +42,8 @@ namespace AutomatedRoomScheduling
                 con.Open();
 
                 query = $"insert into Subj " +
-                    "(SubCode, SubDescript, ClassType, SubType, unit, Hrs,Department, Archive,Username)" +
-                    "values('" + SubjectCode + "', '" + SubjectDesc + "', '"+ClassType+"', '" + SubjectType + "', " +
+                    "(SubCode, SubDescript, ClassType, unit, Hrs,Department, Archive,Username)" +
+                    "values('" + SubjectCode + "', '" + SubjectDesc + "', '"+ClassType+"', " + 
                     "'" + SubjectUnit + "', '" + SubjectHrsndd + "', '"+Department+"', " +
                     "'" +0+ "', '"+AdminChecker.Admin+"')";
 
@@ -69,7 +69,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select SubDescript, ClassType, SubType, unit, Hrs, Department " +
+                query = "Select SubDescript, ClassType, unit, Hrs, Department " +
                         "from Subj where SubCode = '" + SubjectCode + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -81,17 +81,17 @@ namespace AutomatedRoomScheduling
 
                     SubjectDesc = rdr.GetString(0)+"";
                     ClassType = rdr.GetString(1);
-                    SubjectType = rdr.GetString(2) + "";
-                    SubjectUnit = Convert.ToInt32(rdr.GetValue(3));
+                   
+                    SubjectUnit = Convert.ToInt32(rdr.GetValue(2));
 
-                    SubjectHrsndd = rdr.GetString(4);
+                    SubjectHrsndd = rdr.GetString(3);
 
                     if (TimeSpan.TryParse(SubjectHrsndd, out ts)) 
                     {
                         Hrs = ts.Hours;
                         Min = ts.Minutes;
                     }
-                    Department = rdr.GetString(5);
+                    Department = rdr.GetString(4);
 
                 }
 
@@ -111,7 +111,6 @@ namespace AutomatedRoomScheduling
                 query = "UPDATE Subj set " +
                          "SubDescript = '" + SubjectDesc + "', "
                        + "ClassType = '" + ClassType + "', "
-                       + "SubType = '" + SubjectType + "', "
                        + "unit = '" + SubjectUnit + "', "
                        + "Hrs = '"+SubjectHrsndd+"' , " 
                        + "Department = '"+Department + "' "

@@ -73,7 +73,6 @@ namespace AutomatedRoomScheduling
             txtSubCode.Text = SubjectCRUD.SubjectCode;
             txtSubDesc.Text = SubjectCRUD.SubjectDesc;
             cmbSubUnit.Text = SubjectCRUD.SubjectUnit+"";
-            cmbSubType.Text = SubjectCRUD.SubjectType;
             cmbClassType.Text = SubjectCRUD.ClassType;
             numHrs.Value = SubjectCRUD.Hrs;
             numMin.Value = SubjectCRUD.Min;
@@ -114,7 +113,6 @@ namespace AutomatedRoomScheduling
                     SubjectCRUD.SubjectCode = txtSubCode.Text;
                     SubjectCRUD.SubjectDesc = txtSubDesc.Text;
                     SubjectCRUD.SubjectUnit = Convert.ToInt32(cmbSubUnit.Text);
-                    SubjectCRUD.SubjectType = cmbSubType.Text;
                     Hrs = numHrs.Value + ":" + numMin.Value;
                     SubjectCRUD.SubjectHrsndd = Hrs;
                     SubjectCRUD.ClassType = cmbClassType.Text;
