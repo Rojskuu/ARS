@@ -76,12 +76,12 @@ namespace AutomatedRoomScheduling
 
             Timer timer = new Timer();
             PopulatedtgTeach();
-            PopulatedtgClass();
+            
             PopulatedtgRoom();
             PopulatedtgSec();
-            PopulatedtgSub();
-
         }
+
+
         public void PopulatedtgTeach()
         {
             try
@@ -125,27 +125,7 @@ namespace AutomatedRoomScheduling
             finally { con.Close(); }
         }
 
-        public void PopulatedtgSub()
-        {
-            try
-            {
-                con.Open();
-
-                query = SubjectCRUD.SubDisplay;
-
-                adapter = new SqlDataAdapter(query, con);
-                ds = new DataSet();
-                ds.Clear();
-                adapter.Fill(ds);
-                dtgSub.DataSource = ds.Tables[0];
-
-                con.Close();
-
-            }
-            catch (Exception e) { MessageBox.Show(e + ""); }
-            finally { con.Close(); }
-
-        }
+       
         public void PopulatedtgRoom()
         {
             try
@@ -168,29 +148,7 @@ namespace AutomatedRoomScheduling
             catch (Exception e) { MessageBox.Show(e + ""); }
             finally { con.Close(); }
         }
-        public void PopulatedtgClass()
-        {
-            try
-            {
-                con.Open();
-
-                query = ClassCRUD.ClassDisplay;
-
-                adapter = new SqlDataAdapter(query, con);
-                ds = new DataSet();
-                ds.Clear();
-                adapter.Fill(ds);
-                dtgClass.DataSource = ds.Tables[0];
-
-                con.Close();
-
-
-
-            }
-            catch (Exception e) { MessageBox.Show(e + ""); }
-            finally { con.Close(); }
-        }
-
+       
 
         private void Populate_FrmCollection() 
         {
@@ -385,76 +343,9 @@ namespace AutomatedRoomScheduling
             finally { con.Close(); }
         }
 
-        private void txtClass_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                txt = txtClass.Text.Trim();
+       
 
-                if (txtClass.Text.Trim().Equals(""))
-                {
-                    PopulatedtgClass();
-                }
-                else
-                {
-
-                    con.Open();
-
-
-                    query = "SELECT ClassID AS 'Class ID', SubCode AS 'Subject Code', " +
-                            "SectionID AS 'Section ID', TeacherID AS 'Teacher ID' FROM CLASS where Archive = 0 " +
-                            "AND ClassID LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or SubCode LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or SectionID LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or TeacherID LIKE '%" + txt + "%' and Archive = 0 "
-                        ;
-                    adapter = new SqlDataAdapter(query, con);
-                    ds = new DataSet();
-                    ds.Clear();
-                    adapter.Fill(ds);
-                    dtgClass.DataSource = ds.Tables[0];
-                    con.Close();
-                }
-            }
-            catch (Exception ex) { }
-            finally { con.Close(); }
-        }
-
-        private void txtSub_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                txt = txtSub.Text.Trim();
-
-                if (txtSub.Text.Trim().Equals(""))
-                {
-                    PopulatedtgSub();
-                }
-                else
-                {
-                    con.Open();
-
-
-                    query = "Select SubCode AS 'Subject Code', SubDescript AS 'Subject Description'," +
-                            "SubType AS 'Subject Type', unit AS 'Subject Unit' , Hrs AS 'Hours Required' From Subj Where Archive = 0 " +
-                            "AND SubCode LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or SubDescript LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or SubType LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or unit LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Hrs LIKE '%" + txt + "%' and Archive = 0 "
-                        ;
-                    adapter = new SqlDataAdapter(query, con);
-                    ds = new DataSet();
-                    ds.Clear();
-                    adapter.Fill(ds);
-                    dtgSub.DataSource = ds.Tables[0];
-                    con.Close();
-                }
-            }
-            catch (Exception ex) { }
-            finally { con.Close(); }
-        }
-
+       
         private void btnSched_Click(object sender, EventArgs e)
         {
             if (WindowChecker.IsRunning == true)

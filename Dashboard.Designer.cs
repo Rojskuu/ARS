@@ -43,15 +43,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnSched = new System.Windows.Forms.Button();
@@ -73,12 +64,6 @@
             this.tabSection = new System.Windows.Forms.TabPage();
             this.txtSection = new System.Windows.Forms.TextBox();
             this.dtgSec = new System.Windows.Forms.DataGridView();
-            this.tabSubject = new System.Windows.Forms.TabPage();
-            this.txtSub = new System.Windows.Forms.TextBox();
-            this.dtgSub = new System.Windows.Forms.DataGridView();
-            this.tabClass = new System.Windows.Forms.TabPage();
-            this.txtClass = new System.Windows.Forms.TextBox();
-            this.dtgClass = new System.Windows.Forms.DataGridView();
             this.tabRoom = new System.Windows.Forms.TabPage();
             this.txtRoom = new System.Windows.Forms.TextBox();
             this.dtgRoom = new System.Windows.Forms.DataGridView();
@@ -95,10 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgTeach)).BeginInit();
             this.tabSection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSec)).BeginInit();
-            this.tabSubject.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgSub)).BeginInit();
-            this.tabClass.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgClass)).BeginInit();
             this.tabRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgRoom)).BeginInit();
             this.panel2.SuspendLayout();
@@ -269,8 +250,6 @@
             // 
             this.tcDash.Controls.Add(this.tabTeach);
             this.tcDash.Controls.Add(this.tabSection);
-            this.tcDash.Controls.Add(this.tabSubject);
-            this.tcDash.Controls.Add(this.tabClass);
             this.tcDash.Controls.Add(this.tabRoom);
             this.tcDash.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcDash.Location = new System.Drawing.Point(97, 87);
@@ -397,116 +376,6 @@
             this.dtgSec.Size = new System.Drawing.Size(742, 474);
             this.dtgSec.TabIndex = 2;
             // 
-            // tabSubject
-            // 
-            this.tabSubject.Controls.Add(this.txtSub);
-            this.tabSubject.Controls.Add(this.dtgSub);
-            this.tabSubject.Location = new System.Drawing.Point(4, 29);
-            this.tabSubject.Name = "tabSubject";
-            this.tabSubject.Size = new System.Drawing.Size(1104, 561);
-            this.tabSubject.TabIndex = 2;
-            this.tabSubject.Text = "Subject";
-            this.tabSubject.UseVisualStyleBackColor = true;
-            // 
-            // txtSub
-            // 
-            this.txtSub.Location = new System.Drawing.Point(76, 34);
-            this.txtSub.Name = "txtSub";
-            this.txtSub.Size = new System.Drawing.Size(227, 27);
-            this.txtSub.TabIndex = 3;
-            this.txtSub.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSub_KeyUp);
-            // 
-            // dtgSub
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgSub.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dtgSub.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgSub.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgSub.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.dtgSub.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgSub.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dtgSub.Location = new System.Drawing.Point(4, 67);
-            this.dtgSub.Name = "dtgSub";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgSub.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgSub.RowsDefaultCellStyle = dataGridViewCellStyle14;
-            this.dtgSub.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgSub.Size = new System.Drawing.Size(742, 474);
-            this.dtgSub.TabIndex = 2;
-            // 
-            // tabClass
-            // 
-            this.tabClass.Controls.Add(this.txtClass);
-            this.tabClass.Controls.Add(this.dtgClass);
-            this.tabClass.Location = new System.Drawing.Point(4, 29);
-            this.tabClass.Name = "tabClass";
-            this.tabClass.Size = new System.Drawing.Size(1104, 561);
-            this.tabClass.TabIndex = 3;
-            this.tabClass.Text = "Class";
-            this.tabClass.UseVisualStyleBackColor = true;
-            this.tabClass.Click += new System.EventHandler(this.tabClass_Click);
-            // 
-            // txtClass
-            // 
-            this.txtClass.Location = new System.Drawing.Point(76, 34);
-            this.txtClass.Name = "txtClass";
-            this.txtClass.Size = new System.Drawing.Size(227, 27);
-            this.txtClass.TabIndex = 3;
-            this.txtClass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtClass_KeyUp);
-            // 
-            // dtgClass
-            // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgClass.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
-            this.dtgClass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgClass.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgClass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.dtgClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgClass.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dtgClass.Location = new System.Drawing.Point(4, 67);
-            this.dtgClass.Name = "dtgClass";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgClass.RowsDefaultCellStyle = dataGridViewCellStyle18;
-            this.dtgClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgClass.Size = new System.Drawing.Size(742, 474);
-            this.dtgClass.TabIndex = 2;
-            this.dtgClass.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
-            // 
             // tabRoom
             // 
             this.tabRoom.Controls.Add(this.txtRoom);
@@ -531,35 +400,35 @@
             // 
             this.dtgRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgRoom.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dtgRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgRoom.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgRoom.DefaultCellStyle = dataGridViewCellStyle11;
             this.dtgRoom.Location = new System.Drawing.Point(3, 67);
             this.dtgRoom.Name = "dtgRoom";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgRoom.RowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dtgRoom.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dtgRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgRoom.Size = new System.Drawing.Size(742, 474);
             this.dtgRoom.TabIndex = 2;
@@ -650,12 +519,6 @@
             this.tabSection.ResumeLayout(false);
             this.tabSection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSec)).EndInit();
-            this.tabSubject.ResumeLayout(false);
-            this.tabSubject.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgSub)).EndInit();
-            this.tabClass.ResumeLayout(false);
-            this.tabClass.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgClass)).EndInit();
             this.tabRoom.ResumeLayout(false);
             this.tabRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgRoom)).EndInit();
@@ -687,17 +550,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtTeach;
         private System.Windows.Forms.DataGridView dtgTeach;
-        private System.Windows.Forms.TabPage tabSubject;
-        private System.Windows.Forms.TabPage tabClass;
         private System.Windows.Forms.TabPage tabRoom;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMini;
         private System.Windows.Forms.TextBox txtSection;
         private System.Windows.Forms.DataGridView dtgSec;
-        private System.Windows.Forms.TextBox txtSub;
-        private System.Windows.Forms.DataGridView dtgSub;
-        private System.Windows.Forms.TextBox txtClass;
-        private System.Windows.Forms.DataGridView dtgClass;
         private System.Windows.Forms.TextBox txtRoom;
         private System.Windows.Forms.DataGridView dtgRoom;
         private System.Windows.Forms.Label lblTimer;
