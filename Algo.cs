@@ -25,6 +25,8 @@ namespace AutomatedRoomScheduling
         String SubjectCode, TeacherID, SectionID;
         static int ctrClass = 0;
 
+
+
         //subject >> Teacher that will teach >> Day&Time of partTime >>
         //department ---- 3rd 5-7 4th & 1st 7-7
         //use genetic algo instead
@@ -79,7 +81,7 @@ namespace AutomatedRoomScheduling
                 }
 
                 con.Close();
-
+                PopIDs();
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
 

@@ -24,6 +24,7 @@ namespace AutomatedRoomScheduling
             "SectionID AS 'Section ID', TeacherID AS 'Teacher ID' FROM CLASS";
 
         public static bool Exist { get; set; }
+
         public static String ClassID ;
         public static String RoomID {get;set;}
         public static String TeacherID {get;set;}

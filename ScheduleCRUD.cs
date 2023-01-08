@@ -19,6 +19,12 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query;
 
+        public static String ScheduleID { get; set; }
+        public static String ClassID { get; set; }
+        public static String RoomID { get; set; }
+        public static String Day { get; set; }
+         public static String Time { get; set; }
+
         public void Create()
         {
             
