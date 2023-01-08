@@ -12,6 +12,9 @@ namespace AutomatedRoomScheduling
 {
     internal class Algo
     {
+        TeachCRUD TeachCRUD;
+
+
         SqlCommand cmd;
         SqlConnection con;
         String server = @"Data Source=DESKTOP-3LSCP0F\SQLEXPRESS;Initial Catalog = ARS; Integrated Security = True";
@@ -22,7 +25,7 @@ namespace AutomatedRoomScheduling
         String query;
 
         ArrayList ClassList , RoomList;
-        String SubjectCode, TeacherID, SectionID;
+        
         static int ctrClass = 0;
 
 
@@ -73,15 +76,17 @@ namespace AutomatedRoomScheduling
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
-                int i = 0;
+                
                 while (rdr.Read())
                 {
-                    ClassList.Add(rdr.GetString(i)+"");
-                    i++;
+                    ClassList.Add(rdr.GetString(ctrClass)+"");
+                    PopIDs();
+                    ctrClass++;
+                    
                 }
 
                 con.Close();
-                PopIDs();
+                
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
 
@@ -101,16 +106,59 @@ namespace AutomatedRoomScheduling
                 
                 while (rdr.Read())
                 {
-                    SubjectCode = rdr.GetString(0);
-                    SectionID = rdr.GetString(1);
-                    TeacherID = rdr.GetString(2);
+                    SubjectCRUD.SubjectCode = rdr.GetString(0);
+                    SectionCRUD.SectionID = rdr.GetString(1);
+                    TeachCRUD.TeacherID = rdr.GetString(2);
+                }
+
+                con.Close();
+                CheckTeacher();
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+        }
+
+        public void CheckTeacher()
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "Select EmpType from Teacher Where Archive = 0 AND TeacherID = '" + TeachCRUD.TeacherID + "'";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    TeachCRUD.EmpType = rdr.GetString(0);
                 }
 
                 con.Close();
 
+                if (TeachCRUD.EmpType.Equals("Part-Time"))
+                {
+                    CheckPTTeach();
+                }
+                else 
+                { 
+                
+                }
+
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
+        
+        }
 
+        public void CheckPTTeach() 
+        {
+            try
+            {
+                TeachCRUD.RetrievePT();
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
 
