@@ -59,6 +59,7 @@
             this.txtMName = new System.Windows.Forms.TextBox();
             this.txtFName = new System.Windows.Forms.TextBox();
             this.txtLName = new System.Windows.Forms.TextBox();
+            this.btnPT = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.grpPInfo.SuspendLayout();
             this.SuspendLayout();
@@ -123,6 +124,7 @@
             // grpPInfo
             // 
             this.grpPInfo.BackColor = System.Drawing.Color.White;
+            this.grpPInfo.Controls.Add(this.btnPT);
             this.grpPInfo.Controls.Add(this.label13);
             this.grpPInfo.Controls.Add(this.cmbDept);
             this.grpPInfo.Controls.Add(this.label12);
@@ -200,7 +202,7 @@
             this.cmbEmpType.Name = "cmbEmpType";
             this.cmbEmpType.Size = new System.Drawing.Size(279, 28);
             this.cmbEmpType.TabIndex = 20;
-            this.cmbEmpType.Click += new System.EventHandler(this.cmbEmpType_Click);
+            this.cmbEmpType.SelectedIndexChanged += new System.EventHandler(this.cmbEmpType_SelectedIndexChanged);
             // 
             // cmbCS
             // 
@@ -384,6 +386,18 @@
             this.txtLName.Size = new System.Drawing.Size(279, 27);
             this.txtLName.TabIndex = 3;
             // 
+            // btnPT
+            // 
+            this.btnPT.Enabled = false;
+            this.btnPT.Location = new System.Drawing.Point(580, 359);
+            this.btnPT.Name = "btnPT";
+            this.btnPT.Size = new System.Drawing.Size(32, 31);
+            this.btnPT.TabIndex = 24;
+            this.btnPT.Text = "...";
+            this.btnPT.UseVisualStyleBackColor = true;
+            this.btnPT.Visible = false;
+            this.btnPT.Click += new System.EventHandler(this.btnPT_Click);
+            // 
             // FrmTeach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,5 +453,6 @@
         private System.Windows.Forms.TextBox txtLName;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbDept;
+        private System.Windows.Forms.Button btnPT;
     }
 }

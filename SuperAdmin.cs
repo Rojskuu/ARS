@@ -33,6 +33,7 @@ namespace AutomatedRoomScheduling
         public FrmSuperAdmin()
         {
             InitializeComponent();
+            con = new SqlConnection(server);
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -56,6 +57,7 @@ namespace AutomatedRoomScheduling
         {
             try 
             {
+                
                 con.Open();
 
                 query = "SELECT * FROM ADMIN WHERE Username = '" + txtUsername.Text.Trim() + "'";
@@ -88,16 +90,16 @@ namespace AutomatedRoomScheduling
                 int temp;
                 if (cmbStatus.SelectedIndex.Equals(1))
                 {
-                    temp = 1;
+                    temp = 0;
                 }
                 else 
                 {
-                    temp = 0;
+                    temp = 1;
                 }
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "update Teacher set " +
+                query = "update Admin set " +
                          "BlockAcc = " + temp +
                          " Where Username = '" 
                          + txtUsername.Text.Trim() + "'";
@@ -108,6 +110,8 @@ namespace AutomatedRoomScheduling
 
                 cmd.Dispose();
                 con.Close();
+
+                MessageBox.Show("Account status updated.", "Account status", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } 
             catch (Exception ex) { MessageBox.Show(ex + ""); }
         }

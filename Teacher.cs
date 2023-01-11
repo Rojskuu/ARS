@@ -206,21 +206,6 @@ namespace AutomatedRoomScheduling
         }
 
 
-        private void cmbEmpType_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cmbEmpType.Text.Trim().Equals("Part-Time"))
-                {
-                    FrmPT pt = new FrmPT();
-
-                    pt.ShowDialog();
-
-                }
-            }
-            catch (Exception ex) { MessageBox.Show(ex + ""); }
-        }
-
         private void txtTeacherID_KeyUp(object sender, KeyEventArgs e)
         {
             try 
@@ -229,6 +214,37 @@ namespace AutomatedRoomScheduling
                 TeachCRUD.CheckIDifExist(txt);
             
             } catch (Exception ex) { MessageBox.Show(ex + "");}
+        }
+
+        private void cmbEmpType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try 
+            {
+                if (cmbEmpType.SelectedIndex.Equals(1))
+                {
+                    btnPT.Enabled = true;
+                    btnPT.Visible = true;
+                }
+                else 
+                {
+                    btnPT.Enabled = false;
+                    btnPT.Visible = false;
+                }
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        private void btnPT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                    FrmPT pt = new FrmPT();
+
+                    pt.ShowDialog();
+
+                
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
     }
 }

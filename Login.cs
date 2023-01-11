@@ -20,7 +20,7 @@ namespace AutomatedRoomScheduling
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         FrmDash dash;
         FrmSuperAdmin superAdmin;
-        int attempt = 3;
+        int attempt = 1, Status;
 
         SqlConnection con;
         SqlDataReader reader;
@@ -29,7 +29,8 @@ namespace AutomatedRoomScheduling
         DataSet ds;
         DataTable dt;
         SqlCommand cmd;
-        String query, Username, Password, Role;
+        String query, Role;
+
 
 
         public FrmLogin()
@@ -77,7 +78,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "select Role " +
+                query = "select Role, BlockAcc " +
                      "FROM Admin where Username = '" + txtUsername.Text.Trim() + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -85,7 +86,8 @@ namespace AutomatedRoomScheduling
 
                 while (rdr.Read())
                 {
-                  Role = rdr.GetString(0); 
+                  Role = rdr.GetString(0);
+                  Status = Convert.ToInt32(rdr.GetValue(1));
                 }
                 con.Close();
             } 
@@ -128,20 +130,28 @@ namespace AutomatedRoomScheduling
                         con.Close();
                         GetRole();
 
-                        if (Role.Equals("Admin"))
+                        if (Status == 0)
                         {
+                            if (Role.Equals("Admin"))
+                            {
 
-                            dash = new FrmDash();
-                            AdminChecker.Admin = txtUsername.Text.Trim();
-                            this.Hide();
-                            dash.Show();
+                                dash = new FrmDash();
+                                AdminChecker.Admin = txtUsername.Text.Trim();
+                                this.Hide();
+                                dash.Show();
+                            }
+                            else
+                            {
+                                superAdmin = new FrmSuperAdmin();
+                                this.Hide();
+                                superAdmin.Show();
+
+                            }
                         }
                         else 
                         {
-                            superAdmin = new FrmSuperAdmin();
-                            this.Hide();
-                            superAdmin.Show();
-
+                            MessageBox.Show("Your account has been blocked. \n" + "Please contact the super Admin.", "Account Blocked!",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
@@ -151,20 +161,19 @@ namespace AutomatedRoomScheduling
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                        
                         
-                        txtPassword.Text = "";
-                        txtUsername.Text = "";
+                        
 
                         if (attempt == 0) 
                         { 
-                            btnLogin.Enabled = false;
-                            txtUsername.Enabled = false;
-                            txtPassword.Enabled = false;
+                            
                             MessageBox.Show("You have exceeded the number of login attempts." +
                                 "\nPlease contact the Super Admin to activate your account.", "Log in failed!",
                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             BlockAcc();
                         }
                         attempt--;
+                        txtPassword.Text = "";
+                        txtUsername.Text = "";
                     }
 
 
@@ -183,7 +192,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "update Teacher set " +
+                query = "update Admin set " +
                          "BlockAcc = " + 1 +
                          " Where Username = '"
                          + txtUsername.Text.Trim() + "'";
