@@ -19,6 +19,7 @@ namespace AutomatedRoomScheduling
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         FrmDash dash;
+        FrmSuperAdmin superAdmin;
         int attempt = 3;
 
         SqlConnection con;
@@ -28,7 +29,8 @@ namespace AutomatedRoomScheduling
         DataSet ds;
         DataTable dt;
         SqlCommand cmd;
-        String query;
+        String query, Username, Password, Role;
+
 
         public FrmLogin()
         {
@@ -68,6 +70,27 @@ namespace AutomatedRoomScheduling
                 
             }
         }
+        public void GetRole() 
+        {
+            try 
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "select Role " +
+                     "FROM Admin where Username = '" + txtUsername.Text.Trim() + "'";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                  Role = rdr.GetString(0); 
+                }
+                con.Close();
+            } 
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -105,11 +128,23 @@ namespace AutomatedRoomScheduling
                     if (dt.Rows.Count == 1)
                     {
                         con.Close();
-                        dash = new FrmDash();
-                        AdminChecker.Admin = txtUsername.Text.Trim();
-                        this.Hide();
-                        dash.Show();
+                        GetRole();
 
+                        if (Role.Equals("Admin"))
+                        {
+
+                            dash = new FrmDash();
+                            AdminChecker.Admin = txtUsername.Text.Trim();
+                            this.Hide();
+                            dash.Show();
+                        }
+                        else 
+                        {
+                            superAdmin = new FrmSuperAdmin();
+                            this.Hide();
+                            superAdmin.Show();
+
+                        }
                     }
                     else
                     {
@@ -127,8 +162,9 @@ namespace AutomatedRoomScheduling
                             txtUsername.Enabled = false;
                             txtPassword.Enabled = false;
                             MessageBox.Show("You have exceeded the number of login attempts." +
-                                "\nPlease try again later.", "Log in failed!",
+                                "\nPlease contact the Super Admin to activate your account.", "Log in failed!",
                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            BlockAcc();
                         }
                         attempt--;
                     }
@@ -141,6 +177,30 @@ namespace AutomatedRoomScheduling
 
             }
             catch (Exception) { }
+        }
+        public void BlockAcc() 
+        {
+            try 
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "update Teacher set " +
+                         "BlockAcc = " + 1 +
+                         " Where Username = '"
+                         + txtUsername.Text.Trim() + "'";
+                
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+
+                cmd.Dispose();
+                con.Close();
+
+                txtUsername.Text = "";
+                txtPassword.Text = "";
+            } catch (Exception ex) 
+            { MessageBox.Show(ex+""); }
+        
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
