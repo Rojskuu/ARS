@@ -25,7 +25,7 @@ namespace AutomatedRoomScheduling
         SqlConnection con;
         SqlDataReader reader;
         SqlDataAdapter adapter;
-        String server = @"Data Source=DESKTOP-3LSCP0F\SQLEXPRESS;Initial Catalog = ARS; Integrated Security = True";
+        String server = ConnectionString.ConString;
         DataSet ds;
         DataTable dt;
         SqlCommand cmd;
@@ -96,8 +96,6 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                
-                
                 if (txtUsername.Text.Trim().Equals("") || txtUsername.Text.Trim().Equals("Username"))
                 {
 

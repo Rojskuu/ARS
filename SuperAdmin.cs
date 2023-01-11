@@ -24,8 +24,7 @@ namespace AutomatedRoomScheduling
         SqlConnection con;
         SqlDataReader reader;
         SqlDataAdapter adapter;
-        String server = @"Data Source=DESKTOP-3LSCP0F\SQLEXPRESS;Initial Catalog = ARS; Integrated Security = True";
-        DataSet ds;
+        String server = ConnectionString.ConString;
         DataTable dt;
         SqlCommand cmd;
         String query;
