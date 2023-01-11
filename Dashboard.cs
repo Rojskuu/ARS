@@ -28,8 +28,11 @@ namespace AutomatedRoomScheduling
         FrmSubjectList Subject;
         FrmSchedule Sched;
 
+        SYCRUD SYCRUD = new SYCRUD();
+
         ArrayList FrmCollection, WeekDay, Time;
-        
+
+        public static ArrayList SY;
 
         SqlCommand cmd;
         SqlConnection con;
@@ -77,6 +80,22 @@ namespace AutomatedRoomScheduling
             //PopulateDayTime();
             PopulatedtgRoom();
             PopulatedtgSec();
+            PopSY();
+        }
+
+        public void PopSY()
+        {
+            try 
+            {
+                SYCRUD.Retrieve();
+
+                for (int i = 0; i < SYCRUD.SYList.Count; i++)
+                {
+                    cmbSY.Items.Add(SYCRUD.SYList[i]);
+                }
+
+            } catch (Exception ex) { MessageBox.Show(ex+""); }
+
         }
 
 
@@ -294,6 +313,16 @@ namespace AutomatedRoomScheduling
             }
             catch (Exception ex) { MessageBox.Show(ex+""); }
             finally { con.Close(); }
+        }
+
+        private void btnSNT_Click(object sender, EventArgs e)
+        {
+            try 
+            { 
+                FrmSY frmSY = new FrmSY();
+                frmSY.ShowDialog();
+
+            } catch (Exception ex) { MessageBox.Show(ex+""); }
         }
 
         private void txtSection_KeyUp(object sender, KeyEventArgs e)
