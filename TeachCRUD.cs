@@ -45,6 +45,8 @@ namespace AutomatedRoomScheduling
         public static String month { get; set; }
         public static String day { get; set; }
 
+        public static int DayNo { get; set; }
+        public static int TimeNo { get; set; }
 
         public static int Mon { get; set; }
         public static String MonIn { get; set; }

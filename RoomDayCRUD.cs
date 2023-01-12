@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AutomatedRoomScheduling
 {
-    internal class RDTime : ICRUD
+    internal class RoomDayCRUD : ICRUD
     {
         SqlCommand cmd;
         SqlConnection con;
@@ -19,28 +19,32 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query;
 
-        public static String RDTID {get; set;}
+        RDTimeCRUD RDTime = new RDTimeCRUD();
 
-
+        public static String RDID { get; set; }
+        
 
         public void Create()
         {
             try
             {
-                 RDTID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + "" 
+                RDID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + ""
                     + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "" + FrmDash.MilliSec;
 
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = $"insert into RDTime " +
-                    "(RDID,TimeNo, IsOccupied, RDTID)" +
-                    "values('" + RoomDay.RDID + "', " + RoomCRUD.TimeNo + ", "+0+", '" + RDTID + "')";
+                query = $"insert into RoomDay " +
+                    "(RoomID,DayNo,RDID)" +
+                    "values('"+RoomCRUD.RoomID+"', "+RoomCRUD.DayNo+", '"+RDID+"')";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 con.Close();
+
+                
+
             }
             catch (Exception) { }
         }

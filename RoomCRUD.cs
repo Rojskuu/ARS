@@ -20,8 +20,8 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query;
 
-        RoomDay RoomDay = new RoomDay();
-        RDTime RDTime = new RDTime();
+        RoomDayCRUD RoomDay = new RoomDayCRUD();
+        RDTimeCRUD RDTime = new RDTimeCRUD();
 
         public static String RoomID { get; set; }
         public static String RoomType { get; set; }
@@ -63,12 +63,8 @@ namespace AutomatedRoomScheduling
 
         public void RoomDayPopulate() 
         {
-
             try 
             {
-                DayNo = 1;
-                TimeNo = 1;
-
                 for (DayNo = 1; DayNo <= 6; DayNo++)
                 {
                     RoomDay.Create();
