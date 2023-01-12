@@ -20,10 +20,16 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query;
 
+        RoomDay RoomDay = new RoomDay();
+        RDTime RDTime = new RDTime();
+
         public static String RoomID { get; set; }
         public static String RoomType { get; set; }
         public static int RoomCap { get; set; }
-        
+
+        public static int DayNo { get; set; }
+        public static int TimeNo { get; set; }
+
 
         public static String RoomDisplay = "Select RoomID AS 'Room ID' , RoomType AS 'Room Type', " +
             "Cap AS 'Capacity'  FROM ROOM WHERE Archive = 0";
@@ -39,8 +45,8 @@ namespace AutomatedRoomScheduling
 
                 query = "insert into Room " +
                 "(RoomID, RoomType, Cap , Archive , Username ) " +
-                "values('" + RoomID + "', '" + RoomType + "', '" + RoomCap + "', '" +
-                "'" + 0 + "', '" + AdminChecker.Admin + "')";
+                "values('" + RoomID + "', '" + RoomType + "', '" + RoomCap + "', " +
+                 + 0 + ", '" + AdminChecker.Admin + "')";
 
 
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -49,8 +55,31 @@ namespace AutomatedRoomScheduling
                 con.Close();
 
 
+                RoomDayPopulate();
+
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        public void RoomDayPopulate() 
+        {
+
+            try 
+            {
+                DayNo = 1;
+                TimeNo = 1;
+
+                for (DayNo = 1; DayNo <= 6; DayNo++)
+                {
+                    RoomDay.Create();
+
+                    for (TimeNo = 1; TimeNo <= 48 ; TimeNo++)
+                    {
+                        RDTime.Create();
+                    }
+                }
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }        
         }
 
         public void Delete()

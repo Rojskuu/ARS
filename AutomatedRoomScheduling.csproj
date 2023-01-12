@@ -81,7 +81,9 @@
     <Compile Include="FrmSY.Designer.cs">
       <DependentUpon>FrmSY.cs</DependentUpon>
     </Compile>
+    <Compile Include="RDTime.cs" />
     <Compile Include="RoomCRUD.cs" />
+    <Compile Include="RoomDay.cs" />
     <Compile Include="ScheduleCRUD.cs" />
     <Compile Include="SectionCRUD.cs" />
     <Compile Include="SectionList.cs">

@@ -43,6 +43,8 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query, ID, txt;
 
+
+
        
 
         public static int Yr { get; set; }
@@ -51,7 +53,10 @@ namespace AutomatedRoomScheduling
         public static int Hr { get; set; }
         public static int Min { get; set; }
         public static int Sec { get; set; }
-        
+        public static int MilliSec { get; set; }
+
+
+
 
 
         DateTime dtime = DateTime.Now;
@@ -74,6 +79,7 @@ namespace AutomatedRoomScheduling
             Hr = dtime.Hour;
             Min = dtime.Minute;
             Sec = dtime.Second;
+            MilliSec = dtime.Millisecond;
 
             Timer timer = new Timer();
             PopulatedtgTeach();
@@ -323,6 +329,26 @@ namespace AutomatedRoomScheduling
                 frmSY.ShowDialog();
 
             } catch (Exception ex) { MessageBox.Show(ex+""); }
+        }
+
+        private void GenID_Tick(object sender, EventArgs e)
+        {
+            MilliSec++;
+            if (MilliSec == 99) 
+            {
+                MilliSec = 0;
+                Sec++;
+            }
+            if (Sec == 60)
+            {
+                Sec = 0;
+                Min++;
+            }
+            if (Min == 60)
+            {
+                Min = 0;
+                Hr++;
+            }  
         }
 
         private void txtSection_KeyUp(object sender, KeyEventArgs e)

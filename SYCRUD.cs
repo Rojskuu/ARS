@@ -11,8 +11,6 @@ using System.Windows.Forms;
 namespace AutomatedRoomScheduling
 {
     
-
-
     internal class SYCRUD : ICRUD
     {
         SqlCommand cmd;
@@ -63,7 +61,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = $"Select SYSem from SYSem "
+                query = $"Select SYSem from SYSem"
                     ;
 
                 SqlCommand cmd = new SqlCommand(query, con);
