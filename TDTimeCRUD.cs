@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AutomatedRoomScheduling
 {
-    internal class TDTime : ICRUD
+    internal class TDTimeCRUD : ICRUD
     {
         SqlCommand cmd;
         SqlConnection con;

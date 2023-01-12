@@ -100,7 +100,7 @@
       <DependentUpon>SuperAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="SYCRUD.cs" />
-    <Compile Include="TDTime.cs" />
+    <Compile Include="TDTimeCRUD.cs" />
     <Compile Include="TeacherDayCRUD.cs" />
     <Compile Include="TeachList.cs">
       <SubType>Form</SubType>

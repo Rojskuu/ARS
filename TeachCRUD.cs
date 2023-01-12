@@ -67,6 +67,8 @@ namespace AutomatedRoomScheduling
         public static String SatIn { get; set; }
         public static String SatOut { get; set; }
 
+        TeacherDayCRUD TeacherDayCRUD = new TeacherDayCRUD();
+        TDTimeCRUD TDTime = new TDTimeCRUD();
 
         public void Create()
         {
@@ -84,9 +86,36 @@ namespace AutomatedRoomScheduling
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 con.Close();
-                
+
+                if (EmpType.Equals("Full-Time"))
+                {
+                    TeacherDayPopulate();
+                }
+                else
+                {
+                    
+                }
 
             } catch (Exception) { }
+        }
+
+        public void TeacherDayPopulate()
+        {
+            try
+            {
+                for (DayNo = 1; DayNo <= 6; DayNo++)
+                {
+                    TeacherDayCRUD.Create();
+
+                    for (TimeNo = 1; TimeNo <= 48; TimeNo++)
+                    {
+                        TDTime.Create();
+                    }
+
+                }
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         public void PT()
