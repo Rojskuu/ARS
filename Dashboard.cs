@@ -54,6 +54,7 @@ namespace AutomatedRoomScheduling
         public static int Min { get; set; }
         public static int Sec { get; set; }
         public static int MilliSec { get; set; }
+        public static int Nanosec { get; set; }
 
 
 
@@ -80,6 +81,8 @@ namespace AutomatedRoomScheduling
             Min = dtime.Minute;
             Sec = dtime.Second;
             MilliSec = dtime.Millisecond;
+            Nanosec = 0;
+
 
             Timer timer = new Timer();
             PopulatedtgTeach();
@@ -333,6 +336,8 @@ namespace AutomatedRoomScheduling
 
         private void GenID_Tick(object sender, EventArgs e)
         {
+            
+            
             MilliSec++;
             if (MilliSec == 99) 
             {
@@ -349,6 +354,13 @@ namespace AutomatedRoomScheduling
                 Min = 0;
                 Hr++;
             }  
+        }
+
+        private void nanosec_Tick(object sender, EventArgs e)
+        {
+            Nanosec++;
+            if (Nanosec == 10000) { Nanosec = 0; }
+
         }
 
         private void txtSection_KeyUp(object sender, KeyEventArgs e)

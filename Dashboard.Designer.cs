@@ -76,6 +76,7 @@
             this.cmbSY = new System.Windows.Forms.ComboBox();
             this.btnSNT = new System.Windows.Forms.Button();
             this.GenID = new System.Windows.Forms.Timer(this.components);
+            this.nanosec = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcDash.SuspendLayout();
@@ -523,6 +524,11 @@
             // 
             this.GenID.Tick += new System.EventHandler(this.GenID_Tick);
             // 
+            // nanosec
+            // 
+            this.nanosec.Interval = 1;
+            this.nanosec.Tick += new System.EventHandler(this.nanosec_Tick);
+            // 
             // FrmDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -594,5 +600,6 @@
         private System.Windows.Forms.ComboBox cmbSY;
         private System.Windows.Forms.Button btnSNT;
         private System.Windows.Forms.Timer GenID;
+        private System.Windows.Forms.Timer nanosec;
     }
 }

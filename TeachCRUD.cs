@@ -105,10 +105,12 @@ namespace AutomatedRoomScheduling
             {
                 for (DayNo = 1; DayNo <= 6; DayNo++)
                 {
+                    FrmDash.Nanosec++;
                     TeacherDayCRUD.Create();
 
                     for (TimeNo = 1; TimeNo <= 48; TimeNo++)
                     {
+                        FrmDash.Nanosec++;
                         TDTime.Create();
                     }
 

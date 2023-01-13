@@ -26,7 +26,7 @@ namespace AutomatedRoomScheduling
             try
             {
                 TDTID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + ""
-                   + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "" + FrmDash.MilliSec;
+                   + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "" + FrmDash.MilliSec + "" + FrmDash.Nanosec;
 
                 con = new SqlConnection(server);
                 con.Open();

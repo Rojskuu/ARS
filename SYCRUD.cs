@@ -69,7 +69,7 @@ namespace AutomatedRoomScheduling
                 int temp = 0;
                 while (rdr.Read())
                 {
-                    SYList.Add(rdr.GetString(temp));
+                    SYList.Add(rdr.GetValue(rdr.GetOrdinal("SYSem")));
                     temp++;
                 }
                     con.Close();

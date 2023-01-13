@@ -68,10 +68,13 @@ namespace AutomatedRoomScheduling
                 for (DayNo = 1; DayNo <= 6; DayNo++)
                 {
                     RoomDay.Create();
+                    FrmDash.Nanosec++;
 
                     for (TimeNo = 1; TimeNo <= 48 ; TimeNo++)
                     {
+                        
                         RDTime.Create();
+                        FrmDash.Nanosec++;
                     }
                 }
 
@@ -100,8 +103,6 @@ namespace AutomatedRoomScheduling
                 {
                     RoomType = rdr.GetString(0);
                     RoomCap = Convert.ToInt32(rdr.GetValue(1));
-                    
-
                 }
 
                 con.Close();
