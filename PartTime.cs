@@ -25,6 +25,9 @@ namespace AutomatedRoomScheduling
         public static int Fri { get; set; }
         public static int Sat { get; set; }
 
+        TeacherDayCRUD TeacherDayCRUD = new TeacherDayCRUD();
+        TDTimeCRUD TDTimeCRUD = new TDTimeCRUD();
+
         public FrmPT()
         {
             InitializeComponent();
@@ -47,29 +50,51 @@ namespace AutomatedRoomScheduling
             }
             else
             {
-                TeachCRUD.Mon = Mon;
-                TeachCRUD.MonIn = cmbMonIn.Text;
-                TeachCRUD.MonOut = cmbMonOut.Text;
-                TeachCRUD.Tue = Tue;
-                TeachCRUD.TueIn = cmbTueIn.Text;
-                TeachCRUD.TueOut = cmbTueOut.Text;
-                TeachCRUD.Wed = Wed;
-                TeachCRUD.WedIn = cmbWedIn.Text;
-                TeachCRUD.WedOut = cmbWedOut.Text;
-                TeachCRUD.Thu = Thu;
-                TeachCRUD.ThuIn = cmbThuIn.Text;
-                TeachCRUD.ThuOut = cmbThuOut.Text;
-                TeachCRUD.Fri = Fri;
-                TeachCRUD.FriIn = cmbFriIn.Text;
-                TeachCRUD.FriOut = cmbFriOut.Text;
-                TeachCRUD.Sat = Sat;
-                TeachCRUD.SatIn = cmbSatIn.Text;
-                TeachCRUD.SatOut = cmbSatOut.Text;
+                if (cbMon.Checked)
+                {
+                    TeachCRUD.Days.Add(1);
+                    TeachCRUD.MonIn = cmbMonIn.SelectedIndex;
+                    TeachCRUD.MonOut = cmbMonOut.SelectedIndex;
+
+                }
+                else if (cbTue.Checked)
+                {
+                    TeachCRUD.Days.Add(2);
+                    TeachCRUD.TueIn = cmbTueIn.SelectedIndex;
+                    TeachCRUD.TueOut = cmbTueOut.SelectedIndex;
+                }
+                else if (cbWed.Checked)
+                {
+                    TeachCRUD.Days.Add(3);
+                    TeachCRUD.WedIn = cmbWedIn.SelectedIndex;
+                    TeachCRUD.WedOut = cmbWedOut.SelectedIndex;
+                }
+                else if (cbThu.Checked)
+                {
+                    TeachCRUD.Days.Add(4);
+                    TeachCRUD.ThuIn = cmbThuIn.SelectedIndex;
+                    TeachCRUD.ThuOut = cmbThuOut.SelectedIndex;
+                }
+                else if (cbFri.Checked)
+                {
+                    TeachCRUD.Days.Add(5);
+                    TeachCRUD.FriIn = cmbFriIn.SelectedIndex;
+                    TeachCRUD.FriOut = cmbFriOut.SelectedIndex;
+                }
+                else if (cbSat.Checked)
+                {
+                    TeachCRUD.Days.Add(6);
+                    TeachCRUD.SatIn = cmbSatIn.SelectedIndex;
+                    TeachCRUD.SatOut = cmbSatOut.SelectedIndex;
+                }
+                
 
                 ClearCheck();
                 this.Close();
             }
         }
+
+       
 
         public void ClearCheck() 
         { 
@@ -219,23 +244,23 @@ namespace AutomatedRoomScheduling
         public void HoldValues() 
         {
             cbMon.Checked  = Convert.ToBoolean(TeachCRUD.Mon);
-            cmbMonIn.Text  = TeachCRUD.MonIn;
-            cmbMonOut.Text = TeachCRUD.MonOut;
+            cmbMonIn.SelectedIndex  = TeachCRUD.MonIn;
+            cmbMonOut.SelectedIndex = TeachCRUD.MonOut;
             cbTue.Checked  = Convert.ToBoolean(TeachCRUD.Tue);
-            cmbTueIn.Text  = TeachCRUD.TueIn;
-            cmbTueOut.Text = TeachCRUD.TueOut;
+            cmbTueIn.SelectedIndex = TeachCRUD.TueIn;
+            cmbTueOut.SelectedIndex = TeachCRUD.TueOut;
             cbWed.Checked  = Convert.ToBoolean(TeachCRUD.Wed);
-            cmbWedIn.Text  = TeachCRUD.WedIn;
-            cmbWedOut.Text = TeachCRUD.WedOut;
+            cmbWedIn.SelectedIndex = TeachCRUD.WedIn;
+            cmbWedOut.SelectedIndex = TeachCRUD.WedOut;
             cbThu.Checked  = Convert.ToBoolean(TeachCRUD.Thu);
-            cmbThuIn.Text  = TeachCRUD.ThuIn;
-            cmbThuOut.Text = TeachCRUD.ThuOut;
+            cmbThuIn.SelectedIndex = TeachCRUD.ThuIn;
+            cmbThuOut.SelectedIndex = TeachCRUD.ThuOut;
             cbFri.Checked  = Convert.ToBoolean(TeachCRUD.Fri);
-            cmbFriIn.Text  = TeachCRUD.FriIn;
-            cmbFriOut.Text = TeachCRUD.FriOut;
+            cmbFriIn.SelectedIndex = TeachCRUD.FriIn;
+            cmbFriOut.SelectedIndex = TeachCRUD.FriOut;
             cbSat.Checked  = Convert.ToBoolean(TeachCRUD.Sat);
-            cmbSatIn.Text  = TeachCRUD.SatIn;
-            cmbSatOut.Text = TeachCRUD.SatOut;
+            cmbSatIn.SelectedIndex = TeachCRUD.SatIn;
+            cmbSatOut.SelectedIndex = TeachCRUD.SatOut;
         }
 
         

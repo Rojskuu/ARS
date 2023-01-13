@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace AutomatedRoomScheduling
 {
@@ -48,24 +49,26 @@ namespace AutomatedRoomScheduling
         public static int DayNo { get; set; }
         public static int TimeNo { get; set; }
 
+        public static ArrayList Days { get; set; } = new ArrayList();
+        TDTimeCRUD TDTimeCRUD = new TDTimeCRUD();
         public static int Mon { get; set; }
-        public static String MonIn { get; set; }
-        public static String MonOut { get; set; }
+        public static int MonIn { get; set; }
+        public static int MonOut { get; set; }
         public static int Tue { get; set; }
-        public static String TueIn { get; set; }
-        public static String TueOut { get; set; }
+        public static int TueIn { get; set; }
+        public static int TueOut { get; set; }
         public static int Wed { get; set; }
-        public static String WedIn { get; set; }
-        public static String WedOut { get; set; }
+        public static int WedIn { get; set; }
+        public static int WedOut { get; set; }
         public static int Thu { get; set; }
-        public static String ThuIn { get; set; }
-        public static String ThuOut { get; set; }
+        public static int ThuIn { get; set; }
+        public static int ThuOut { get; set; }
         public static int Fri { get; set; }
-        public static String FriIn { get; set; }
-        public static String FriOut { get; set; }
+        public static int FriIn { get; set; }
+        public static int FriOut { get; set; }
         public static int Sat { get; set; }
-        public static String SatIn { get; set; }
-        public static String SatOut { get; set; }
+        public static int SatIn { get; set; }
+        public static int SatOut { get; set; }
 
         TeacherDayCRUD TeacherDayCRUD = new TeacherDayCRUD();
         TDTimeCRUD TDTime = new TDTimeCRUD();
@@ -130,24 +133,81 @@ namespace AutomatedRoomScheduling
                 String ID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + "" + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "";
 
                 query = "insert into PartT " +
-                    "(PartTID, TeacherID, Mon, MonIn, MonOut, Tue, TueIn, TueOut, " +
-                    " Wed, WedIn, WedOut, Thu, ThuIn, ThuOut, Fri, FriIn, FriOut, Sat, SatIn, SatOut)" +
-                    "values('" + ID + "', '" + TeacherID + "', " 
-                    + Mon + ", '" +MonIn + "', '" +MonOut+"', "
-                    + Tue + ", '" +TueIn + "', '" +TueOut+"', " 
-                    + Wed + ", '" +WedIn + "', '" +WedOut+"', "
-                    + Thu + ", '" +ThuIn + "', '" +ThuOut+"', "
-                    + Fri + ", '" +FriIn + "', '" +FriOut+"', "
-                    + Sat + ", '" +SatIn + "', '" +SatOut+"')";
+                    "(PartTID, TeacherID)" +
+                    "values('" + ID + "', '" + TeacherID + "')";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 con.Close();
 
+                TeacherDayTime();
                 
 
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        public void TeacherDayTime()
+        {
+            try
+            {
+                for (int i = 0; i < TeachCRUD.Days.Count; i++)
+                {
+                    TeachCRUD.DayNo = Convert.ToInt32(TeachCRUD.Days.IndexOf(i));
+                    TeacherDayCRUD.Create();
+
+                    if (TeachCRUD.Days.IndexOf(i) == 1)
+                    {
+                        for (int j = TeachCRUD.MonIn; j <= TeachCRUD.MonOut; j++)
+                        {
+                            TeachCRUD.TimeNo = j;
+                            TDTimeCRUD.Create();
+                        }
+                    }
+                    else if (TeachCRUD.Days.IndexOf(i) == 2)
+                    {
+                        for (int j = TeachCRUD.TueIn; j <= TeachCRUD.TueOut; j++)
+                        {
+                            TeachCRUD.TimeNo = j;
+                            TDTimeCRUD.Create();
+                        }
+                    }
+                    else if (TeachCRUD.Days.IndexOf(i) == 3)
+                    {
+                        for (int j = TeachCRUD.WedIn; j <= TeachCRUD.WedOut; j++)
+                        {
+                            TeachCRUD.TimeNo = j;
+                            TDTimeCRUD.Create();
+                        }
+                    }
+                    else if (TeachCRUD.Days.IndexOf(i) == 4)
+                    {
+                        for (int j = TeachCRUD.ThuIn; j <= TeachCRUD.ThuOut; j++)
+                        {
+                            TeachCRUD.TimeNo = j;
+                            TDTimeCRUD.Create();
+                        }
+                    }
+                    else if (TeachCRUD.Days.IndexOf(i) == 5)
+                    {
+                        for (int j = TeachCRUD.FriIn; j <= TeachCRUD.FriOut; j++)
+                        {
+                            TeachCRUD.TimeNo = j;
+                            TDTimeCRUD.Create();
+                        }
+                    }
+                    else if (TeachCRUD.Days.IndexOf(i) == 6)
+                    {
+                        for (int j = TeachCRUD.SatIn; j <= TeachCRUD.SatOut; j++)
+                        {
+                            TeachCRUD.TimeNo = j;
+                            TDTimeCRUD.Create();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
         }
 
         public void FT()
@@ -284,8 +344,6 @@ namespace AutomatedRoomScheduling
                 cmd.Dispose();
                 con.Close();
 
-                
-
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
@@ -296,8 +354,8 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "select Mon, MonIn, MonOut, Tue, TueIn, TueOut," +
-                    " Wed, WedIn, WedOut, Thu, ThuIn, ThuOut, Fri, FriIn, FriOut, Sat, SatIn, SatOut " +
+                query = "select Mon,  Tue, " +
+                    " Wed,  Thu,  Fri, Sat " +
                      "FROM PartT where TeacherID = '" + TeacherID + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -306,23 +364,17 @@ namespace AutomatedRoomScheduling
                 while (rdr.Read())
                 {
                     Mon   = Convert.ToInt32(rdr.GetValue(0));
-                    MonIn = rdr.GetString(1);
-                    MonOut= rdr.GetString(2);
+                   
                     Tue   = Convert.ToInt32(rdr.GetValue(3));
-                    TueIn = rdr.GetString(4);
-                    TueOut= rdr.GetString(5);
+                    
                     Wed   = Convert.ToInt32(rdr.GetValue(6));
-                    WedIn = rdr.GetString(7);
-                    WedOut= rdr.GetString(8);
+                   
                     Thu   = Convert.ToInt32(rdr.GetValue(9));
-                    ThuIn = rdr.GetString(10);
-                    ThuOut= rdr.GetString(11);
+                    
                     Fri   = Convert.ToInt32(rdr.GetValue(12));
-                    FriIn = rdr.GetString(13);
-                    FriOut= rdr.GetString(14);
+                    
                     Sat   = Convert.ToInt32(rdr.GetValue(15));
-                    SatIn = rdr.GetString(16);
-                    SatOut= rdr.GetString(17);
+                    
                 }
                 con.Close();
                 

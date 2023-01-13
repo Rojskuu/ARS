@@ -21,6 +21,9 @@ namespace AutomatedRoomScheduling
         FrmDash dash;
 
         TeachCRUD TeachCRUD;
+
+        TeacherDayCRUD TeacherDayCRUD = new TeacherDayCRUD();
+        TDTimeCRUD TDTimeCRUD  = new TDTimeCRUD();
        
         public FrmTeach()
         {
@@ -86,23 +89,23 @@ namespace AutomatedRoomScheduling
         public void Clear() 
         {
             TeachCRUD.Mon = 0;
-            TeachCRUD.MonIn = "";
-            TeachCRUD.MonOut = "";
+            TeachCRUD.MonIn = 0;
+            TeachCRUD.MonOut = 0;
             TeachCRUD.Tue = 0;
-            TeachCRUD.TueIn = "";
-            TeachCRUD.TueOut = "";
+            TeachCRUD.TueIn = 0;
+            TeachCRUD.TueOut = 0;
             TeachCRUD.Wed = 0;
-            TeachCRUD.WedIn = "";
-            TeachCRUD.WedOut = "";
+            TeachCRUD.WedIn = 0;
+            TeachCRUD.WedOut = 0;
             TeachCRUD.Thu = 0;
-            TeachCRUD.ThuIn = "";
-            TeachCRUD.ThuOut = "";
+            TeachCRUD.ThuIn = 0;
+            TeachCRUD.ThuOut = 0;
             TeachCRUD.Fri = 0;
-            TeachCRUD.FriIn = "";
-            TeachCRUD.FriOut = "";
+            TeachCRUD.FriIn = 0;
+            TeachCRUD.FriOut = 0;
             TeachCRUD.Sat = 0;
-            TeachCRUD.SatIn = "";
-            TeachCRUD.SatOut = "";
+            TeachCRUD.SatIn = 0;
+            TeachCRUD.SatOut = 0;
             MessageBox.Show("Cleared");
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -189,6 +192,7 @@ namespace AutomatedRoomScheduling
             }
         }
 
+       
         public void ClearValues() 
         {
             txtFName.Text = "";
