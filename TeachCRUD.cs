@@ -376,7 +376,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.MonIn = TDTimeCRUD.Asc;
                         TeachCRUD.MonOut = TDTimeCRUD.Des;
                     }
-                    else if (DayNo == 2)
+                    if (DayNo == 2)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -384,7 +384,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.TueIn = TDTimeCRUD.Asc;
                         TeachCRUD.TueOut = TDTimeCRUD.Des;
                     }
-                    else if(DayNo == 3)
+                    if(DayNo == 3)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -392,7 +392,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.WedIn = TDTimeCRUD.Asc;
                         TeachCRUD.WedOut = TDTimeCRUD.Des;
                     }
-                    else  if (DayNo == 4)
+                    if (DayNo == 4)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -400,7 +400,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.ThuIn = TDTimeCRUD.Asc;
                         TeachCRUD.ThuOut = TDTimeCRUD.Des;
                     }
-                    else  if (DayNo == 5)
+                     if (DayNo == 5)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -408,7 +408,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.FriIn = TDTimeCRUD.Asc;
                         TeachCRUD.FriOut = TDTimeCRUD.Des;
                     }
-                    else if(DayNo == 6)
+                     if(DayNo == 6)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();

@@ -26,15 +26,19 @@ namespace AutomatedRoomScheduling
         public static int Asc { get; set; }
         public static String TDTID { get; set;}
 
+        public TDTimeCRUD()
+        {
+            con = new SqlConnection(server);
+        }
 
         public void Desc()
         {
             try 
             
             {
-                
+                con.Open();
 
-                query = "Select TimeNo from RDTime where TDID = '"+TeacherDayCRUD.TDID+"'  Order by TimeNo Desc ";
+                query = "Select TimeNo from TDTime where TDID = '"+TeacherDayCRUD.TDID+"'  Order by TimeNo Desc ";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
 
@@ -43,8 +47,8 @@ namespace AutomatedRoomScheduling
                     Des = Convert.ToInt32(rdr.GetValue(0));
                     break;
                 }
-                
 
+                con.Close();
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
         
         }
@@ -53,9 +57,9 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-               
+               con.Open();
 
-                query = "Select TimeNo from RDTime where TDID = '" + TeacherDayCRUD.TDID + "'  Order by TimeNo ASC ";
+                query = "Select TimeNo from TDTime where TDID = '" + TeacherDayCRUD.TDID + "'  Order by TimeNo ASC ";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
 
@@ -64,8 +68,8 @@ namespace AutomatedRoomScheduling
                     Asc= Convert.ToInt32(rdr.GetValue(0));
                     break;
                 }
-                
 
+                con.Close();
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
 

@@ -23,6 +23,11 @@ namespace AutomatedRoomScheduling
         Random rand = new Random();
         public static string TDID { get; set; }
 
+        public TeacherDayCRUD()
+        {
+            con = new SqlConnection(server);
+            
+        }
 
         public void Create()
         {
