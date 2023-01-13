@@ -88,7 +88,7 @@ namespace AutomatedRoomScheduling
                 cmd.Dispose();
                 con.Close();
             }
-            catch (Exception) { }
+            catch (Exception ex ) { MessageBox.Show(ex + ""); }
 
         }
 

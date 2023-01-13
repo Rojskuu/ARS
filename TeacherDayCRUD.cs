@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutomatedRoomScheduling
 {
@@ -43,7 +44,7 @@ namespace AutomatedRoomScheduling
                 con.Close();
 
             }
-            catch (Exception) { }
+            catch (Exception ex ) { MessageBox.Show(ex + ""); }
         }
 
         public void Delete()

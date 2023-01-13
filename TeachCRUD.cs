@@ -151,9 +151,9 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                for (int i = 1; i <= TeachCRUD.Days.Count; i++)
+                for (int i = 0; i < TeachCRUD.Days.Count; i++)
                 {
-                    TeachCRUD.DayNo = Convert.ToInt32(TeachCRUD.Days.IndexOf(i));
+                    TeachCRUD.DayNo = Convert.ToInt32(TeachCRUD.Days[i]);
                     TeacherDayCRUD.Create();
 
                     if (TeachCRUD.DayNo == 1)
