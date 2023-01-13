@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,7 +20,7 @@ namespace AutomatedRoomScheduling
         DataTable dt;
         SqlDataReader reader;
         String query;
-
+        Random rand = new Random();
         public static string TDID { get; set; }
 
 
@@ -27,8 +28,9 @@ namespace AutomatedRoomScheduling
         {
             try
             {
+                int x = rand.Next();
                 TDID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + ""
-                   + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "" + FrmDash.MilliSec + "" + FrmDash.Nanosec;
+                   + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "" + FrmDash.MilliSec + "" + FrmDash.Nanosec+""+x;
 
                 con = new SqlConnection(server);
                 con.Open();
