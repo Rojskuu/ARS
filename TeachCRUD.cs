@@ -151,12 +151,12 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                for (int i = 0; i < TeachCRUD.Days.Count; i++)
+                for (int i = 1; i <= TeachCRUD.Days.Count; i++)
                 {
                     TeachCRUD.DayNo = Convert.ToInt32(TeachCRUD.Days.IndexOf(i));
                     TeacherDayCRUD.Create();
 
-                    if (TeachCRUD.Days.IndexOf(i) == 1)
+                    if (TeachCRUD.DayNo == 1)
                     {
                         for (int j = TeachCRUD.MonIn; j <= TeachCRUD.MonOut; j++)
                         {
@@ -164,7 +164,7 @@ namespace AutomatedRoomScheduling
                             TDTimeCRUD.Create();
                         }
                     }
-                    else if (TeachCRUD.Days.IndexOf(i) == 2)
+                    else if (TeachCRUD.DayNo == 2)
                     {
                         for (int j = TeachCRUD.TueIn; j <= TeachCRUD.TueOut; j++)
                         {
@@ -172,7 +172,7 @@ namespace AutomatedRoomScheduling
                             TDTimeCRUD.Create();
                         }
                     }
-                    else if (TeachCRUD.Days.IndexOf(i) == 3)
+                    else if (TeachCRUD.DayNo == 3)
                     {
                         for (int j = TeachCRUD.WedIn; j <= TeachCRUD.WedOut; j++)
                         {
@@ -180,7 +180,7 @@ namespace AutomatedRoomScheduling
                             TDTimeCRUD.Create();
                         }
                     }
-                    else if (TeachCRUD.Days.IndexOf(i) == 4)
+                    else if (TeachCRUD.DayNo == 4)
                     {
                         for (int j = TeachCRUD.ThuIn; j <= TeachCRUD.ThuOut; j++)
                         {
@@ -188,7 +188,7 @@ namespace AutomatedRoomScheduling
                             TDTimeCRUD.Create();
                         }
                     }
-                    else if (TeachCRUD.Days.IndexOf(i) == 5)
+                    else if (TeachCRUD.DayNo == 5)
                     {
                         for (int j = TeachCRUD.FriIn; j <= TeachCRUD.FriOut; j++)
                         {
@@ -196,7 +196,7 @@ namespace AutomatedRoomScheduling
                             TDTimeCRUD.Create();
                         }
                     }
-                    else if (TeachCRUD.Days.IndexOf(i) == 6)
+                    else if (TeachCRUD.DayNo == 6)
                     {
                         for (int j = TeachCRUD.SatIn; j <= TeachCRUD.SatOut; j++)
                         {
@@ -354,27 +354,72 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "select Mon,  Tue, " +
-                    " Wed,  Thu,  Fri, Sat " +
-                     "FROM PartT where TeacherID = '" + TeacherID + "'";
+                query = "Select TDID , DayNo from TeacherDay " +
+                   " where TeacherID = '" + TeacherID + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
 
+                int temp = 0;
                 while (rdr.Read())
                 {
-                    Mon   = Convert.ToInt32(rdr.GetValue(0));
+                    TeacherDayCRUD.TDID = rdr.GetString(temp) + "";
+                    temp++;
+                    TeachCRUD.DayNo = Convert.ToInt32(rdr.GetValue(temp));
+                    temp++;
+
+                    if (DayNo == 1) 
+                    {
+                        TDTime.Desc();
+                        TDTime.Ascend();
+                        TeachCRUD.Mon = 1;
+                        TeachCRUD.MonIn = TDTimeCRUD.Asc;
+                        TeachCRUD.MonOut = TDTimeCRUD.Des;
+                    }
+                    else if (DayNo == 2)
+                    {
+                        TDTime.Desc();
+                        TDTime.Ascend();
+                        TeachCRUD.Tue = 1;
+                        TeachCRUD.TueIn = TDTimeCRUD.Asc;
+                        TeachCRUD.TueOut = TDTimeCRUD.Des;
+                    }
+                    else if(DayNo == 3)
+                    {
+                        TDTime.Desc();
+                        TDTime.Ascend();
+                        TeachCRUD.Wed = 1;
+                        TeachCRUD.WedIn = TDTimeCRUD.Asc;
+                        TeachCRUD.WedOut = TDTimeCRUD.Des;
+                    }
+                    else  if (DayNo == 4)
+                    {
+                        TDTime.Desc();
+                        TDTime.Ascend();
+                        TeachCRUD.Thu = 1;
+                        TeachCRUD.ThuIn = TDTimeCRUD.Asc;
+                        TeachCRUD.ThuOut = TDTimeCRUD.Des;
+                    }
+                    else  if (DayNo == 5)
+                    {
+                        TDTime.Desc();
+                        TDTime.Ascend();
+                        TeachCRUD.Fri = 1;
+                        TeachCRUD.FriIn = TDTimeCRUD.Asc;
+                        TeachCRUD.FriOut = TDTimeCRUD.Des;
+                    }
+                    else if(DayNo == 6)
+                    {
+                        TDTime.Desc();
+                        TDTime.Ascend();
+                        TeachCRUD.Sat = 1;
+                        TeachCRUD.SatIn = TDTimeCRUD.Asc;
+                        TeachCRUD.SatOut = TDTimeCRUD.Des;
+                    }
                    
-                    Tue   = Convert.ToInt32(rdr.GetValue(3));
-                    
-                    Wed   = Convert.ToInt32(rdr.GetValue(6));
-                   
-                    Thu   = Convert.ToInt32(rdr.GetValue(9));
-                    
-                    Fri   = Convert.ToInt32(rdr.GetValue(12));
-                    
-                    Sat   = Convert.ToInt32(rdr.GetValue(15));
-                    
+
+
+
                 }
                 con.Close();
                 

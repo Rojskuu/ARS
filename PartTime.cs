@@ -50,6 +50,8 @@ namespace AutomatedRoomScheduling
             }
             else
             {
+                TeachCRUD.Days = new System.Collections.ArrayList();
+
                 if (cbMon.Checked)
                 {
                     TeachCRUD.Days.Add(1);
