@@ -101,6 +101,21 @@ namespace AutomatedRoomScheduling
 
         public void Delete()
         {
+            try 
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = $"Delete from TDTime " +
+                    "Where TDID = '" +TeacherDayCRUD.TDID+"'" ;
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                con.Close();
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+
 
         }
         public void Retrieve()

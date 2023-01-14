@@ -232,12 +232,46 @@ namespace AutomatedRoomScheduling
                 
 
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         public void Delete()
         {
+            try 
+            { 
 
+             
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+
+        }
+
+        public void GetTDID() 
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                
+                query = "Select TDID from TeacherDay " +
+                    " WHERE TeacherID = '" + TeacherID + "'";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    TeacherDayCRUD.TDID = rdr.GetString(rdr.GetOrdinal("TDID"));
+                    TDTime.Delete();
+                    TeacherDayCRUD.Delete();
+                }
+                con.Close();
+
+                TeacherDayTime();
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
 
 
         }
@@ -314,39 +348,14 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                con = new SqlConnection(server);
-                con.Open();
-
-                query = "update PartT set "   +
-                        "Mon = "+Mon + ", "   +
-                        "MonIn = '"  + MonIn  + "', " +
-                        "MonOut= '"  + MonOut + "', " +
-                        "Tue = "+Tue + ", "   +
-                        "TueIn = '"  + TueIn  + "', " +
-                        "TueOut= '"  + TueOut + "', " +
-                        "Wed = "+Wed + ", "   +
-                        "WedIn = '"  + WedIn  + "', " +
-                        "WedOut= '"  + WedOut + "', " +
-                        "Thu = "+Thu + ", "   +
-                        "ThuIn = '"  + ThuIn  + "', " +
-                        "ThuOut= '"  + ThuOut + "', " +
-                        "Fri = "+Fri + ", "   +
-                        "FriIn = '"  + FriIn  + "', " +
-                        "FriOut= '"  + FriOut + "', " +
-                        "Sat = "+Sat + ", "   +
-                        "SatIn = '"  + SatIn  + "', " +
-                        "SatOut= '"  + SatOut + "' " +
-                        "where TeacherID = '" + TeacherID + "'";
-
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-
-                cmd.Dispose();
-                con.Close();
+                GetTDID();
 
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
+
+
+        
         public void RetrievePT()
         {
             try 
