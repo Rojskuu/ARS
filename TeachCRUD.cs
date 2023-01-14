@@ -360,13 +360,13 @@ namespace AutomatedRoomScheduling
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
 
-                int temp = 0;
+               // int temp = 0;
                 while (rdr.Read())
                 {
-                    TeacherDayCRUD.TDID = rdr.GetString(temp) + "";
-                    temp++;
-                    TeachCRUD.DayNo = Convert.ToInt32(rdr.GetValue(temp));
-                    temp++;
+                    TeacherDayCRUD.TDID = rdr.GetString(rdr.GetOrdinal("TDID")) + "";
+                   // temp++;
+                    TeachCRUD.DayNo = Convert.ToInt32(rdr.GetValue(rdr.GetOrdinal("DayNo")));
+                   // temp++;
 
                     if (DayNo == 1) 
                     {
@@ -400,7 +400,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.ThuIn = TDTimeCRUD.Asc;
                         TeachCRUD.ThuOut = TDTimeCRUD.Des;
                     }
-                     if (DayNo == 5)
+                    if (DayNo == 5)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -408,7 +408,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.FriIn = TDTimeCRUD.Asc;
                         TeachCRUD.FriOut = TDTimeCRUD.Des;
                     }
-                     if(DayNo == 6)
+                    if(DayNo == 6)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -423,7 +423,7 @@ namespace AutomatedRoomScheduling
                 }
                 con.Close();
                 
-                } catch (Exception ex) { }
+                } catch (Exception ex) { MessageBox.Show(ex + ""); }
         
         }
 
