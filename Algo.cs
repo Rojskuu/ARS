@@ -286,12 +286,12 @@ namespace AutomatedRoomScheduling
         {
             try 
             {
-                if (ClassList.Count != 0) 
+                while (ClassList.Count != 0) 
                 {
                     ClassRandom = random.Next(0, ClassList.Count);
                     ClassID = ClassList[ClassRandom].ToString();
 
-
+                    PickRoom();
                 }
    
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
@@ -305,10 +305,11 @@ namespace AutomatedRoomScheduling
                 RoomRandom = random.Next(0, RoomList.Count);
                 RoomID = RoomList[RoomRandom].ToString();
 
-            
 
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
+
+
 
 
 
