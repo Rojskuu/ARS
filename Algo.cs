@@ -32,16 +32,23 @@ namespace AutomatedRoomScheduling
         public static ArrayList RDTID { get; set; } = new ArrayList();
         
         public static ArrayList TDID { get; set; } = new ArrayList();
-        public static ArrayList TDTID { get; set; } = new ArrayList(); 
+        public static ArrayList TimeNo { get; set; } = new ArrayList(); 
 
-        static int ctrClass = 0;
+        
 
-        public static String Room { get; set; }
+        public static String ClassID { get; set; }
+        public static String RoomID { get; set; }
         public static String RoomD { get; set; }
         public static String RoomDT { get; set; }
         public static String TeacherID { get; set; }
         public static String TeacherD { get; set; }
         public static String TeacherDT { get; set; }
+
+        public static int TDayNo { get; set; }
+        public static int RDayNo { get; set; }
+
+        public static int ClassRandom { get; set; }
+        public static int RoomRandom { get; set; }
 
         //subject >> Teacher that will teach >> Day&Time of partTime >>
         //department ---- 3rd 5-7 4th & 1st 7-7
@@ -52,6 +59,8 @@ namespace AutomatedRoomScheduling
         {
             PopClassList();
             PopRoomList();
+            PickClass();
+
         }
 
         public void PopRoomList() 
@@ -66,8 +75,6 @@ namespace AutomatedRoomScheduling
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
                
-                
-                
                 while (rdr.Read())
                 {
                     RoomList.Add(rdr.GetString(rdr.GetOrdinal("RoomID")));
@@ -87,7 +94,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select RDID from RoomDay Where Archive = 0 AND RoomID = '"+Room+"'";
+                query = "Select RDID from RoomDay Where Archive = 0 AND RoomID = '"+RoomID+"'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -131,8 +138,6 @@ namespace AutomatedRoomScheduling
             catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
-
-
         public void PopClassList() 
         {
             try
@@ -147,10 +152,7 @@ namespace AutomatedRoomScheduling
                 
                 while (rdr.Read())
                 {
-                    ClassList.Add(rdr.GetString(ctrClass)+"");
-                    PopIDs();
-                    ctrClass++;
-                    
+                   ClassList.Add(rdr.GetString(rdr.GetOrdinal("ClassID")));
                 }
 
                 con.Close();
@@ -167,7 +169,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select SubCode, SectionID, TeacherID from CLASS Where Archive = 0 AND CLASSID = '"+ClassList.IndexOf(ctrClass)+"'";
+                query = "Select SubCode, SectionID, TeacherID from CLASS Where Archive = 0 AND CLASSID = '"+ClassID+"'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -191,12 +193,13 @@ namespace AutomatedRoomScheduling
             try
             {
                 con = new SqlConnection(server);
+
                 con.Open();
 
                 query = "Select EmpType from Teacher Where Archive = 0 AND TeacherID = '" + TeachCRUD.TeacherID + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader rdr = cmd.ExecuteReader();
+                SqlDataReader rdr = cmd.ExecuteReader(); 
 
                 while (rdr.Read())
                 {
@@ -207,10 +210,11 @@ namespace AutomatedRoomScheduling
 
                 if (TeachCRUD.EmpType.Equals("Part-Time"))
                 {
-                    CheckPTTeach();
+                    RetriveTD();
                 }
                 else 
                 { 
+
                 
                 }
 
@@ -219,15 +223,96 @@ namespace AutomatedRoomScheduling
         
         }
 
-        public void CheckPTTeach() 
+        public void RetriveTD() 
+        {
+            
+                try
+                {
+                    con = new SqlConnection(server);
+                    con.Open();
+
+                    query = "Select TDID , DayNo from TeacherDay " +
+                       " where TeacherID = '" + TeacherID + "'";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    
+                    while (rdr.Read())
+                    {
+                        TeacherD = TDID.Add(rdr.GetString(rdr.GetOrdinal("TDID"))) + "";
+                        
+                        TDayNo = Convert.ToInt32(rdr.GetValue(rdr.GetOrdinal("DayNo")));
+                        
+
+                    }
+                    con.Close();
+
+                }
+                catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+           
+        }
+
+        public void RetrieveTDT() 
         {
             try
             {
-                TeachCRUD.RetrievePT();
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "Select TimeNo from TDTime " +
+                   " where TDID = '" + TeacherD + "'" +" AND isOccupied = 0";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+
+                     TimeNo.Add(rdr.GetString(rdr.GetOrdinal("TimeNo")));
+
+              
+                }
+                con.Close();
 
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
+
         }
+
+        public void PickClass()
+        {
+            try 
+            {
+                if (ClassList.Count != 0) 
+                {
+                    ClassRandom = random.Next(0, ClassList.Count);
+                    ClassID = ClassList[ClassRandom].ToString();
+
+
+                }
+   
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        
+        }
+
+        public void PickRoom()
+        {
+            try 
+            {
+                RoomRandom = random.Next(0, RoomList.Count);
+                RoomID = RoomList[RoomRandom].ToString();
+
+            
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+
+
+
 
 
 

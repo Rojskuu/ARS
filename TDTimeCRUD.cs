@@ -120,7 +120,23 @@ namespace AutomatedRoomScheduling
         }
         public void Retrieve()
         {
-            
+            try
+            {
+                con.Open();
+
+                query = "Select TimeNo from TDTime where TDID = '" + TeacherDayCRUD.TDID + "'  Order by TimeNo ASC ";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Asc = Convert.ToInt32(rdr.GetValue(0));
+                    break;
+                }
+
+                con.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         public void Update()
