@@ -17,18 +17,31 @@ namespace AutomatedRoomScheduling
 
         SqlCommand cmd;
         SqlConnection con;
-        String server = @"Data Source=DESKTOP-3LSCP0F\SQLEXPRESS;Initial Catalog = ARS; Integrated Security = True";
+        String server = ConnectionString.ConString;
         SqlDataAdapter adapter;
         DataSet ds;
         DataTable dt;
         SqlDataReader reader;
         String query;
+        Random random = new Random();
 
-        ArrayList ClassList , RoomList;
+
+        public static  ArrayList ClassList { get; set; } = new ArrayList();
+        public static ArrayList RoomList { get; set; } = new ArrayList();
+        public static ArrayList RDID { get; set; } = new ArrayList();
+        public static ArrayList RDTID { get; set; } = new ArrayList();
         
+        public static ArrayList TDID { get; set; } = new ArrayList();
+        public static ArrayList TDTID { get; set; } = new ArrayList(); 
+
         static int ctrClass = 0;
 
-
+        public static String Room { get; set; }
+        public static String RoomD { get; set; }
+        public static String RoomDT { get; set; }
+        public static String TeacherID { get; set; }
+        public static String TeacherD { get; set; }
+        public static String TeacherDT { get; set; }
 
         //subject >> Teacher that will teach >> Day&Time of partTime >>
         //department ---- 3rd 5-7 4th & 1st 7-7
@@ -52,11 +65,13 @@ namespace AutomatedRoomScheduling
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
-                int i = 0;
+               
+                
+                
                 while (rdr.Read())
                 {
-                    RoomList.Add(rdr.GetString(i) + "");
-                    i++;
+                    RoomList.Add(rdr.GetString(rdr.GetOrdinal("RoomID")));
+                   
                 }
 
                 con.Close();
@@ -64,6 +79,59 @@ namespace AutomatedRoomScheduling
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
+
+        public void GetRDID() 
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "Select RDID from RoomDay Where Archive = 0 AND RoomID = '"+Room+"'";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+
+                while (rdr.Read())
+                {
+                    RDID.Add(rdr.GetString(rdr.GetOrdinal("RDID")));
+
+                }
+
+                con.Close();
+
+                
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+        }
+
+        public void GetRDTID()
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "Select RDTID from RDTime Where isOccupied = 0 AND RDID = '" + RoomD + "'";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    RDTID.Add(rdr.GetString(rdr.GetOrdinal("RDTID")));
+
+                }
+
+                con.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+
 
         public void PopClassList() 
         {

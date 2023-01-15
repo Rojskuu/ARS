@@ -56,7 +56,7 @@ namespace AutomatedRoomScheduling
 
         public void Retrieve()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Update()
