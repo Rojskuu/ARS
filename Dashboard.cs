@@ -199,7 +199,13 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Are you sure you want to logout?", "Confirm", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                
+            }
+            //this.Close();
         }
 
         private void btnTeacher_Click(object sender, EventArgs e)

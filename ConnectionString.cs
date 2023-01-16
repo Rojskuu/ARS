@@ -8,6 +8,6 @@ namespace AutomatedRoomScheduling
 {
     internal class ConnectionString
     {
-        public static string ConString = @"Data Source=DESKTOP-3LSCP0F\SQLEXPRESS;Initial Catalog = ARS; Integrated Security = True";
+        public static string ConString = @"Data Source=DESKTOP-Q2JSK6R\SQLEXPRESS;Initial Catalog=ARS;Integrated Security=True";
     }
 }

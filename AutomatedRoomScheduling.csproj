@@ -81,6 +81,12 @@
     <Compile Include="FrmSY.Designer.cs">
       <DependentUpon>FrmSY.cs</DependentUpon>
     </Compile>
+    <Compile Include="Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="RDTimeCRUD.cs" />
     <Compile Include="RoomCRUD.cs" />
     <Compile Include="RoomDayCRUD.cs" />
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSY.resx">
       <DependentUpon>FrmSY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SectionList.resx">
       <DependentUpon>SectionList.cs</DependentUpon>

@@ -67,6 +67,34 @@ namespace AutomatedRoomScheduling
            
         }
 
+        public void CheckClassIDifExist(String txt)
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "SELECT * FROM Class WHERE SectionID = '" + txt + "'";
+
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ClassID", txt);
+
+                dt = new DataTable();
+
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count == 1)
+                {
+                    MessageBox.Show("Class ID already exist. "
+                        , "Existing ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+        }
+
         public void Retrieve()
         {
             try

@@ -35,8 +35,14 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            WindowChecker.IsRunning = false;
-            this.Close();
+            if (MessageBox.Show("Are you sure you want to exit? Any unsaved data will be lost.", "Confirm", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                WindowChecker.IsRunning = false;
+                this.Close();
+            }
+            //WindowChecker.IsRunning = false;
+            //this.Close();
         }
 
         private void btnMini_Click(object sender, EventArgs e)

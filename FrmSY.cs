@@ -49,7 +49,12 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Are you sure you want to exit? Any unsaved data will be lost.", "Confirm", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                this.Close();
+            }
+            //this.Close();
         }
     }
 }

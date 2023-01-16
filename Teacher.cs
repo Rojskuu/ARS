@@ -80,11 +80,20 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Clear();
-            FrmTeachList frmTeachList = new FrmTeachList();
-            frmTeachList.Show();
+            if (MessageBox.Show("Are you sure you want to exit? Any unsaved data will be lost.", "Confirm", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                Clear();
+                FrmTeachList frmTeachList = new FrmTeachList();
+                frmTeachList.Show();
 
-            this.Close();
+                this.Close();
+            }
+            //Clear();
+            //FrmTeachList frmTeachList = new FrmTeachList();
+            //frmTeachList.Show();
+
+            //this.Close();
         }
         public void Clear() 
         {

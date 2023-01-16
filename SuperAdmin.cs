@@ -118,9 +118,16 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Login = new FrmLogin();
-            this.Hide();
-            Login.Show();
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Login = new FrmLogin();
+                this.Hide();
+                Login.Show();
+            }
+            //Login = new FrmLogin();
+            //this.Hide();
+            //Login.Show();
         }
     }
 }
