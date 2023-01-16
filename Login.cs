@@ -138,14 +138,19 @@ namespace AutomatedRoomScheduling
                                 dash = new FrmDash();
                                 AdminChecker.Admin = txtUsername.Text.Trim();
                                 this.Hide();
-                                dash.Show();
+                                dash.ShowDialog();
+                                txtUsername.Text = "";
+                                txtPassword.Text = "";
+                                Show();
                             }
                             else
                             {
                                 superAdmin = new FrmSuperAdmin();
                                 this.Hide();
-                                superAdmin.Show();
-
+                                superAdmin.ShowDialog();
+                                txtUsername.Text = "";
+                                txtPassword.Text = "";
+                                Show();
                             }
                         }
                         else 
@@ -223,9 +228,16 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            FrmLogin login = new FrmLogin();
-            login.Close();
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                FrmLogin login = new FrmLogin();
+                login.Close();
+            }
+            //this.Close();
+            //FrmLogin login = new FrmLogin();
+            //login.Close();
         }
     }
 }

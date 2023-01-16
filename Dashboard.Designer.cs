@@ -123,6 +123,8 @@
             // 
             // btnSched
             // 
+            this.btnSched.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSched.BackgroundImage")));
+            this.btnSched.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSched.Location = new System.Drawing.Point(13, 561);
             this.btnSched.Name = "btnSched";
             this.btnSched.Size = new System.Drawing.Size(66, 55);

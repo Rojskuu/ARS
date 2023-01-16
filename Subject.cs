@@ -54,9 +54,16 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            FrmSubjectList frmSubject = new FrmSubjectList();
-            frmSubject.Show();
-            this.Close();
+            if (MessageBox.Show("Are you sure you want to exit? Any unsaved data will be lost.", "Confirm", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                FrmSubjectList frmSubject = new FrmSubjectList();
+                frmSubject.Show();
+                this.Close();
+            }
+            //FrmSubjectList frmSubject = new FrmSubjectList();
+            //frmSubject.Show();
+            //this.Close();
         }
 
         private void btnMini_Click(object sender, EventArgs e)
@@ -141,6 +148,20 @@ namespace AutomatedRoomScheduling
 
         }
 
-       
+        private void txtSubCode_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                String txt = txtSubCode.Text;
+                SubjectCRUD.CheckSubjectIDifExist(txt);
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        private void txtSubCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

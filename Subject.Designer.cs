@@ -321,6 +321,8 @@
             this.txtSubCode.Name = "txtSubCode";
             this.txtSubCode.Size = new System.Drawing.Size(262, 27);
             this.txtSubCode.TabIndex = 0;
+            this.txtSubCode.TextChanged += new System.EventHandler(this.txtSubCode_TextChanged);
+            this.txtSubCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSubCode_KeyUp);
             // 
             // FrmSubject
             // 

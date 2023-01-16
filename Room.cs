@@ -51,9 +51,16 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            FrmRoomList roomList = new FrmRoomList();
-            roomList.Show();
-            this.Close();
+            if (MessageBox.Show("Are you sure you want to exit? Any unsaved data will be lost.", "Confirm", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                FrmRoomList roomList = new FrmRoomList();
+                roomList.Show();
+                this.Close();
+            }
+            //FrmRoomList roomList = new FrmRoomList();
+            //roomList.Show();
+            //this.Close();
         }
 
         private void btnMini_Click(object sender, EventArgs e)
@@ -119,6 +126,17 @@ namespace AutomatedRoomScheduling
             
 
             btnADD.Text = "UPDATE";
+        }
+
+        private void txtRoomID_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                String txt = txtRoomID.Text;
+                RoomCRUD.CheckRoomIDifExist(txt);
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
     }
 }

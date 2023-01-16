@@ -61,6 +61,34 @@ namespace AutomatedRoomScheduling
             
         }
 
+        public void CheckSubjectIDifExist(String txt)
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "SELECT * FROM Subj WHERE SubCode = '" + txt + "'";
+
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@SubFCode", txt);
+
+                dt = new DataTable();
+
+                adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dt);
+
+                if (dt.Rows.Count == 1)
+                {
+                    MessageBox.Show("Subject Code already exist. "
+                        , "Existing Code", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+        }
+
         public void Retrieve()
         {
 
