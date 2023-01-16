@@ -59,31 +59,31 @@ namespace AutomatedRoomScheduling
                     TeachCRUD.MonOut = cmbMonOut.SelectedIndex;
 
                 }
-                else if (cbTue.Checked)
+                if (cbTue.Checked)
                 {
                     TeachCRUD.Days.Add(2);
                     TeachCRUD.TueIn = cmbTueIn.SelectedIndex;
                     TeachCRUD.TueOut = cmbTueOut.SelectedIndex;
                 }
-                else if (cbWed.Checked)
+                 if (cbWed.Checked)
                 {
                     TeachCRUD.Days.Add(3);
                     TeachCRUD.WedIn = cmbWedIn.SelectedIndex;
                     TeachCRUD.WedOut = cmbWedOut.SelectedIndex;
                 }
-                else if (cbThu.Checked)
+                 if (cbThu.Checked)
                 {
                     TeachCRUD.Days.Add(4);
                     TeachCRUD.ThuIn = cmbThuIn.SelectedIndex;
                     TeachCRUD.ThuOut = cmbThuOut.SelectedIndex;
                 }
-                else if (cbFri.Checked)
+                 if (cbFri.Checked)
                 {
                     TeachCRUD.Days.Add(5);
                     TeachCRUD.FriIn = cmbFriIn.SelectedIndex;
                     TeachCRUD.FriOut = cmbFriOut.SelectedIndex;
                 }
-                else if (cbSat.Checked)
+                 if (cbSat.Checked)
                 {
                     TeachCRUD.Days.Add(6);
                     TeachCRUD.SatIn = cmbSatIn.SelectedIndex;

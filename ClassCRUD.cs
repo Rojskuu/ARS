@@ -39,7 +39,9 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                ClassID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + "" + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "";
+                ClassID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" 
+                    + FrmDash.Day + "" + FrmDash.Hr + "" 
+                    + FrmDash.Min + "" + FrmDash.Sec + "-" + FrmDash.SYSem;
 
                 con = new SqlConnection(server);
                 con.Open();

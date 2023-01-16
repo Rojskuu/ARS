@@ -151,9 +151,9 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                for (int i = 1; i <= TeachCRUD.Days.Count; i++)
+                for (int i = 0; i < TeachCRUD.Days.Count; i++)
                 {
-                    TeachCRUD.DayNo = Convert.ToInt32(TeachCRUD.Days.IndexOf(i));
+                    TeachCRUD.DayNo = Convert.ToInt32(TeachCRUD.Days[i]);
                     TeacherDayCRUD.Create();
 
                     if (TeachCRUD.DayNo == 1)
@@ -232,12 +232,46 @@ namespace AutomatedRoomScheduling
                 
 
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         public void Delete()
         {
+            try 
+            { 
 
+             
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+
+        }
+
+        public void GetTDID() 
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                
+                query = "Select TDID from TeacherDay " +
+                    " WHERE TeacherID = '" + TeacherID + "'";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    TeacherDayCRUD.TDID = rdr.GetString(rdr.GetOrdinal("TDID"));
+                    TDTime.Delete();
+                    TeacherDayCRUD.Delete();
+                }
+                con.Close();
+
+                TeacherDayTime();
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
 
 
         }
@@ -314,39 +348,14 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                con = new SqlConnection(server);
-                con.Open();
-
-                query = "update PartT set "   +
-                        "Mon = "+Mon + ", "   +
-                        "MonIn = '"  + MonIn  + "', " +
-                        "MonOut= '"  + MonOut + "', " +
-                        "Tue = "+Tue + ", "   +
-                        "TueIn = '"  + TueIn  + "', " +
-                        "TueOut= '"  + TueOut + "', " +
-                        "Wed = "+Wed + ", "   +
-                        "WedIn = '"  + WedIn  + "', " +
-                        "WedOut= '"  + WedOut + "', " +
-                        "Thu = "+Thu + ", "   +
-                        "ThuIn = '"  + ThuIn  + "', " +
-                        "ThuOut= '"  + ThuOut + "', " +
-                        "Fri = "+Fri + ", "   +
-                        "FriIn = '"  + FriIn  + "', " +
-                        "FriOut= '"  + FriOut + "', " +
-                        "Sat = "+Sat + ", "   +
-                        "SatIn = '"  + SatIn  + "', " +
-                        "SatOut= '"  + SatOut + "' " +
-                        "where TeacherID = '" + TeacherID + "'";
-
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-
-                cmd.Dispose();
-                con.Close();
+                GetTDID();
 
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
+
+
+        
         public void RetrievePT()
         {
             try 
@@ -360,13 +369,13 @@ namespace AutomatedRoomScheduling
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
 
-                int temp = 0;
+               // int temp = 0;
                 while (rdr.Read())
                 {
-                    TeacherDayCRUD.TDID = rdr.GetString(temp) + "";
-                    temp++;
-                    TeachCRUD.DayNo = Convert.ToInt32(rdr.GetValue(temp));
-                    temp++;
+                    TeacherDayCRUD.TDID = rdr.GetString(rdr.GetOrdinal("TDID")) + "";
+                   // temp++;
+                    TeachCRUD.DayNo = Convert.ToInt32(rdr.GetValue(rdr.GetOrdinal("DayNo")));
+                   // temp++;
 
                     if (DayNo == 1) 
                     {
@@ -376,7 +385,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.MonIn = TDTimeCRUD.Asc;
                         TeachCRUD.MonOut = TDTimeCRUD.Des;
                     }
-                    else if (DayNo == 2)
+                    if (DayNo == 2)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -384,7 +393,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.TueIn = TDTimeCRUD.Asc;
                         TeachCRUD.TueOut = TDTimeCRUD.Des;
                     }
-                    else if(DayNo == 3)
+                    if(DayNo == 3)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -392,7 +401,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.WedIn = TDTimeCRUD.Asc;
                         TeachCRUD.WedOut = TDTimeCRUD.Des;
                     }
-                    else  if (DayNo == 4)
+                    if (DayNo == 4)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -400,7 +409,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.ThuIn = TDTimeCRUD.Asc;
                         TeachCRUD.ThuOut = TDTimeCRUD.Des;
                     }
-                    else  if (DayNo == 5)
+                    if (DayNo == 5)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -408,7 +417,7 @@ namespace AutomatedRoomScheduling
                         TeachCRUD.FriIn = TDTimeCRUD.Asc;
                         TeachCRUD.FriOut = TDTimeCRUD.Des;
                     }
-                    else if(DayNo == 6)
+                    if(DayNo == 6)
                     {
                         TDTime.Desc();
                         TDTime.Ascend();
@@ -423,7 +432,7 @@ namespace AutomatedRoomScheduling
                 }
                 con.Close();
                 
-                } catch (Exception ex) { }
+                } catch (Exception ex) { MessageBox.Show(ex + ""); }
         
         }
 
