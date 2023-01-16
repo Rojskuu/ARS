@@ -43,6 +43,8 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query, ID, txt;
 
+        public static String SYSem { get; set; }
+
 
 
        
@@ -369,6 +371,16 @@ namespace AutomatedRoomScheduling
 
         }
 
+        private void cmbSY_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try 
+            {
+
+                SYSem = cmbSY.SelectedItem+"";
+
+            } catch (Exception ex) { MessageBox.Show(ex+ ""); }
+        }
+
         private void txtSection_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -381,18 +393,15 @@ namespace AutomatedRoomScheduling
                 }
                 else
                 {
-
                     con.Open();
-
 
                     query = "Select SectionID AS 'Section ID' , SecCnt AS 'Student Count' , Course AS 'Course' " +
                             ", Yearlvl AS 'Year level' from Section  where Archive = 0 " +
                             "AND SectionID LIKE '%" + txt + "%' and Archive = 0 " +
                             "or SecCnt LIKE '%" + txt + "%' and Archive = 0 " +
                             "or Course LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Yearlvl LIKE '%" + txt + "%' and Archive = 0 "
+                            "or Yearlvl LIKE '%" + txt + "%' and Archive = 0 ";
 
-                        ;
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();
                     ds.Clear();

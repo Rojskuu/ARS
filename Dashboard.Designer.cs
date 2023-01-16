@@ -510,6 +510,7 @@
             this.cmbSY.Name = "cmbSY";
             this.cmbSY.Size = new System.Drawing.Size(151, 28);
             this.cmbSY.TabIndex = 2;
+            this.cmbSY.SelectedIndexChanged += new System.EventHandler(this.cmbSY_SelectedIndexChanged);
             // 
             // btnSNT
             // 

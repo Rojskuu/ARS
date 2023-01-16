@@ -38,7 +38,7 @@ namespace AutomatedRoomScheduling
             
                 query = "insert into Section " +
                 "(SectionID, SecCnt, Course, Yearlvl, Archive , Username)" +
-                "values('" + SectionID + "', '" + SectionCount + "', '" + Course + "', " +
+                "values('" + SectionID +"-"+FrmDash.SYSem+ "', '" + SectionCount + "', '" + Course + "', " +
                 "'" + Yrlvl + "', '" + 0 + "', '" + AdminChecker.Admin + "')";
 
             
@@ -119,7 +119,7 @@ namespace AutomatedRoomScheduling
                 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
-                MessageBox.Show("Here b4 loop");
+               
                 while (rdr.Read())
                 {
                    //MessageBox.Show(rdr.GetString(0) + " " + rdr.GetString(1) + " " + rdr.GetString(2));
