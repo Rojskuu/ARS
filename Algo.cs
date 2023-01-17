@@ -48,7 +48,9 @@ namespace AutomatedRoomScheduling
 
         public static String SubjectHr { get; set; }
         public static String SubjectMin{ get; set; }
-        public static String TotalTimeNo { get; set; }
+
+
+        public static int TotalTimeNo { get; set; }
 
 
 
@@ -191,6 +193,7 @@ namespace AutomatedRoomScheduling
                 }
 
                 con.Close();
+                GetSubjectTime();
                 CheckTeacher();
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
@@ -198,8 +201,31 @@ namespace AutomatedRoomScheduling
         }
 
         public void GetSubjectTime() 
-        { 
-        
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "Select Hrs from Subj Where Archive = 0 AND SubejctCode = '" + SubjectCRUD.SubjectCode + "'";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    String temp = rdr.GetString(0);
+                    SubjectHr = temp.Substring(0, temp.IndexOf(":"));
+                    SubjectMin = temp.Substring(temp.IndexOf(":")+1);
+
+                    TotalTimeNo = (Convert.ToInt32(SubjectHr) * 4) + (Convert.ToInt32(SubjectMin) / 15);
+                }
+
+                con.Close();
+                
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
         }
 
         public void CheckTeacher()
