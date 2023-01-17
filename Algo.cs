@@ -32,9 +32,11 @@ namespace AutomatedRoomScheduling
         public static ArrayList RDTID { get; set; } = new ArrayList();
         
         public static ArrayList TDID { get; set; } = new ArrayList();
-        public static ArrayList TimeNo { get; set; } = new ArrayList(); 
+        public static ArrayList RoomTimeNo { get; set; } = new ArrayList(); 
 
-        
+        public static ArrayList TeachTimeNo { get; set; } = new ArrayList();
+
+
 
         public static String ClassID { get; set; }
         public static String RoomID { get; set; }
@@ -43,6 +45,12 @@ namespace AutomatedRoomScheduling
         public static String TeacherID { get; set; }
         public static String TeacherD { get; set; }
         public static String TeacherDT { get; set; }
+
+        public static String SubjectHr { get; set; }
+        public static String SubjectMin{ get; set; }
+        public static String TotalTimeNo { get; set; }
+
+
 
         public static int TDayNo { get; set; }
         public static int RDayNo { get; set; }
@@ -77,6 +85,7 @@ namespace AutomatedRoomScheduling
                
                 while (rdr.Read())
                 {
+
                     RoomList.Add(rdr.GetString(rdr.GetOrdinal("RoomID")));
                    
                 }
@@ -122,14 +131,14 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select RDTID from RDTime Where isOccupied = 0 AND RDID = '" + RoomD + "'";
+                query = "Select TimeNo from RDTime Where isOccupied = 0 AND RDID = '" + RoomD + "' Order by TimeNo";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
-                    RDTID.Add(rdr.GetString(rdr.GetOrdinal("RDTID")));
+                    RoomTimeNo.Add(rdr.GetString(rdr.GetOrdinal("RDTID")));
 
                 }
 
@@ -186,6 +195,11 @@ namespace AutomatedRoomScheduling
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
 
+        }
+
+        public void GetSubjectTime() 
+        { 
+        
         }
 
         public void CheckTeacher()
@@ -262,7 +276,7 @@ namespace AutomatedRoomScheduling
                 con.Open();
 
                 query = "Select TimeNo from TDTime " +
-                   " where TDID = '" + TeacherD + "'" +" AND isOccupied = 0";
+                   " where TDID = '" + TeacherD + "'" +" AND isOccupied = 0  Order by TimeNo";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -271,7 +285,7 @@ namespace AutomatedRoomScheduling
                 while (rdr.Read())
                 {
 
-                     TimeNo.Add(rdr.GetString(rdr.GetOrdinal("TimeNo")));
+                     TeachTimeNo.Add(rdr.GetString(rdr.GetOrdinal("TimeNo")));
 
               
                 }
@@ -290,7 +304,7 @@ namespace AutomatedRoomScheduling
                 {
                     ClassRandom = random.Next(0, ClassList.Count);
                     ClassID = ClassList[ClassRandom].ToString();
-
+                    PopIDs();
                     PickRoom();
                 }
    
@@ -298,17 +312,35 @@ namespace AutomatedRoomScheduling
         
         }
 
+
+
         public void PickRoom()
         {
             try 
             {
+
                 RoomRandom = random.Next(0, RoomList.Count);
                 RoomID = RoomList[RoomRandom].ToString();
+                GetRDID();
 
 
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
+
+        public void findFit() 
+        {
+            try
+            {
+
+               
+
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+    }
 
 
 
@@ -323,5 +355,5 @@ namespace AutomatedRoomScheduling
 
 
 
-    }
 }
+
