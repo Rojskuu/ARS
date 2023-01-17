@@ -35,6 +35,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.grpPInfo = new System.Windows.Forms.GroupBox();
+            this.btnPT = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbDept = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.txtMName = new System.Windows.Forms.TextBox();
             this.txtFName = new System.Windows.Forms.TextBox();
             this.txtLName = new System.Windows.Forms.TextBox();
-            this.btnPT = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.grpPInfo.SuspendLayout();
             this.SuspendLayout();
@@ -156,6 +156,18 @@
             this.grpPInfo.TabIndex = 8;
             this.grpPInfo.TabStop = false;
             this.grpPInfo.Text = "PERSONAL INFORMATION";
+            // 
+            // btnPT
+            // 
+            this.btnPT.Enabled = false;
+            this.btnPT.Location = new System.Drawing.Point(580, 359);
+            this.btnPT.Name = "btnPT";
+            this.btnPT.Size = new System.Drawing.Size(32, 31);
+            this.btnPT.TabIndex = 24;
+            this.btnPT.Text = "...";
+            this.btnPT.UseVisualStyleBackColor = true;
+            this.btnPT.Visible = false;
+            this.btnPT.Click += new System.EventHandler(this.btnPT_Click);
             // 
             // label13
             // 
@@ -385,18 +397,6 @@
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(279, 27);
             this.txtLName.TabIndex = 3;
-            // 
-            // btnPT
-            // 
-            this.btnPT.Enabled = false;
-            this.btnPT.Location = new System.Drawing.Point(580, 359);
-            this.btnPT.Name = "btnPT";
-            this.btnPT.Size = new System.Drawing.Size(32, 31);
-            this.btnPT.TabIndex = 24;
-            this.btnPT.Text = "...";
-            this.btnPT.UseVisualStyleBackColor = true;
-            this.btnPT.Visible = false;
-            this.btnPT.Click += new System.EventHandler(this.btnPT_Click);
             // 
             // FrmTeach
             // 

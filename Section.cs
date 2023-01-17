@@ -57,9 +57,16 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            FrmSectionList frmSection = new FrmSectionList();
-            frmSection.Show();
-            this.Close();
+            if (MessageBox.Show("Are you sure you want to exit? Any unsaved data will be lost.", "Confirm", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                FrmSectionList frmSection = new FrmSectionList();
+                frmSection.Show();
+                this.Close();
+            }
+            //FrmSectionList frmSection = new FrmSectionList();
+            //frmSection.Show();
+            //this.Close();
         }
 
         private void btnMini_Click(object sender, EventArgs e)

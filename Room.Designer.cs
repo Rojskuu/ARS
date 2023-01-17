@@ -183,6 +183,7 @@
             this.txtRoomID.Name = "txtRoomID";
             this.txtRoomID.Size = new System.Drawing.Size(241, 27);
             this.txtRoomID.TabIndex = 0;
+            this.txtRoomID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRoomID_KeyUp);
             // 
             // btnADD
             // 

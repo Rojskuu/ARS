@@ -99,8 +99,14 @@ namespace AutomatedRoomScheduling
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            WindowChecker.IsRunning = false;
-            this.Close();
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                WindowChecker.IsRunning = false;
+                this.Close();
+            }
+            //WindowChecker.IsRunning = false;
+            //this.Close();
         }
 
         private void btnMini_Click(object sender, EventArgs e)
