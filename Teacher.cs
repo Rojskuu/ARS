@@ -42,7 +42,12 @@ namespace AutomatedRoomScheduling
         }
         private void FrmTeach_Load(object sender, EventArgs e)
         {
-            dtBday.MaxDate = DateTime.Now;
+            int currentYear = DateTime.Now.Year;
+            int minAge = 22;
+            int maxAge = 50;
+
+            dtBday.MaxDate = new DateTime(currentYear - minAge, 1, 1);
+            dtBday.MinDate = new DateTime(currentYear - maxAge, 12, 31);
         }
 
         public void Poptxt() 
