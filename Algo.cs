@@ -327,7 +327,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select timeframe from Time where TimeNo IN (" + getStartTeach + ", "  + getEndTeach +") Order by TimeNo";
+                query = "Select TimeFrame from Time where TimeNo IN (" + getStartTeach + ", "  + getEndTeach +" ) Order by TimeNo";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -337,6 +337,8 @@ namespace AutomatedRoomScheduling
                     string start, end;
                     start = rdr.GetString(0);
                     end = rdr.GetString(1);
+
+
 
                    startClass =start.Substring(0,start.ToString().IndexOf("-"));
                    endClass = end.Substring(end.ToString().IndexOf("-"));
