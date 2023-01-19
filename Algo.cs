@@ -14,7 +14,9 @@ namespace AutomatedRoomScheduling
     {
         TeachCRUD TeachCRUD;
 
+        ScheduleCRUD ScheduleCRUD = new ScheduleCRUD();
 
+        
         SqlCommand cmd;
         SqlConnection con;
         String server = ConnectionString.ConString;
@@ -42,23 +44,28 @@ namespace AutomatedRoomScheduling
 
         public static ArrayList TeachTimeNo { get; set; } = new ArrayList();
 
-
+        public static String Day { get; set; }
         public static String ClassType { get; set; }
         public static String ClassID { get; set; }
         public static String RoomID { get; set; }
+        public static String RoomType { get; set; }
         public static String RoomD { get; set; }
         public static String RoomDT { get; set; }
         public static String TeacherID { get; set; }
         public static String TeacherD { get; set; }
         public static String TeacherDT { get; set; }
-
+        public static String TimeFrame { get; set; }
         public static String SubjectHr { get; set; }
         public static String SubjectMin{ get; set; }
+        public static String startClass { get; set; }
+        public static String endClass { get; set; }
         public static int getStartRoom { get; set; } = 0;
         public static int getEndRoom { get; set; } = 0;
 
         public static int getStartTeach { get; set; } = 0;
         public static int getEndTeach { get; set; } = 0;
+
+
 
 
         public static int TotalTimeNo { get; set; }
@@ -71,6 +78,8 @@ namespace AutomatedRoomScheduling
         public static int ClassRandom { get; set; }
         public static int RoomRandom { get; set; }
 
+        public static int RDIDRandom { get; set; }
+
         //subject >> Teacher that will teach >> Day&Time of partTime >>
         //department ---- 3rd 5-7 4th & 1st 7-7
         //use genetic algo instead
@@ -79,95 +88,13 @@ namespace AutomatedRoomScheduling
         public Algo()
         {
             PopClassList();
-            PopRoomList();
+            
             MainAlgo();
 
         }
 
-        public void PopRoomList()
-        {
-            try 
-            { 
-                PopRoomLecList();
-                PopRoomKitList();
-                PopRoomComList();
-            } catch (Exception ex) { MessageBox.Show(ex + ""); }
         
-        }
-        public void PopRoomLecList() 
-        {
-            try
-            {
-                con = new SqlConnection(server);
-                con.Open();
-
-                query = "Select RoomID from Room Where Archive = 0 And RoomType = 'Lecture Room'";
-
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader rdr = cmd.ExecuteReader();
-               
-                while (rdr.Read())
-                {
-
-                    RoomLecList.Add(rdr.GetString(rdr.GetOrdinal("RoomID")));
-                   
-                }
-
-                con.Close();
-
-            }
-            catch (Exception ex) { MessageBox.Show(ex + ""); }
-        }
-
-        public void PopRoomComList()
-        {
-            try
-            {
-                con = new SqlConnection(server);
-                con.Open();
-
-                query = "Select RoomID from Room Where Archive = 0 And RoomType = 'Computer Laboratory'";
-
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-
-                    RoomComList.Add(rdr.GetString(rdr.GetOrdinal("RoomID")));
-
-                }
-
-                con.Close();
-
-            }
-            catch (Exception ex) { MessageBox.Show(ex + ""); }
-        }
-
-        public void PopRoomKitList()
-        {
-            try
-            {
-                con = new SqlConnection(server);
-                con.Open();
-
-                query = "Select RoomID from Room Where Archive = 0 And RoomType = 'Kitchen Laboratory'";
-
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-
-                    RoomKitList.Add(rdr.GetString(rdr.GetOrdinal("RoomID")));
-
-                }
-
-                con.Close();
-
-            }
-            catch (Exception ex) { MessageBox.Show(ex + ""); }
-        }
+      
 
         public void GetRDID() 
         {
@@ -227,7 +154,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select ClassID from CLASS Where Archive = 0 AND isSched = 0";
+                query = "Select ClassID from CLASS Where Archive = 0 OR isSched = 0";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -296,7 +223,7 @@ namespace AutomatedRoomScheduling
                         TDayNo = Convert.ToInt32(TDay[i]);
 
                         RetrieveTDT();
-
+                        
                         isTeachConsec();
 
                         if (getEndTeach != 0) 
@@ -304,26 +231,29 @@ namespace AutomatedRoomScheduling
                             
                             if (ClassType.Equals("Computer Laboratory"))
                             {
-
-                                for (int j = 0; j < RoomComList.Count; j++)
-                                {
-
-                                    PickComRoom();
-                                    GetRDID();
-
-
-                                }
+                                RoomType = "Computer Laboratory";
                             }
                             else if (ClassType.Equals("Kitchen Laboratory"))
-                            { 
-                               
-                               
-                            }
-                            else if (ClassType.Equals("Lecture Room"))
                             {
-                                
-                                
+                                RoomType = "Kitchen Laboratory";
                             }
+                            else if (ClassType.Equals("Lecture"))
+                            {
+                                RoomType = "Lecture";
+                            }
+                            getSimilarTime();
+                            PickRDID();
+                            getRoomID();
+                            //UpdateTeachTime();
+                            //UpdateRoomTime();
+                           // UpdateClass();
+                            getTimeFrame();
+                           
+                            getDay();
+                            //ScheduleCRUD.Create();
+
+                            Algo algo = new Algo();
+
 
                         }
 
@@ -332,12 +262,171 @@ namespace AutomatedRoomScheduling
 
                 }
 
-
-
-
             } catch (Exception ex) 
             { MessageBox.Show(ex + ""); }
         
+        }
+
+        public void getDay() 
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query =
+                        "Select DayName from Day where DayNo =" + TDayNo;
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                   Day = rdr.GetString(0);
+                }
+
+                con.Close();
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+        }
+
+        public void getRoomID() 
+        {
+            try
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query =
+                        "Select R.RoomID from Room R " +
+                        "INNER JOIN RoomDay RD " +
+                        "ON R.RoomID = RD.RoomID " +
+                        "where RDID = '" + RoomD+"'";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    RoomID = rdr.GetString(0)+"";
+                }
+
+                con.Close();
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+        }
+
+        public void getTimeFrame()
+        {
+            try 
+            {
+                con = new SqlConnection(server);
+                con.Open();
+
+                query = "Select timeframe from Time where TimeNo IN (" + getStartTeach + ", "  + getEndTeach +") Order by TimeNo";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    string start, end;
+                    start = rdr.GetString(0);
+                    end = rdr.GetString(1);
+
+                   startClass =start.Substring(0,start.ToString().IndexOf("-"));
+                   endClass = end.Substring(end.ToString().IndexOf("-"));
+                    TimeFrame = startClass + endClass;
+                }
+
+                con.Close();
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        
+        }
+
+        public void UpdateClass() 
+        {
+            try
+            {
+                con = new SqlConnection(server);
+
+                    con.Open();
+
+                    query = "update Class set " +
+                        "isSched = 1 " +
+                         "where ClassID = '" + ClassID + "'";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Dispose();
+                    con.Close();
+
+                
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+        }
+        public void UpdateTeachTime()
+        {
+            try 
+            {
+                con = new SqlConnection(server);
+
+
+                for (int i = getStartTeach; i <= getEndTeach; i++)
+                {
+                    con.Open();
+
+                    query = "update TDTime set " +
+                        "isOccupied = 1 "+
+                         "where TDID = '" + TeacherD + "' AND TimeNo = "  + i ;
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Dispose();
+                    con.Close();
+
+                }
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        
+        }
+
+
+        public void UpdateRoomTime()
+        {
+            try
+            {
+                con = new SqlConnection(server);
+
+
+                for (int i = getStartTeach; i <= getEndTeach; i++)
+                {
+                    con.Open();
+
+                    query = "update RDTime set " +
+                        "isOccupied = 1 " +
+                         "where RDID = '" +RoomD + "' AND TimeNo = " + i;
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+
+                    cmd.Dispose();
+                    con.Close();
+
+                }
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
         }
 
         public void getSimilarTime()
@@ -347,10 +436,16 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "SELECT RDID FROM RDTime "+
-                        "WHERE TimeNo BETWEEN " + getStartTeach+  "AND"+ getEndTeach + " TotalTimeNo AND IsOccupied = 0 " +
-                        "GROUP BY RDID " +
-                       " HAVING COUNT(DISTINCT TimeNo) ="+ TotalTimeNo; 
+                query = "SELECT RDT.RDID FROM  RDTime RDT " +
+                        "INNER JOIN RoomDay RD " +
+                        "ON RDT.RDID = RD.RDID " +
+                        "INNER JOIN Room R " +
+                        "ON R.RoomID = RD.RoomID " +
+                        "WHERE RDT.TimeNo BETWEEN " + getStartTeach + 
+                        " AND " + getEndTeach + 
+                        "AND RDT.IsOccupied = 0 AND R.RoomType = '" + RoomType + "' AND RD.DayNo = " +TDayNo+
+                        "GROUP BY RDT.RDID " +
+                        "HAVING COUNT(DISTINCT RDT.TimeNo) = " + TotalTimeNo;
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -375,7 +470,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select Hrs , ClassType from Subj Where Archive = 0 AND SubejctCode = '" + SubjectCRUD.SubjectCode + "'";
+                query = "Select Hrs , ClassType from Subj Where Archive = 0 AND SubCode = '" + SubjectCRUD.SubjectCode + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -441,7 +536,7 @@ namespace AutomatedRoomScheduling
                     con.Open();
 
                     query = "Select TDID , DayNo from TeacherDay " +
-                       " where TeacherID = '" + TeacherID + "'";
+                       " where TeacherID = '" + TeachCRUD.TeacherID + "'";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     SqlDataReader rdr = cmd.ExecuteReader();
@@ -481,7 +576,7 @@ namespace AutomatedRoomScheduling
                 while (rdr.Read())
                 {
 
-                     TeachTimeNo.Add(rdr.GetString(rdr.GetOrdinal("TimeNo")));
+                     TeachTimeNo.Add(rdr.GetValue(rdr.GetOrdinal("TimeNo")));
 
               
                 }
@@ -500,13 +595,28 @@ namespace AutomatedRoomScheduling
                 {
                     ClassRandom = random.Next(0, ClassList.Count);
                     ClassID = ClassList[ClassRandom].ToString();
-                    
+                    break;
                 }
    
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
         
         }
 
+        public void PickRDID()
+        {
+            try
+            {
+                while (RDID.Count != 0)
+                {
+                   int RoomDayRandom = random.Next(0, RDID.Count);
+                    RoomD = RDID[RoomDayRandom].ToString();
+                    break;
+                }
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+        }
 
 
         public void PickLecRoom()
@@ -540,17 +650,7 @@ namespace AutomatedRoomScheduling
             catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
-        public void findFit() 
-        {
-            try
-            {
-
-               
-
-
-            }
-            catch (Exception ex) { MessageBox.Show(ex + ""); }
-        }
+       
 
 
         public void isRoomConsec()

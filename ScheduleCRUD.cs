@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutomatedRoomScheduling
 {
@@ -19,15 +20,36 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query;
 
+        Random rand = new Random();
+
         public static String ScheduleID { get; set; }
-        public static String ClassID { get; set; }
-        public static String RoomID { get; set; }
-        public static String Day { get; set; }
-         public static String Time { get; set; }
+        
 
         public void Create()
         {
-            
+
+            try {
+
+                con = new SqlConnection(server);
+                con.Open();
+                int x = rand.Next();
+                ScheduleID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + ""
+                    + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "" + FrmDash.MilliSec + "" + FrmDash.Nanosec + "" + x;
+
+                query = "insert into SCHED(SchedID, ClassID, RoomID, SYSem ,araw, Timeframe, Username,  Archive) " +
+                        " values( '" + ScheduleID + "' , '" + Algo.ClassID + "' , '" + Algo.RoomID + "' , '" + FrmDash.SYSem + "' , '" + Algo.Day + "', " +
+                        " '" + Algo.TimeFrame + "', '" + AdminChecker.Admin + "' , " + 0;
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                con.Close();
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+
+
+
+
         }
 
         public void Delete()

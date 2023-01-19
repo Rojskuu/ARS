@@ -116,7 +116,7 @@ namespace AutomatedRoomScheduling
             {
                 con.Open();
 
-                query = TeachCRUD.TeachDisplay;
+                query = "Select * from SCHED";
 
                 adapter = new SqlDataAdapter(query, con);
                 ds = new DataSet();
@@ -419,17 +419,20 @@ namespace AutomatedRoomScheduling
        
         private void btnSched_Click(object sender, EventArgs e)
         {
-            if (WindowChecker.IsRunning == true)
-            {
-                MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
-                   "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                WindowChecker.IsRunning = true;
-                Sched = new FrmSchedule();
-                Sched.Show();
-            }
+            Algo algo = new Algo();
+            
+            
+            //if (WindowChecker.IsRunning == true)
+            //{
+            //    MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
+            //       "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //else
+            //{
+            //    WindowChecker.IsRunning = true;
+            //    Sched = new FrmSchedule();
+            //    Sched.Show();
+            //}
         }
 
         private void txtTeach_KeyUp(object sender, KeyEventArgs e)
