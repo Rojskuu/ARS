@@ -244,15 +244,17 @@ namespace AutomatedRoomScheduling
                             getSimilarTime();
                             PickRDID();
                             getRoomID();
-                            //UpdateTeachTime();
-                            //UpdateRoomTime();
-                           // UpdateClass();
+                            UpdateRoomTime();
+                            UpdateTeachTime();
+                            UpdateClass();
                             getTimeFrame();
                            
                             getDay();
-                            //ScheduleCRUD.Create();
+                            ScheduleCRUD.Create();
 
-                            Algo algo = new Algo();
+                            ClassList.Remove(ClassID);
+
+                            
 
 
                         }
@@ -324,26 +326,48 @@ namespace AutomatedRoomScheduling
         {
             try 
             {
+                string start, end;
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select TimeFrame from Time where TimeNo IN (" + getStartTeach + ", "  + getEndTeach +" ) Order by TimeNo";
+                //query = "Select TimeFrame from Time where TimeNo IN (" + getStartTeach + ", "  + getEndTeach +" ) Order by TimeNo";
+                query = "Select TimeFrame from Time where TimeNo  =" + getStartTeach;
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
-                    string start, end;
+                    
                     start = rdr.GetString(0);
-                    end = rdr.GetString(1);
 
 
+                    startClass = start.Substring(0, start.ToString().IndexOf("-"));
 
-                   startClass =start.Substring(0,start.ToString().IndexOf("-"));
-                   endClass = end.Substring(end.ToString().IndexOf("-"));
-                    TimeFrame = startClass + endClass;
+
                 }
+                con.Close();
+
+                con.Open();
+
+                query = "Select TimeFrame from Time where TimeNo  =" + getEndTeach;
+
+                SqlCommand cmd1 = new SqlCommand(query, con);
+                SqlDataReader rdr1 = cmd1.ExecuteReader();
+
+                while (rdr1 .Read())
+                {
+
+                    end = rdr1.GetString(0);
+
+
+                    endClass = end.Substring(end.ToString().IndexOf("-"));
+
+
+                }
+
+
+                TimeFrame = startClass + endClass;
 
                 con.Close();
 

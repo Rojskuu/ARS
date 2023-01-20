@@ -38,7 +38,7 @@ namespace AutomatedRoomScheduling
 
                 query = "insert into SCHED(SchedID, ClassID, RoomID, SYSem ,araw, Timeframe, Username,  Archive) " +
                         " values( '" + ScheduleID + "' , '" + Algo.ClassID + "' , '" + Algo.RoomID + "' , '" + FrmDash.SYSem + "' , '" + Algo.Day + "', " +
-                        " '" + Algo.TimeFrame + "', '" + AdminChecker.Admin + "' , " + 0;
+                        " '" + Algo.TimeFrame + "', '" + AdminChecker.Admin + "' , " + 0+")";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
