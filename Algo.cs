@@ -210,57 +210,69 @@ namespace AutomatedRoomScheduling
                 Find similar slot on room
                 Generate Sched
                  */
-                while (ClassList.Count != 0)
+                if (ClassList.Count != 0)
                 {
-                    PickClass();
-                    PopIDs();
-                    GetSubjectTime();
-                    RetriveTD();
-
-                    for (int i = 0; i <= TDID.Count; i++)
+                    while (ClassList.Count != 0)
                     {
-                        TeacherD = TDID[i]+"";
-                        TDayNo = Convert.ToInt32(TDay[i]);
+                        PickClass();
+                        PopIDs();
+                        GetSubjectTime();
+                        RetriveTD();
 
-                        RetrieveTDT();
-                        
-                        isTeachConsec();
-
-                        if (getEndTeach != 0) 
+                        if (TDID.Count != 0)
                         {
-                            
-                            if (ClassType.Equals("Computer Laboratory"))
+                            for (int i = 0; i <= TDID.Count; i++)
                             {
-                                RoomType = "Computer Laboratory";
+                                TeacherD = TDID[i] + "";
+                                TDayNo = Convert.ToInt32(TDay[i]);
+
+                                RetrieveTDT();
+
+                                isTeachConsec();
+
+                                if (getEndTeach != 0)
+                                {
+
+                                    if (ClassType.Equals("Computer Laboratory"))
+                                    {
+                                        RoomType = "Computer Laboratory";
+                                    }
+                                    else if (ClassType.Equals("Kitchen Laboratory"))
+                                    {
+                                        RoomType = "Kitchen Laboratory";
+                                    }
+                                    else if (ClassType.Equals("Lecture"))
+                                    {
+                                        RoomType = "Lecture";
+                                    }
+                                    getSimilarTime();
+                                    PickRDID();
+                                    getRoomID();
+                                    UpdateRoomTime();
+                                    UpdateTeachTime();
+                                    UpdateClass();
+                                    getTimeFrame();
+
+                                    getDay();
+                                    ScheduleCRUD.Create();
+
+                                    ClassList.Remove(ClassID);
+
+
+
+
+                                }
+
                             }
-                            else if (ClassType.Equals("Kitchen Laboratory"))
-                            {
-                                RoomType = "Kitchen Laboratory";
-                            }
-                            else if (ClassType.Equals("Lecture"))
-                            {
-                                RoomType = "Lecture";
-                            }
-                            getSimilarTime();
-                            PickRDID();
-                            getRoomID();
-                            UpdateRoomTime();
-                            UpdateTeachTime();
-                            UpdateClass();
-                            getTimeFrame();
-                           
-                            getDay();
-                            ScheduleCRUD.Create();
-
-                            ClassList.Remove(ClassID);
-
-                            
-
-
                         }
 
-                    }
 
+                    }
+                }
+                else 
+                {
+
+                    MessageBox.Show("Schedule Generated Successfully", "Schedule", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
 
