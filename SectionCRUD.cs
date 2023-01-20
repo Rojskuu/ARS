@@ -38,7 +38,7 @@ namespace AutomatedRoomScheduling
             
                 query = "insert into Section " +
                 "(SectionID, SecCnt, Course, Yearlvl, Archive , Username)" +
-                "values('" + SectionID +"-"+FrmDash.SYSem+ "', '" + SectionCount + "', '" + Course + "', " +
+                "values('" + SectionID.Replace("'", "''") +"-"+FrmDash.SYSem+ "', '" + SectionCount + "', '" + Course + "', " +
                 "'" + Yrlvl + "', '" + 0 + "', '" + AdminChecker.Admin + "')";
 
             

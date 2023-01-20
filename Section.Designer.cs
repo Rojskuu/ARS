@@ -148,9 +148,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(45, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 20);
+            this.label2.Size = new System.Drawing.Size(116, 20);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Section Count:";
+            this.label2.Text = "Student Count:";
             // 
             // label1
             // 

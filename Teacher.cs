@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AutomatedRoomScheduling
 {
@@ -20,10 +21,15 @@ namespace AutomatedRoomScheduling
         
         FrmDash dash;
 
+        Apos apos = new Apos();
+
         TeachCRUD TeachCRUD;
 
         TeacherDayCRUD TeacherDayCRUD = new TeacherDayCRUD();
         TDTimeCRUD TDTimeCRUD  = new TDTimeCRUD();
+
+        public static String male = "";
+        public static String female = "";
        
         public FrmTeach()
         {
@@ -48,6 +54,8 @@ namespace AutomatedRoomScheduling
 
             dtBday.MaxDate = new DateTime(currentYear - minAge, 1, 1);
             dtBday.MinDate = new DateTime(currentYear - maxAge, 12, 31);
+
+            txtConNum.MaxLength = 10;
         }
 
         public void Poptxt() 
@@ -56,7 +64,16 @@ namespace AutomatedRoomScheduling
             txtFName.Text = TeachCRUD.FName;
             txtMName.Text = TeachCRUD.MName;
             txtLName.Text = TeachCRUD.LName;
-            cmbSex.Text = TeachCRUD.Sex;
+            if (TeachCRUD.Sex.Equals("Male"))
+            {
+                rbtnMale.Checked = true;
+                rbtnFemale.Checked = false;
+            }
+            else 
+            {
+                rbtnMale.Checked = false;
+                rbtnFemale.Checked = true;
+            }
             txtReligion.Text = TeachCRUD.Religion;
             dtBday.Value = new DateTime(Convert.ToInt32(TeachCRUD.year), 
             Convert.ToInt32(TeachCRUD.month), Convert.ToInt32(TeachCRUD.day));
@@ -136,14 +153,20 @@ namespace AutomatedRoomScheduling
             {
                 if (txtTeacherID.Text.Trim().Equals("") || txtFName.Text.Trim().Equals("")
                      || txtMName.Text.Trim().Equals("") || txtLName.Text.Trim().Equals("")
-                     || cmbSex.Text.Trim().Equals("") || txtReligion.Text.Trim().Equals("")
+                     || txtReligion.Text.Trim().Equals("") 
                      || dtBday.Value.Equals(DateTime.Now) || txtConNum.Text.Trim().Equals("")
                      || cmbDegree.Text.Trim().Equals("") || cmbCS.Text.Trim().Equals("")
-                     || cmbEmpType.Text.Trim().Equals("") || cmbDept.Text.Trim().Equals(""))
+                     || cmbEmpType.Text.Trim().Equals("") || cmbDept.Text.Trim().Equals("") 
+                     || (!rbtnMale.Checked && !rbtnFemale.Checked))
                 {
                     MessageBox.Show("Please fill up all the fields. "
                         , "Field cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                }
+                else if (txtConNum.Text.Length != txtConNum.MaxLength)
+                {
+                    MessageBox.Show("Please complete the contact # field. "
+                        , "Input incomplete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -151,7 +174,6 @@ namespace AutomatedRoomScheduling
                     TeachCRUD.FName = txtFName.Text.Trim();
                     TeachCRUD.MName = txtMName.Text.Trim();
                     TeachCRUD.LName = txtLName.Text.Trim();
-                    TeachCRUD.Sex = cmbSex.Text.Trim();
                     TeachCRUD.Religion = txtReligion.Text.Trim();
                     TeachCRUD.Bday = dtBday.Value.ToString("yyyy-MM-dd");
                     TeachCRUD.ConNum = txtConNum.Text.Trim();
@@ -198,12 +220,12 @@ namespace AutomatedRoomScheduling
                 }
             }
             catch (Exception ex) { }
-            finally 
-            { 
-                FrmTeachList frmTeachList = new FrmTeachList();
-                frmTeachList.Show();
-                this.Close(); 
-            }
+            //finally 
+            //{ 
+            //    FrmTeachList frmTeachList = new FrmTeachList();
+            //    frmTeachList.Show();
+            //    this.Close(); 
+            //}
         }
 
        
@@ -215,8 +237,9 @@ namespace AutomatedRoomScheduling
             txtTeacherID.Text = "";
             txtReligion.Text = "";
             txtConNum.Text = "";
+            rbtnMale.Checked = false;
+            rbtnFemale.Checked = false;
             cmbDegree.SelectedIndex = 0;
-            cmbSex.SelectedIndex = 0;
             cmbEmpType.SelectedIndex = 0;
             cmbCS.SelectedIndex = 0;
             dtBday.Value = DateTime.Now;
@@ -229,6 +252,16 @@ namespace AutomatedRoomScheduling
             try 
             {
                 String txt = txtTeacherID.Text;
+                if (txt.Contains("'"))
+                {
+                    int loc = txt.LastIndexOf("'");
+
+                    String apos = "'";
+
+                    String temp = txt.Insert(loc, apos);
+
+                    txt = temp;
+                }
                 TeachCRUD.CheckIDifExist(txt);
             
             } catch (Exception ex) { MessageBox.Show(ex + "");}
@@ -263,6 +296,35 @@ namespace AutomatedRoomScheduling
                 
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        private void txtConNum_KeyUp(object sender, KeyEventArgs e)
+        {
+            // Allow only digits and the backspace key
+            if (!char.IsControl(((char)e.KeyCode)) && !char.IsDigit(((char)e.KeyCode)))
+            {
+                MessageBox.Show("Please input number only in this text field.", "Error!",
+                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtConNum.Text = "";
+                e.Handled = true;
+            }
+        }
+
+        private void rbtnMale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnMale.Checked)
+            {
+                TeachCRUD.Sex = "Male";
+            }
+            else
+            {
+                TeachCRUD.Sex = "Female";
+            }
+        }
+
+        private void rbtnFemale_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

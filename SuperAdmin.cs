@@ -29,6 +29,7 @@ namespace AutomatedRoomScheduling
         SqlCommand cmd;
         String query;
         FrmLogin Login;
+        public static int status = 0;
 
         public FrmSuperAdmin()
         {
@@ -40,7 +41,7 @@ namespace AutomatedRoomScheduling
         {
             try 
             {
-                if (txtUsername.Text.Trim().Equals("") || cmbStatus.SelectedIndex.Equals(0))
+                if (txtUsername.Text.Trim().Equals(""))
                 {
                     MessageBox.Show("Please fill up all the fields. "
                                  , "Field cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,20 +88,12 @@ namespace AutomatedRoomScheduling
         {
             try 
             {
-                int temp;
-                if (cmbStatus.SelectedIndex.Equals(1))
-                {
-                    temp = 0;
-                }
-                else 
-                {
-                    temp = 1;
-                }
+                
                 con = new SqlConnection(server);
                 con.Open();
 
                 query = "update Admin set " +
-                         "BlockAcc = " + temp +
+                         "BlockAcc = " + status +
                          " Where Username = '" 
                          + txtUsername.Text.Trim() + "'";
                       
@@ -128,6 +121,19 @@ namespace AutomatedRoomScheduling
             //Login = new FrmLogin();
             //this.Hide();
             //Login.Show();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbStatus.Checked)
+            {
+                status = 0;
+                cbStatus.Text = "Activate";
+            } else 
+            { 
+                status = 1;
+                cbStatus.Text = "Deactivate";
+            }
         }
     }
 }
