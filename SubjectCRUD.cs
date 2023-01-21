@@ -43,7 +43,7 @@ namespace AutomatedRoomScheduling
 
                 query = $"insert into Subj " +
                     "(SubCode, SubDescript, ClassType, unit, Hrs,Department, Archive,Username)" +
-                    "values('" + SubjectCode + "', '" + SubjectDesc + "', '"+ClassType+"', " + 
+                    "values('" + SubjectCode.Replace("'", "''") + "', '" + SubjectDesc.Replace("'", "''") + "', '"+ClassType+"', " + 
                     "'" + SubjectUnit + "', '" + SubjectHrsndd + "', '"+Department+"', " +
                     "'" +0+ "', '"+AdminChecker.Admin+"')";
 

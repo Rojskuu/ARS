@@ -45,7 +45,7 @@ namespace AutomatedRoomScheduling
 
                 query = "insert into Room " +
                 "(RoomID, RoomType, Cap , Archive , Username ) " +
-                "values('" + RoomID + "', '" + RoomType + "', '" + RoomCap + "', " +
+                "values('" + RoomID.Replace("'", "''") + "', '" + RoomType + "', '" + RoomCap + "', " +
                  + 0 + ", '" + AdminChecker.Admin + "')";
 
 

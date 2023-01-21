@@ -82,8 +82,8 @@ namespace AutomatedRoomScheduling
 
                 query = $"insert into Teacher " +
                     "(TeacherID, Fname, Mname, Lname, Sex, Religion, Bday, Contact, Degree, CivilStat, EmpType, Department , Username, Archive)" +
-                    "values('" + TeacherID + "', '" + FName + "', '" + MName + "', '" + LName + "', '" + Sex + "', '" + Religion + "', " +
-                    "'" + Bday + "', '" + ConNum + "','" + Deg + "', '" + CS + "', '" + EmpType + "', '"+Department +"', '" + AdminChecker.Admin + "', '" + 0 + "')";
+                    "values('" + TeacherID.Replace("'", "''") + "', '" + FName.Replace("'","''") + "', '" + MName.Replace("'", "''") + "', '" + LName.Replace("'", "''") + "', '" + Sex + "', '" + Religion.Replace("'", "''") + "', " +
+                    "'" + Bday + "', '" + ConNum.Replace("'", "''") + "','" + Deg + "', '" + CS + "', '" + EmpType + "', '"+Department +"', '" + AdminChecker.Admin + "', '" + 0 + "')";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();

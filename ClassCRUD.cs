@@ -49,7 +49,7 @@ namespace AutomatedRoomScheduling
 
                 query = "insert into CLASS " +
                 "(ClassID, SubCode, SectionID, TeacherID , Archive , Username ) " +
-                "values('" + ClassID + "', '" + SubjectCode + "', '" + SectionID + "', '" + TeacherID + "' ," +
+                "values('" + ClassID + "', '" + SubjectCode.Replace("'", "''") + "', '" + SectionID.Replace("'", "''") + "', '" + TeacherID.Replace("'", "''") + "' ," +
                 "'" + 0 + "', '" + AdminChecker.Admin + "')";
 
 

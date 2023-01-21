@@ -35,11 +35,11 @@
             this.btnMini = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,18 +103,6 @@
             this.txtUsername.Size = new System.Drawing.Size(139, 27);
             this.txtUsername.TabIndex = 3;
             // 
-            // cmbStatus
-            // 
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "",
-            "Activate",
-            "Deactivate"});
-            this.cmbStatus.Location = new System.Drawing.Point(208, 128);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(139, 28);
-            this.cmbStatus.TabIndex = 6;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -127,7 +115,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(47, 135);
+            this.label4.Location = new System.Drawing.Point(47, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 10;
@@ -154,17 +142,30 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "SUPER ADMIN";
             // 
+            // cbStatus
+            // 
+            this.cbStatus.AutoSize = true;
+            this.cbStatus.Checked = true;
+            this.cbStatus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbStatus.Location = new System.Drawing.Point(208, 125);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(87, 24);
+            this.cbStatus.TabIndex = 13;
+            this.cbStatus.Text = "Activate";
+            this.cbStatus.UseVisualStyleBackColor = true;
+            this.cbStatus.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // FrmSuperAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(390, 283);
+            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -188,11 +189,11 @@
         private System.Windows.Forms.Button btnMini;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox cbStatus;
     }
 }

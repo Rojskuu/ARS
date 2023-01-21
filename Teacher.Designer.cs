@@ -35,6 +35,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.grpPInfo = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.btnPT = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbDept = new System.Windows.Forms.ComboBox();
@@ -56,10 +57,11 @@
             this.txtConNum = new System.Windows.Forms.TextBox();
             this.txtReligion = new System.Windows.Forms.TextBox();
             this.txtTeacherID = new System.Windows.Forms.TextBox();
-            this.cmbSex = new System.Windows.Forms.ComboBox();
             this.txtMName = new System.Windows.Forms.TextBox();
             this.txtFName = new System.Windows.Forms.TextBox();
             this.txtLName = new System.Windows.Forms.TextBox();
+            this.rbtnMale = new System.Windows.Forms.RadioButton();
+            this.rbtnFemale = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.grpPInfo.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +126,9 @@
             // grpPInfo
             // 
             this.grpPInfo.BackColor = System.Drawing.Color.White;
+            this.grpPInfo.Controls.Add(this.rbtnFemale);
+            this.grpPInfo.Controls.Add(this.rbtnMale);
+            this.grpPInfo.Controls.Add(this.label14);
             this.grpPInfo.Controls.Add(this.btnPT);
             this.grpPInfo.Controls.Add(this.label13);
             this.grpPInfo.Controls.Add(this.cmbDept);
@@ -145,7 +150,6 @@
             this.grpPInfo.Controls.Add(this.txtConNum);
             this.grpPInfo.Controls.Add(this.txtReligion);
             this.grpPInfo.Controls.Add(this.txtTeacherID);
-            this.grpPInfo.Controls.Add(this.cmbSex);
             this.grpPInfo.Controls.Add(this.txtMName);
             this.grpPInfo.Controls.Add(this.txtFName);
             this.grpPInfo.Controls.Add(this.txtLName);
@@ -156,6 +160,15 @@
             this.grpPInfo.TabIndex = 8;
             this.grpPInfo.TabStop = false;
             this.grpPInfo.Text = "PERSONAL INFORMATION";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(291, 263);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 20);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "+63";
             // 
             // btnPT
             // 
@@ -345,10 +358,11 @@
             // 
             // txtConNum
             // 
-            this.txtConNum.Location = new System.Drawing.Point(295, 260);
+            this.txtConNum.Location = new System.Drawing.Point(332, 260);
             this.txtConNum.Name = "txtConNum";
-            this.txtConNum.Size = new System.Drawing.Size(279, 27);
+            this.txtConNum.Size = new System.Drawing.Size(242, 27);
             this.txtConNum.TabIndex = 6;
+            this.txtConNum.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtConNum_KeyUp);
             // 
             // txtReligion
             // 
@@ -364,18 +378,6 @@
             this.txtTeacherID.Size = new System.Drawing.Size(279, 27);
             this.txtTeacherID.TabIndex = 0;
             this.txtTeacherID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTeacherID_KeyUp);
-            // 
-            // cmbSex
-            // 
-            this.cmbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSex.Items.AddRange(new object[] {
-            "",
-            "Male",
-            "Female"});
-            this.cmbSex.Location = new System.Drawing.Point(295, 158);
-            this.cmbSex.Name = "cmbSex";
-            this.cmbSex.Size = new System.Drawing.Size(279, 28);
-            this.cmbSex.TabIndex = 4;
             // 
             // txtMName
             // 
@@ -397,6 +399,30 @@
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(279, 27);
             this.txtLName.TabIndex = 3;
+            // 
+            // rbtnMale
+            // 
+            this.rbtnMale.AutoSize = true;
+            this.rbtnMale.Location = new System.Drawing.Point(295, 162);
+            this.rbtnMale.Name = "rbtnMale";
+            this.rbtnMale.Size = new System.Drawing.Size(63, 24);
+            this.rbtnMale.TabIndex = 26;
+            this.rbtnMale.TabStop = true;
+            this.rbtnMale.Text = "Male";
+            this.rbtnMale.UseVisualStyleBackColor = true;
+            this.rbtnMale.CheckedChanged += new System.EventHandler(this.rbtnMale_CheckedChanged);
+            // 
+            // rbtnFemale
+            // 
+            this.rbtnFemale.AutoSize = true;
+            this.rbtnFemale.Location = new System.Drawing.Point(364, 162);
+            this.rbtnFemale.Name = "rbtnFemale";
+            this.rbtnFemale.Size = new System.Drawing.Size(79, 24);
+            this.rbtnFemale.TabIndex = 27;
+            this.rbtnFemale.TabStop = true;
+            this.rbtnFemale.Text = "Female";
+            this.rbtnFemale.UseVisualStyleBackColor = true;
+            this.rbtnFemale.CheckedChanged += new System.EventHandler(this.rbtnFemale_CheckedChanged);
             // 
             // FrmTeach
             // 
@@ -447,12 +473,14 @@
         private System.Windows.Forms.TextBox txtConNum;
         private System.Windows.Forms.TextBox txtReligion;
         private System.Windows.Forms.TextBox txtTeacherID;
-        private System.Windows.Forms.ComboBox cmbSex;
         private System.Windows.Forms.TextBox txtMName;
         private System.Windows.Forms.TextBox txtFName;
         private System.Windows.Forms.TextBox txtLName;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbDept;
         private System.Windows.Forms.Button btnPT;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.RadioButton rbtnFemale;
+        private System.Windows.Forms.RadioButton rbtnMale;
     }
 }
