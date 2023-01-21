@@ -20,6 +20,7 @@ namespace AutomatedRoomScheduling
 
         FrmDash dash;
         SectionCRUD SectionCRUD;
+        LogHisCRUD log;
         
         public FrmSection()
         {
@@ -60,6 +61,8 @@ namespace AutomatedRoomScheduling
             if (MessageBox.Show("Are you sure you want to exit? Any unsaved data will be lost.", "Confirm", MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Warning) == DialogResult.OK)
             {
+                LogHisCRUD.Activity = " Closed Section form.";
+                log.Create();
                 FrmSectionList frmSection = new FrmSectionList();
                 frmSection.Show();
                 this.Close();
@@ -127,13 +130,17 @@ namespace AutomatedRoomScheduling
 
                     if (btnAdd.Text.Equals("ADD"))
                     {
+                        LogHisCRUD.Activity = "Added Section " + SectionCRUD.SectionID + ".";
+                        log.Create();
                         SectionCRUD.Create();
-
+                       
 
                         Clear();
                     }
                     else if (btnAdd.Text.Equals("UPDATE"))
                     {
+                        LogHisCRUD.Activity = "Updated Section " + SectionCRUD.SectionID + ".";
+                        log.Create();
                         SectionCRUD.Update();
 
 

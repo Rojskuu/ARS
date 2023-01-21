@@ -20,7 +20,7 @@ namespace AutomatedRoomScheduling
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         
         FrmDash dash;
-
+        LogHisCRUD log;
         Apos apos = new Apos();
 
         TeachCRUD TeachCRUD;
@@ -184,7 +184,10 @@ namespace AutomatedRoomScheduling
 
                     if (btnAdd.Text.Equals("ADD"))
                     {
-                            TeachCRUD.Create();
+                       
+                        LogHisCRUD.Activity = " Added teacher "+ TeachCRUD.TeacherID+".";
+                        log.Create();
+                        TeachCRUD.Create();
                             TeachCRUD.PT();
                             TeachCRUD.FT();
 
@@ -199,7 +202,9 @@ namespace AutomatedRoomScheduling
                     }
                     else if (btnAdd.Text.Equals("UPDATE"))
                     {
-                            TeachCRUD.Update();
+                        LogHisCRUD.Activity = " Updated teacher " + TeachCRUD.TeacherID + ".";
+                        log.Create();
+                        TeachCRUD.Update();
 
                         if (cmbEmpType.Text.Trim().Equals("Part-Time"))
                         {

@@ -26,6 +26,7 @@ namespace AutomatedRoomScheduling
         DataSet ds;
         DataTable dt;
         SqlDataReader reader;
+        LogHisCRUD log = new LogHisCRUD();
         String query;
 
         FrmDash dash;
@@ -77,6 +78,7 @@ namespace AutomatedRoomScheduling
                 MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 FrmClassList frmClass = new FrmClassList();
+                
                 frmClass.Show();
                 this.Close();
             }
@@ -164,6 +166,8 @@ namespace AutomatedRoomScheduling
                         if (Exist == false)
                         {
                             ClassCRUD.Create();
+                            LogHisCRUD.Activity = "Added Class " + ClassCRUD.ClassID + ".";
+                            log.Create();
                             Clear();
                             this.Close();
                         }
@@ -178,6 +182,8 @@ namespace AutomatedRoomScheduling
                     {
 
                         ClassCRUD.Update();
+                        LogHisCRUD.Activity = "Updated Class " + ClassCRUD.ClassID + ".";
+                        log.Create();
                         btnADD.Text = "ADD";
                         Clear();
                         this.Close();

@@ -21,6 +21,7 @@ namespace AutomatedRoomScheduling
         FrmDash dash;
         SubjectCRUD SubjectCRUD;
         String Hrs;
+        LogHisCRUD log;
 
 
         public FrmSubject()
@@ -126,11 +127,15 @@ namespace AutomatedRoomScheduling
 
                     if (btnAdd.Text.Equals("ADD"))
                     {
+                        LogHisCRUD.Activity = "Added Subject " + SubjectCRUD.SubjectCode + ".";
+                        log.Create();
                         SubjectCRUD.Create();
                         Clear();
                     }
                     else
                     {
+                        LogHisCRUD.Activity = "Updated Subject " + SubjectCRUD.SubjectCode + ".";
+                        log.Create();
                         SubjectCRUD.Update();
                         Clear();
                     }

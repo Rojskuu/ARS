@@ -20,6 +20,7 @@ namespace AutomatedRoomScheduling
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         FrmDash dash;
         FrmSuperAdmin superAdmin;
+        LogHisCRUD log = new LogHisCRUD();
         int attempt = 1, Status;
 
         SqlConnection con;
@@ -30,6 +31,10 @@ namespace AutomatedRoomScheduling
         DataTable dt;
         SqlCommand cmd;
         String query, Role;
+
+        public static String LogID { get; set; }
+
+        int MilliSec, Sec, Min, Hr, Yr, Mnth, Day;
 
 
 
@@ -46,6 +51,14 @@ namespace AutomatedRoomScheduling
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            DateTime dtime = new DateTime();
+            Yr = dtime.Year;
+            Mnth = dtime.Month;
+            Day = dtime.Day;
+            Hr = dtime.Hour;
+            Min = dtime.Minute;
+            Sec = dtime.Second;
+            MilliSec = dtime.Millisecond;
             
 
         }
@@ -137,11 +150,17 @@ namespace AutomatedRoomScheduling
 
                                 dash = new FrmDash();
                                 AdminChecker.Admin = txtUsername.Text.Trim();
+                                LogID = MilliSec+""+Min+Hr+Sec+Yr+Mnth+Day;
+                                LogHisCRUD.Activity = AdminChecker.Admin + " Log in. ";
+                                log.Create();
+
                                 this.Hide();
                                 dash.ShowDialog();
                                 txtUsername.Text = "";
                                 txtPassword.Text = "";
+                                
                                 Show();
+                               
                             }
                             else
                             {
@@ -157,6 +176,7 @@ namespace AutomatedRoomScheduling
                         {
                             MessageBox.Show("Your account has been blocked. \n" + "Please contact the super Admin.", "Account Blocked!",
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                       
                         }
                     }
                     else
@@ -174,7 +194,10 @@ namespace AutomatedRoomScheduling
                             MessageBox.Show("You have exceeded the number of login attempts." +
                                 "\nPlease contact the Super Admin to activate your account.", "Log in failed!",
                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            LogHisCRUD.Activity = AdminChecker.Admin + " Log in attemp failed. ";
+                            log.Create();
                             BlockAcc();
+                            
                         }
                         attempt--;
                         txtPassword.Text = "";
@@ -188,7 +211,7 @@ namespace AutomatedRoomScheduling
 
 
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
         public void BlockAcc() 
         {
@@ -219,6 +242,27 @@ namespace AutomatedRoomScheduling
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            MilliSec++;
+            if (MilliSec == 99)
+            {
+                MilliSec = 0;
+                Sec++;
+            }
+            if (Sec == 60)
+            {
+                Sec = 0;
+                Min++;
+            }
+            if (Min == 60)
+            {
+                Min = 0;
+                Hr++;
+            }
         }
 
         private void btnMini_Click(object sender, EventArgs e)

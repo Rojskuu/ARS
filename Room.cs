@@ -18,6 +18,7 @@ namespace AutomatedRoomScheduling
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        LogHisCRUD log;
 
         RoomCRUD RoomCRUD;
 
@@ -98,11 +99,15 @@ namespace AutomatedRoomScheduling
 
                     if (btnADD.Text.Equals("ADD"))
                     {
+                        LogHisCRUD.Activity = "Added Room " + RoomCRUD.RoomID + ".";
+                        log.Create();
                         RoomCRUD.Create();
                         Clear();
                     }
                     else if (btnADD.Text.Equals("UPDATE"))
                     {
+                        LogHisCRUD.Activity = "Updated Room " + RoomCRUD.RoomID + ".";
+                        log.Create();
                         RoomCRUD.Update();
                         Clear();
                     }
@@ -120,7 +125,7 @@ namespace AutomatedRoomScheduling
 
         public void Poptxt() 
         {
-            txtRoomID.Text = RoomCRUD.RoomID ;
+            txtRoomID.Text = RoomCRUD.RoomID;
             txtCap.Text = RoomCRUD.RoomCap+"";
             cmbRoomType.Text = RoomCRUD.RoomType;
             

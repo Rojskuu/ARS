@@ -58,6 +58,12 @@
       <DependentUpon>ClassList.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectionString.cs" />
+    <Compile Include="FrmLogHis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogHis.Designer.cs">
+      <DependentUpon>FrmLogHis.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRoomList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,7 @@
     <Compile Include="FrmSY.Designer.cs">
       <DependentUpon>FrmSY.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogHisCRUD.cs" />
     <Compile Include="Profile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Class.resx">
       <DependentUpon>Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogHis.resx">
+      <DependentUpon>FrmLogHis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRoomList.resx">
       <DependentUpon>FrmRoomList.cs</DependentUpon>
