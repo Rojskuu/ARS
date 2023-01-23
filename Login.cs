@@ -31,7 +31,7 @@ namespace AutomatedRoomScheduling
         DataTable dt;
         SqlCommand cmd;
         String query, Role;
-
+        DateTime dtime = new DateTime();
         public static String LogID { get; set; }
 
         int MilliSec, Sec, Min, Hr, Yr, Mnth, Day;
@@ -51,7 +51,7 @@ namespace AutomatedRoomScheduling
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            DateTime dtime = new DateTime();
+            dtime = DateTime.Now;
             Yr = dtime.Year;
             Mnth = dtime.Month;
             Day = dtime.Day;

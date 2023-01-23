@@ -56,7 +56,7 @@ namespace AutomatedRoomScheduling
                 MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 FrmRoomList roomList = new FrmRoomList();
-                roomList.Show();
+               
                 this.Close();
             }
             //FrmRoomList roomList = new FrmRoomList();

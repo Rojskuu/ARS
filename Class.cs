@@ -79,7 +79,7 @@ namespace AutomatedRoomScheduling
             {
                 FrmClassList frmClass = new FrmClassList();
                 
-                frmClass.Show();
+                
                 this.Close();
             }
             //FrmClassList frmClass = new FrmClassList();

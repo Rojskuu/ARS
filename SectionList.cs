@@ -88,7 +88,7 @@ namespace AutomatedRoomScheduling
                 {
                     FrmSection frmSection = new FrmSection();
                     frmSection.Show();
-                    this.Close();
+                    
                 }
                 else 
                 {
@@ -100,7 +100,7 @@ namespace AutomatedRoomScheduling
                     else
                     { 
                     ClassCRUD.SectionID = ID;
-                        this.Close();
+                        
                     }
                 }
                 }

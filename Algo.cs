@@ -248,13 +248,16 @@ namespace AutomatedRoomScheduling
                                     getSimilarTime();
                                     PickRDID();
                                     getRoomID();
-                                    UpdateRoomTime();
-                                    UpdateTeachTime();
-                                    UpdateClass();
+                                   
                                     getTimeFrame();
 
                                     getDay();
+
                                     ScheduleCRUD.Create();
+
+                                    UpdateRoomTime();
+                                    UpdateTeachTime();
+                                    UpdateClass();
 
                                     ClassList.Remove(ClassID);
 

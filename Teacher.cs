@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace AutomatedRoomScheduling
 {
@@ -30,11 +32,17 @@ namespace AutomatedRoomScheduling
 
         public static String male = "";
         public static String female = "";
+        OpenFileDialog openFile;
+        bool dialogOpen = false;
+
+        public static String filePath { get; set; }
+       
        
         public FrmTeach()
         {
             InitializeComponent();
             TeachCRUD = new TeachCRUD();
+          
         }
 
         public FrmTeach(String ID)
@@ -56,6 +64,12 @@ namespace AutomatedRoomScheduling
             dtBday.MinDate = new DateTime(currentYear - maxAge, 12, 31);
 
             txtConNum.MaxLength = 10;
+
+           openFile = new OpenFileDialog();
+            openFile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFile.Title = "Select a Text File.";
+
+
         }
 
         public void Poptxt() 
@@ -107,7 +121,7 @@ namespace AutomatedRoomScheduling
             {
                 Clear();
                 FrmTeachList frmTeachList = new FrmTeachList();
-                frmTeachList.Show();
+                
 
                 this.Close();
             }
@@ -330,6 +344,40 @@ namespace AutomatedRoomScheduling
         private void rbtnFemale_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void btnDataMig_MouseHover(object sender, EventArgs e)
+        {
+            try 
+            {
+                
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        private void btnDataMig_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (dialogOpen == false) 
+                {
+                    openFile.ShowDialog();
+                    dialogOpen = true;
+                }
+                
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openFile.FileName;
+
+                    MessageBox.Show(filePath);
+                    dialogOpen = false;
+
+                }
+
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
     }
 }

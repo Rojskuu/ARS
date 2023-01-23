@@ -64,7 +64,7 @@ namespace AutomatedRoomScheduling
                 LogHisCRUD.Activity = " Closed Section form.";
                 log.Create();
                 FrmSectionList frmSection = new FrmSectionList();
-                frmSection.Show();
+                
                 this.Close();
             }
             //FrmSectionList frmSection = new FrmSectionList();

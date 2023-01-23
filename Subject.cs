@@ -21,7 +21,7 @@ namespace AutomatedRoomScheduling
         FrmDash dash;
         SubjectCRUD SubjectCRUD;
         String Hrs;
-        LogHisCRUD log;
+        LogHisCRUD log = new LogHisCRUD();
 
 
         public FrmSubject()
@@ -59,7 +59,7 @@ namespace AutomatedRoomScheduling
                 MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 FrmSubjectList frmSubject = new FrmSubjectList();
-                frmSubject.Show();
+              
                 this.Close();
             }
             //FrmSubjectList frmSubject = new FrmSubjectList();

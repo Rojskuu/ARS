@@ -35,6 +35,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.grpPInfo = new System.Windows.Forms.GroupBox();
+            this.rbtnFemale = new System.Windows.Forms.RadioButton();
+            this.rbtnMale = new System.Windows.Forms.RadioButton();
             this.label14 = new System.Windows.Forms.Label();
             this.btnPT = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -60,8 +62,8 @@
             this.txtMName = new System.Windows.Forms.TextBox();
             this.txtFName = new System.Windows.Forms.TextBox();
             this.txtLName = new System.Windows.Forms.TextBox();
-            this.rbtnMale = new System.Windows.Forms.RadioButton();
-            this.rbtnFemale = new System.Windows.Forms.RadioButton();
+            this.btnDataMig = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.grpPInfo.SuspendLayout();
             this.SuspendLayout();
@@ -160,6 +162,30 @@
             this.grpPInfo.TabIndex = 8;
             this.grpPInfo.TabStop = false;
             this.grpPInfo.Text = "PERSONAL INFORMATION";
+            // 
+            // rbtnFemale
+            // 
+            this.rbtnFemale.AutoSize = true;
+            this.rbtnFemale.Location = new System.Drawing.Point(364, 162);
+            this.rbtnFemale.Name = "rbtnFemale";
+            this.rbtnFemale.Size = new System.Drawing.Size(79, 24);
+            this.rbtnFemale.TabIndex = 27;
+            this.rbtnFemale.TabStop = true;
+            this.rbtnFemale.Text = "Female";
+            this.rbtnFemale.UseVisualStyleBackColor = true;
+            this.rbtnFemale.CheckedChanged += new System.EventHandler(this.rbtnFemale_CheckedChanged);
+            // 
+            // rbtnMale
+            // 
+            this.rbtnMale.AutoSize = true;
+            this.rbtnMale.Location = new System.Drawing.Point(295, 162);
+            this.rbtnMale.Name = "rbtnMale";
+            this.rbtnMale.Size = new System.Drawing.Size(63, 24);
+            this.rbtnMale.TabIndex = 26;
+            this.rbtnMale.TabStop = true;
+            this.rbtnMale.Text = "Male";
+            this.rbtnMale.UseVisualStyleBackColor = true;
+            this.rbtnMale.CheckedChanged += new System.EventHandler(this.rbtnMale_CheckedChanged);
             // 
             // label14
             // 
@@ -400,29 +426,26 @@
             this.txtLName.Size = new System.Drawing.Size(279, 27);
             this.txtLName.TabIndex = 3;
             // 
-            // rbtnMale
+            // btnDataMig
             // 
-            this.rbtnMale.AutoSize = true;
-            this.rbtnMale.Location = new System.Drawing.Point(295, 162);
-            this.rbtnMale.Name = "rbtnMale";
-            this.rbtnMale.Size = new System.Drawing.Size(63, 24);
-            this.rbtnMale.TabIndex = 26;
-            this.rbtnMale.TabStop = true;
-            this.rbtnMale.Text = "Male";
-            this.rbtnMale.UseVisualStyleBackColor = true;
-            this.rbtnMale.CheckedChanged += new System.EventHandler(this.rbtnMale_CheckedChanged);
+            this.btnDataMig.Location = new System.Drawing.Point(563, 534);
+            this.btnDataMig.Name = "btnDataMig";
+            this.btnDataMig.Size = new System.Drawing.Size(32, 31);
+            this.btnDataMig.TabIndex = 25;
+            this.btnDataMig.Text = "...";
+            this.btnDataMig.UseVisualStyleBackColor = true;
+            this.btnDataMig.Click += new System.EventHandler(this.btnDataMig_Click);
+            this.btnDataMig.MouseHover += new System.EventHandler(this.btnDataMig_MouseHover);
             // 
-            // rbtnFemale
+            // label15
             // 
-            this.rbtnFemale.AutoSize = true;
-            this.rbtnFemale.Location = new System.Drawing.Point(364, 162);
-            this.rbtnFemale.Name = "rbtnFemale";
-            this.rbtnFemale.Size = new System.Drawing.Size(79, 24);
-            this.rbtnFemale.TabIndex = 27;
-            this.rbtnFemale.TabStop = true;
-            this.rbtnFemale.Text = "Female";
-            this.rbtnFemale.UseVisualStyleBackColor = true;
-            this.rbtnFemale.CheckedChanged += new System.EventHandler(this.rbtnFemale_CheckedChanged);
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(438, 539);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(125, 20);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "Select a File(txt):";
             // 
             // FrmTeach
             // 
@@ -430,6 +453,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(662, 591);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.btnDataMig);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.grpPInfo);
             this.Controls.Add(this.panel1);
@@ -444,6 +469,7 @@
             this.grpPInfo.ResumeLayout(false);
             this.grpPInfo.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -482,5 +508,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RadioButton rbtnFemale;
         private System.Windows.Forms.RadioButton rbtnMale;
+        private System.Windows.Forms.Button btnDataMig;
+        private System.Windows.Forms.Label label15;
     }
 }

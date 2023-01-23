@@ -78,7 +78,7 @@ namespace AutomatedRoomScheduling
             {
                 FrmClass = new FrmClass();
                 FrmClass.Show();
-                this.Close();
+               
             }
             catch (Exception) { }
         }
@@ -120,7 +120,7 @@ namespace AutomatedRoomScheduling
                     FrmClass frmClass = new FrmClass(ID);
                     frmClass.Show();
 
-                    this.Close();
+                    
 
                 }
             }
