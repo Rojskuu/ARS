@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ToolTip = System.Windows.Forms.ToolTip;
+using static System.IO.StreamReader;
 
 namespace AutomatedRoomScheduling
 {
@@ -370,8 +371,9 @@ namespace AutomatedRoomScheduling
                 {
                     filePath = openFile.FileName;
 
-                    MessageBox.Show(filePath);
+                    
                     dialogOpen = false;
+
 
                 }
 
@@ -379,5 +381,19 @@ namespace AutomatedRoomScheduling
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
+
+
+        public void txtToData() 
+        {
+            try 
+            { 
+            
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        
+        }
+
+
+
     }
 }

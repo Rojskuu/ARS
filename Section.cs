@@ -20,7 +20,7 @@ namespace AutomatedRoomScheduling
 
         FrmDash dash;
         SectionCRUD SectionCRUD;
-        LogHisCRUD log;
+        LogHisCRUD log = new LogHisCRUD();
         
         public FrmSection()
         {
@@ -63,9 +63,11 @@ namespace AutomatedRoomScheduling
             {
                 LogHisCRUD.Activity = " Closed Section form.";
                 log.Create();
+                this.Close();
+
                 FrmSectionList frmSection = new FrmSectionList();
                 
-                this.Close();
+                
             }
             //FrmSectionList frmSection = new FrmSectionList();
             //frmSection.Show();

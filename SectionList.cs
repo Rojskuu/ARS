@@ -22,7 +22,7 @@ namespace AutomatedRoomScheduling
         DataTable dt;
         SqlDataReader reader;
         String query, ID = "" , txt, mess="";
-        LogHisCRUD log;
+        LogHisCRUD log = new LogHisCRUD();
         private SectionCRUD SC = new SectionCRUD();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -87,7 +87,7 @@ namespace AutomatedRoomScheduling
                 if (mess.Trim().Equals(""))
                 {
                     FrmSection frmSection = new FrmSection();
-                    frmSection.Show();
+                    frmSection.ShowDialog();
                     
                 }
                 else 
@@ -148,7 +148,7 @@ namespace AutomatedRoomScheduling
 
                     FrmSection frmSec = new FrmSection(ID);
                     frmSec.ShowDialog();
-                    this.Close();
+                    
 
 
 
