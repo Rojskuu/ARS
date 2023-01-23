@@ -33,9 +33,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>packages\ControlzEx.4.4.0\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
+      <HintPath>packages\MahApps.Metro.2.4.9\lib\net47\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +61,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminChecker.cs" />
@@ -58,6 +75,12 @@
       <DependentUpon>ClassList.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectionString.cs" />
+    <Compile Include="FrmLogHis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogHis.Designer.cs">
+      <DependentUpon>FrmLogHis.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRoomList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +105,7 @@
     <Compile Include="FrmSY.Designer.cs">
       <DependentUpon>FrmSY.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogHisCRUD.cs" />
     <Compile Include="Profile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +201,9 @@
     <EmbeddedResource Include="Class.resx">
       <DependentUpon>Class.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogHis.resx">
+      <DependentUpon>FrmLogHis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRoomList.resx">
       <DependentUpon>FrmRoomList.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +255,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

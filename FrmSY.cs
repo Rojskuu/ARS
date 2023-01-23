@@ -14,6 +14,7 @@ namespace AutomatedRoomScheduling
     {
         SYCRUD SY = new SYCRUD();
         FrmDash dash = new FrmDash();
+        LogHisCRUD log =  new LogHisCRUD();
 
         public FrmSY()
         {
@@ -41,6 +42,8 @@ namespace AutomatedRoomScheduling
                 SYCRUD.Sem = cmbSem.Text;
 
                 SY.Create();
+                LogHisCRUD.Activity =   " Added new SY / Sem. ";
+                log.Create();
                 dash.PopSY();
 
             }
@@ -52,6 +55,8 @@ namespace AutomatedRoomScheduling
             if (MessageBox.Show("Are you sure you want to exit? Any unsaved data will be lost.", "Confirm", MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Warning) == DialogResult.OK)
             {
+                LogHisCRUD.Activity = " Closed SY / Sem form. ";
+                log.Create();
                 this.Close();
             }
             //this.Close();

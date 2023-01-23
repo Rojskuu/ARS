@@ -23,6 +23,7 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query, ID = "", txt , mess="";
         private TeachCRUD TC = new TeachCRUD();
+        LogHisCRUD log = new LogHisCRUD();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -90,6 +91,8 @@ namespace AutomatedRoomScheduling
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 WindowChecker.IsRunning = false;
+                LogHisCRUD.Activity = " Closed Teacher form. " ;
+                log.Create();
                 this.Close();
             }
             //WindowChecker.IsRunning = false;
@@ -109,7 +112,7 @@ namespace AutomatedRoomScheduling
                 if (mess.Trim().Equals(""))
                 {
                     FrmTeach frmTeach = new FrmTeach();
-                    this.Close();
+                    
                     frmTeach.ShowDialog();
                     
                 }
@@ -123,7 +126,7 @@ namespace AutomatedRoomScheduling
                     else 
                     { 
                     ClassCRUD.TeacherID = ID;
-                        this.Close();
+                        
                     }
                 }
 
@@ -150,7 +153,7 @@ namespace AutomatedRoomScheduling
 
 
                     FrmTeach frmTeach = new FrmTeach(ID);
-                    this.Close();
+                   
                     frmTeach.ShowDialog();
                     
 

@@ -27,6 +27,8 @@ namespace AutomatedRoomScheduling
         FrmRoomList Room;
         FrmSubjectList Subject;
         FrmSchedule Sched;
+        LogHisCRUD log = new LogHisCRUD();
+        FrmLogHis LogHis;
 
         SYCRUD SYCRUD = new SYCRUD();
 
@@ -43,7 +45,7 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query, ID, txt;
 
-        public static String SYSem { get; set; }
+        public static String SYSem { get; set; } = "";
 
 
 
@@ -204,6 +206,8 @@ namespace AutomatedRoomScheduling
             if (MessageBox.Show("Are you sure you want to logout?", "Confirm", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                LogHisCRUD.Activity = " Logout "+AdminChecker.Admin;
+                log.Create();
                 this.Close();
                 
             }
@@ -212,48 +216,82 @@ namespace AutomatedRoomScheduling
 
         private void btnTeacher_Click(object sender, EventArgs e)
         {
-            if (WindowChecker.IsRunning == true)
+            if (SYSem.Equals(""))
             {
-                MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
-                    "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                MessageBox.Show("Please select a SY / Sem before proceeding.",
+                       "Select a SY / Sem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                WindowChecker.IsRunning = true;
-                Teach = new FrmTeachList();
-                Teach.Show();
-                
+                if (WindowChecker.IsRunning == true)
+                {
+                    MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
+                        "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    WindowChecker.IsRunning = true;
+                    Teach = new FrmTeachList();
+                    LogHisCRUD.Activity = " Opened the Teacher form. ";
+                    log.Create();
+                    Teach.ShowDialog();
+
+                }
             }
         }
 
         private void btnSection_Click(object sender, EventArgs e)
         {
-            if (WindowChecker.IsRunning == true)
+            if (SYSem.Equals(""))
             {
-                MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
-                   "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                MessageBox.Show("Please select a SY / Sem before proceeding.",
+                       "Select a SY / Sem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                WindowChecker.IsRunning = true;
-                Section = new FrmSectionList();
-                Section.Show();
+
+                if (WindowChecker.IsRunning == true)
+                {
+                    MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
+                       "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    WindowChecker.IsRunning = true;
+                    Section = new FrmSectionList();
+                    LogHisCRUD.Activity = " Opened Section form. ";
+                    log.Create();
+                    Section.ShowDialog();
+                }
             }
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (WindowChecker.IsRunning == true)
+            if (SYSem.Equals(""))
             {
-                MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
-                    "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                MessageBox.Show("Please select a SY / Sem before proceeding.",
+                       "Select a SY / Sem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                WindowChecker.IsRunning = true;
-                Subject = new FrmSubjectList();
-                Subject.Show();
+                if (WindowChecker.IsRunning == true)
+                {
+                    MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
+                        "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    WindowChecker.IsRunning = true;
+                    Subject = new FrmSubjectList();
+                    LogHisCRUD.Activity = " Opened Subject form. ";
+                    log.Create();
+                    Subject.ShowDialog();
+                }
             }
             
 
@@ -261,32 +299,55 @@ namespace AutomatedRoomScheduling
 
         private void btnClass_Click(object sender, EventArgs e)
         {
-            if (WindowChecker.IsRunning == true)
+            if (SYSem.Equals(""))
             {
-                MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
-                   "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                MessageBox.Show("Please select a SY / Sem before proceeding.",
+                       "Select a SY / Sem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                WindowChecker.IsRunning = true;
-                Class = new FrmClassList();
-                Class.Show();
+                if (WindowChecker.IsRunning == true)
+                {
+                    MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
+                       "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    WindowChecker.IsRunning = true;
+                    Class = new FrmClassList();
+                    LogHisCRUD.Activity = " Opened Class form. ";
+                    log.Create();
+                    Class.ShowDialog();
+                }
             }
             
         }
 
         private void btnRoom_Click(object sender, EventArgs e)
         {
-            if (WindowChecker.IsRunning == true)
+            if (SYSem.Equals(""))
             {
-                MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
-                    "Close other form",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+
+                MessageBox.Show("Please select a SY / Sem before proceeding.",
+                       "Select a SY / Sem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                WindowChecker.IsRunning = true;
-                Room = new FrmRoomList();
-                Room.Show();
+
+                if (WindowChecker.IsRunning == true)
+                {
+                    MessageBox.Show("A Form is already open. Please close the other forms before proceeding.",
+                        "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    WindowChecker.IsRunning = true;
+                    Room = new FrmRoomList();
+                    LogHisCRUD.Activity = " Opened Room form. ";
+                    log.Create();
+                    Room.ShowDialog();
+                }
             }
             
         }
@@ -337,6 +398,8 @@ namespace AutomatedRoomScheduling
             try 
             { 
                 FrmSY frmSY = new FrmSY();
+                LogHisCRUD.Activity = " Opened SY / Sem form.";
+                log.Create();
                 frmSY.ShowDialog();
 
             } catch (Exception ex) { MessageBox.Show(ex+""); }
@@ -378,7 +441,33 @@ namespace AutomatedRoomScheduling
 
                 SYSem = cmbSY.SelectedItem+"";
 
+                LogHisCRUD.Activity =  " Selected "+SYSem+" in the Dashboard.";
+                log.Create();
+
             } catch (Exception ex) { MessageBox.Show(ex+ ""); }
+        }
+
+        private void btnLogHis_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                if (WindowChecker.IsRunning == true)
+                {
+                    MessageBox.Show("A Form is open. Please close the other forms before proceeding.",
+                        "Close other form", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    WindowChecker.IsRunning = true;
+                    LogHis = new FrmLogHis();
+                    LogHisCRUD.Activity = " Opened the Log History. ";
+                    log.Create();
+                    LogHis.Show();
+
+                }
+
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         private void txtSection_KeyUp(object sender, KeyEventArgs e)
@@ -419,8 +508,17 @@ namespace AutomatedRoomScheduling
        
         private void btnSched_Click(object sender, EventArgs e)
         {
-            Algo algo = new Algo();
-            
+            if (SYSem.Equals(""))
+            {
+
+                MessageBox.Show("Please select a SY / Sem before proceeding.",
+                       "Select a SY / Sem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+
+                Algo algo = new Algo();
+            }
             
             //if (WindowChecker.IsRunning == true)
             //{

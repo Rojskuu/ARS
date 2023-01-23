@@ -22,6 +22,7 @@ namespace AutomatedRoomScheduling
         DataTable dt;
         SqlDataReader reader;
         String query, ID = "" , txt, mess="";
+        LogHisCRUD log = new LogHisCRUD();
         private SectionCRUD SC = new SectionCRUD();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -86,8 +87,8 @@ namespace AutomatedRoomScheduling
                 if (mess.Trim().Equals(""))
                 {
                     FrmSection frmSection = new FrmSection();
-                    frmSection.Show();
-                    this.Close();
+                    frmSection.ShowDialog();
+                    
                 }
                 else 
                 {
@@ -99,7 +100,7 @@ namespace AutomatedRoomScheduling
                     else
                     { 
                     ClassCRUD.SectionID = ID;
-                        this.Close();
+                        
                     }
                 }
                 }
@@ -122,6 +123,8 @@ namespace AutomatedRoomScheduling
             if (MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                LogHisCRUD.Activity = "Closed Section form" + ".";
+                log.Create();
                 WindowChecker.IsRunning = false;
                 this.Close();
             }
@@ -145,7 +148,7 @@ namespace AutomatedRoomScheduling
 
                     FrmSection frmSec = new FrmSection(ID);
                     frmSec.ShowDialog();
-                    this.Close();
+                    
 
 
 

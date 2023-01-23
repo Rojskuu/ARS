@@ -24,6 +24,7 @@ namespace AutomatedRoomScheduling
         String query, ID = "" , txt , mess = "";
 
         FrmSubject FrmSub;
+        LogHisCRUD log = new LogHisCRUD();
 
         private SubjectCRUD SC = new SubjectCRUD();
 
@@ -71,7 +72,7 @@ namespace AutomatedRoomScheduling
                 {
                     FrmSub = new FrmSubject();
                     FrmSub.Show();
-                    this.Close();
+                  
                 }
                 else 
                 {
@@ -83,7 +84,7 @@ namespace AutomatedRoomScheduling
                     else 
                     { 
                       ClassCRUD.SubjectCode = ID;
-                        this.Close();
+                        
                     }
 
                 }
@@ -102,6 +103,8 @@ namespace AutomatedRoomScheduling
             if (MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                LogHisCRUD.Activity = "Closed Subject form" +  ".";
+                log.Create();
                 WindowChecker.IsRunning = false;
                 this.Close();
             }
@@ -131,7 +134,7 @@ namespace AutomatedRoomScheduling
                     FrmSubject frmSub = new FrmSubject(ID);
                     frmSub.Show();
 
-                    this.Close();
+                    
 
                 }
             }

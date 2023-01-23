@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ToolTip = System.Windows.Forms.ToolTip;
+using static System.IO.StreamReader;
 
 namespace AutomatedRoomScheduling
 {
@@ -20,7 +23,7 @@ namespace AutomatedRoomScheduling
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         
         FrmDash dash;
-
+        LogHisCRUD log;
         Apos apos = new Apos();
 
         TeachCRUD TeachCRUD;
@@ -30,11 +33,17 @@ namespace AutomatedRoomScheduling
 
         public static String male = "";
         public static String female = "";
+        OpenFileDialog openFile;
+        bool dialogOpen = false;
+
+        public static String filePath { get; set; }
+       
        
         public FrmTeach()
         {
             InitializeComponent();
             TeachCRUD = new TeachCRUD();
+          
         }
 
         public FrmTeach(String ID)
@@ -56,6 +65,12 @@ namespace AutomatedRoomScheduling
             dtBday.MinDate = new DateTime(currentYear - maxAge, 12, 31);
 
             txtConNum.MaxLength = 10;
+
+           openFile = new OpenFileDialog();
+            openFile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFile.Title = "Select a Text File.";
+
+
         }
 
         public void Poptxt() 
@@ -107,7 +122,7 @@ namespace AutomatedRoomScheduling
             {
                 Clear();
                 FrmTeachList frmTeachList = new FrmTeachList();
-                frmTeachList.Show();
+                
 
                 this.Close();
             }
@@ -184,7 +199,10 @@ namespace AutomatedRoomScheduling
 
                     if (btnAdd.Text.Equals("ADD"))
                     {
-                            TeachCRUD.Create();
+                       
+                        LogHisCRUD.Activity = " Added teacher "+ TeachCRUD.TeacherID+".";
+                        log.Create();
+                        TeachCRUD.Create();
                             TeachCRUD.PT();
                             TeachCRUD.FT();
 
@@ -199,7 +217,9 @@ namespace AutomatedRoomScheduling
                     }
                     else if (btnAdd.Text.Equals("UPDATE"))
                     {
-                            TeachCRUD.Update();
+                        LogHisCRUD.Activity = " Updated teacher " + TeachCRUD.TeacherID + ".";
+                        log.Create();
+                        TeachCRUD.Update();
 
                         if (cmbEmpType.Text.Trim().Equals("Part-Time"))
                         {
@@ -326,5 +346,54 @@ namespace AutomatedRoomScheduling
         {
 
         }
+
+        private async void btnDataMig_MouseHover(object sender, EventArgs e)
+        {
+            try 
+            {
+                
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        private void btnDataMig_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (dialogOpen == false) 
+                {
+                    openFile.ShowDialog();
+                    dialogOpen = true;
+                }
+                
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openFile.FileName;
+
+                    
+                    dialogOpen = false;
+
+
+                }
+
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+
+        public void txtToData() 
+        {
+            try 
+            { 
+            
+
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        
+        }
+
+
+
     }
 }

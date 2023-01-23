@@ -22,7 +22,7 @@ namespace AutomatedRoomScheduling
         DataTable dt;
         SqlDataReader reader;
         String query, ID = "" , txt;
-
+        LogHisCRUD log =  new LogHisCRUD();
         FrmRoom frmRoom;
 
         private RoomCRUD RC = new RoomCRUD();
@@ -42,6 +42,8 @@ namespace AutomatedRoomScheduling
             if (MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                LogHisCRUD.Activity = "Closed the Room form. ";
+                log.Create();
                 WindowChecker.IsRunning = false;
                 this.Close();
             }
@@ -108,7 +110,7 @@ namespace AutomatedRoomScheduling
             {
                 frmRoom = new FrmRoom();
                 frmRoom.ShowDialog();
-                this.Close();
+                
             }
             catch (Exception) { }
         }
@@ -129,7 +131,7 @@ namespace AutomatedRoomScheduling
 
                     FrmRoom frmRoom = new FrmRoom(ID);
                     frmRoom.Show();
-                    this.Close();
+                   
 
 
 

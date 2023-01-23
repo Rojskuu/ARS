@@ -23,6 +23,7 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query , ID = "", txt;
         ClassCRUD ClassCRUD;
+        LogHisCRUD log = new LogHisCRUD();
         FrmClass FrmClass;
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -77,7 +78,7 @@ namespace AutomatedRoomScheduling
             {
                 FrmClass = new FrmClass();
                 FrmClass.Show();
-                this.Close();
+               
             }
             catch (Exception) { }
         }
@@ -93,6 +94,8 @@ namespace AutomatedRoomScheduling
             if (MessageBox.Show("Are you sure you want to exit?", "Confirm", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                LogHisCRUD.Activity = "Closed Class form" + ".";
+                log.Create();
                 WindowChecker.IsRunning = false;
                 this.Close();
             }
@@ -117,7 +120,7 @@ namespace AutomatedRoomScheduling
                     FrmClass frmClass = new FrmClass(ID);
                     frmClass.Show();
 
-                    this.Close();
+                    
 
                 }
             }
