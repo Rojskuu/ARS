@@ -12,6 +12,10 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ToolTip = System.Windows.Forms.ToolTip;
 using static System.IO.StreamReader;
+using System.Collections;
+using static System.IO.StreamReader;
+using static System.IO.StreamWriter;
+using System.IO;
 
 namespace AutomatedRoomScheduling
 {
@@ -23,7 +27,7 @@ namespace AutomatedRoomScheduling
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         
         FrmDash dash;
-        LogHisCRUD log;
+        LogHisCRUD log = new LogHisCRUD();
         Apos apos = new Apos();
 
         TeachCRUD TeachCRUD;
@@ -35,6 +39,12 @@ namespace AutomatedRoomScheduling
         public static String female = "";
         OpenFileDialog openFile;
         bool dialogOpen = false;
+
+        String bdayFormat = "yyyy-MM-dd";
+
+        ArrayList data;
+        StreamReader sr;
+        StreamWriter sq;
 
         public static String filePath { get; set; }
        
@@ -374,7 +384,7 @@ namespace AutomatedRoomScheduling
                     
                     dialogOpen = false;
 
-
+                    txtToData();
                 }
 
 
@@ -386,8 +396,51 @@ namespace AutomatedRoomScheduling
         public void txtToData() 
         {
             try 
-            { 
-            
+            {              
+                sr = new StreamReader(filePath);
+
+                string temp;
+                data = new ArrayList();
+                
+                while ((temp = sr.ReadLine()) != null)
+                {
+
+                    data.Add(temp);
+
+                }
+                sr.Close();
+                
+                for (int i = 0; i < data.Count; i++)
+                {
+                    TeachCRUD.TeacherID = data[i]+"";
+                    i++;
+                    TeachCRUD.FName = data[i] + "";
+                    i++;
+                    TeachCRUD.MName = data[i] + "";
+                    i++;
+                    TeachCRUD.LName = data[i] + "";
+                    i++;
+                    TeachCRUD.Sex = data[i] + "";
+                    i++;
+                    TeachCRUD.Religion = data[i] + "";
+                    i++;
+                    TeachCRUD.Bday = DateTime.Parse(data[i]+"").ToString(bdayFormat);
+                    i++;
+                    TeachCRUD.ConNum = data[i] + "";
+                    i++;
+                    TeachCRUD.Deg = data[i] + "";
+                    i++;
+                    TeachCRUD.CS = data[i] + "";
+                    i++;
+                    TeachCRUD.EmpType = data[i] + "";
+                    i++;
+                    TeachCRUD.Department = data[i] + "";
+                    
+                    TeachCRUD.Create();
+
+                }
+
+
 
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
         

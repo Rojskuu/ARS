@@ -99,7 +99,7 @@ namespace AutomatedRoomScheduling
                     
                 }
 
-            } catch (Exception) { }
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         public void TeacherDayPopulate()
