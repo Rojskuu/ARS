@@ -114,7 +114,7 @@ namespace AutomatedRoomScheduling
                     FrmTeach frmTeach = new FrmTeach();
                     
                     frmTeach.ShowDialog();
-                    
+                    PopulatedtgTeach();
                 }
                 else 
                 {
@@ -155,7 +155,7 @@ namespace AutomatedRoomScheduling
                     FrmTeach frmTeach = new FrmTeach(ID);
                    
                     frmTeach.ShowDialog();
-                    
+                    PopulatedtgTeach();
 
 
 

@@ -442,7 +442,7 @@ namespace AutomatedRoomScheduling
 
 
 
-            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+            } catch (Exception ex) { MessageBox.Show(""); }
         
         }
 
