@@ -117,9 +117,9 @@
             this.groupBox1.Controls.Add(this.txtSectionID);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(6, 99);
+            this.groupBox1.Location = new System.Drawing.Point(6, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(465, 183);
+            this.groupBox1.Size = new System.Drawing.Size(465, 201);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Section Information";
@@ -128,7 +128,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 134);
+            this.label4.Location = new System.Drawing.Point(45, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 20);
             this.label4.TabIndex = 7;
@@ -137,7 +137,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 100);
+            this.label3.Location = new System.Drawing.Point(45, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 6;
@@ -146,7 +146,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 66);
+            this.label2.Location = new System.Drawing.Point(45, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 20);
             this.label2.TabIndex = 5;
@@ -155,7 +155,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 33);
+            this.label1.Location = new System.Drawing.Point(45, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 20);
             this.label1.TabIndex = 4;
@@ -173,7 +173,7 @@
             "Sophomore",
             "Junior",
             "Senior"});
-            this.cmbYrlvl.Location = new System.Drawing.Point(168, 126);
+            this.cmbYrlvl.Location = new System.Drawing.Point(168, 79);
             this.cmbYrlvl.Name = "cmbYrlvl";
             this.cmbYrlvl.Size = new System.Drawing.Size(291, 28);
             this.cmbYrlvl.TabIndex = 3;
@@ -190,21 +190,21 @@
             "BS in Computer Engineering (BSCpE)",
             "Bachelor of Multimedia Arts (BMMA)",
             "BA in Communication (BACOMM)"});
-            this.cmbCourse.Location = new System.Drawing.Point(168, 92);
+            this.cmbCourse.Location = new System.Drawing.Point(168, 45);
             this.cmbCourse.Name = "cmbCourse";
             this.cmbCourse.Size = new System.Drawing.Size(291, 28);
             this.cmbCourse.TabIndex = 2;
             // 
             // txtSectionCnt
             // 
-            this.txtSectionCnt.Location = new System.Drawing.Point(168, 59);
+            this.txtSectionCnt.Location = new System.Drawing.Point(168, 146);
             this.txtSectionCnt.Name = "txtSectionCnt";
             this.txtSectionCnt.Size = new System.Drawing.Size(291, 27);
             this.txtSectionCnt.TabIndex = 1;
             // 
             // txtSectionID
             // 
-            this.txtSectionID.Location = new System.Drawing.Point(168, 26);
+            this.txtSectionID.Location = new System.Drawing.Point(168, 113);
             this.txtSectionID.Name = "txtSectionID";
             this.txtSectionID.Size = new System.Drawing.Size(291, 27);
             this.txtSectionID.TabIndex = 0;

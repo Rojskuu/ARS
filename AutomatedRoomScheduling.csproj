@@ -106,6 +106,7 @@
       <DependentUpon>FrmSY.cs</DependentUpon>
     </Compile>
     <Compile Include="LogHisCRUD.cs" />
+    <Compile Include="PartTimeException.cs" />
     <Compile Include="Profile.cs">
       <SubType>Form</SubType>
     </Compile>

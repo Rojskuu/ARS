@@ -154,10 +154,13 @@
             this.cmbDept.FormattingEnabled = true;
             this.cmbDept.Items.AddRange(new object[] {
             "",
-            "General",
+            "GENERAL",
             "BSIT",
             "BSHM",
-            "BSCPE"});
+            "BSTM",
+            "BSCPE",
+            "BMMA",
+            "BACOMM"});
             this.cmbDept.Location = new System.Drawing.Point(217, 105);
             this.cmbDept.Name = "cmbDept";
             this.cmbDept.Size = new System.Drawing.Size(262, 28);
@@ -246,11 +249,9 @@
             this.cmbClassType.FormattingEnabled = true;
             this.cmbClassType.Items.AddRange(new object[] {
             "",
-            "Lecture",
+            "Lecture Room",
             "Computer Laboratory",
-            "Food Laboratory",
-            "Physics Laboratory",
-            "Chemistry Laboratory"});
+            "Kitchen Laboratory"});
             this.cmbClassType.Location = new System.Drawing.Point(217, 139);
             this.cmbClassType.Name = "cmbClassType";
             this.cmbClassType.Size = new System.Drawing.Size(262, 28);

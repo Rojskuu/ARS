@@ -142,11 +142,9 @@
             this.cmbRoomType.FormattingEnabled = true;
             this.cmbRoomType.Items.AddRange(new object[] {
             "",
-            "Lecture",
+            "Lecture Room",
             "Computer Laboratory",
-            "Food Laboratory",
-            "Physics Laboratory",
-            "Chemistry Laboratory"});
+            "Kitchen Laboratory"});
             this.cmbRoomType.Location = new System.Drawing.Point(218, 59);
             this.cmbRoomType.Name = "cmbRoomType";
             this.cmbRoomType.Size = new System.Drawing.Size(241, 28);

@@ -63,7 +63,7 @@
             this.txtFName = new System.Windows.Forms.TextBox();
             this.txtLName = new System.Windows.Forms.TextBox();
             this.btnDataMig = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lbltxtFile = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.grpPInfo.SuspendLayout();
             this.SuspendLayout();
@@ -223,10 +223,13 @@
             this.cmbDept.FormattingEnabled = true;
             this.cmbDept.Items.AddRange(new object[] {
             "",
-            "General",
+            "GENERAL",
             "BSIT",
             "BSHM",
-            "BSCPE"});
+            "BSTM",
+            "BSCPE",
+            "BMMA",
+            "BACOMM"});
             this.cmbDept.Location = new System.Drawing.Point(295, 393);
             this.cmbDept.Name = "cmbDept";
             this.cmbDept.Size = new System.Drawing.Size(279, 28);
@@ -437,15 +440,15 @@
             this.btnDataMig.Click += new System.EventHandler(this.btnDataMig_Click);
             this.btnDataMig.MouseHover += new System.EventHandler(this.btnDataMig_MouseHover);
             // 
-            // label15
+            // lbltxtFile
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(438, 539);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(125, 20);
-            this.label15.TabIndex = 26;
-            this.label15.Text = "Select a File(txt):";
+            this.lbltxtFile.AutoSize = true;
+            this.lbltxtFile.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltxtFile.Location = new System.Drawing.Point(438, 539);
+            this.lbltxtFile.Name = "lbltxtFile";
+            this.lbltxtFile.Size = new System.Drawing.Size(125, 20);
+            this.lbltxtFile.TabIndex = 26;
+            this.lbltxtFile.Text = "Select a File(txt):";
             // 
             // FrmTeach
             // 
@@ -453,7 +456,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(662, 591);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.lbltxtFile);
             this.Controls.Add(this.btnDataMig);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.grpPInfo);
@@ -509,6 +512,6 @@
         private System.Windows.Forms.RadioButton rbtnFemale;
         private System.Windows.Forms.RadioButton rbtnMale;
         private System.Windows.Forms.Button btnDataMig;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbltxtFile;
     }
 }

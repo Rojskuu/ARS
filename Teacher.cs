@@ -17,6 +17,7 @@ using static System.IO.StreamReader;
 using static System.IO.StreamWriter;
 using System.IO;
 
+
 namespace AutomatedRoomScheduling
 {
     public partial class FrmTeach : Form
@@ -60,6 +61,10 @@ namespace AutomatedRoomScheduling
         {
             InitializeComponent();
             TeachCRUD = new TeachCRUD();
+
+            lbltxtFile.Visible = false;
+            btnDataMig.Visible = false;
+            btnDataMig.Enabled = false;
 
             TeachCRUD.TeacherID = ID;
             TeachCRUD.Retrieve();
@@ -395,13 +400,13 @@ namespace AutomatedRoomScheduling
 
         public void txtToData() 
         {
-            try 
-            {              
+            try
+            {
                 sr = new StreamReader(filePath);
 
                 string temp;
                 data = new ArrayList();
-                
+
                 while ((temp = sr.ReadLine()) != null)
                 {
 
@@ -409,10 +414,10 @@ namespace AutomatedRoomScheduling
 
                 }
                 sr.Close();
-                
+
                 for (int i = 0; i < data.Count; i++)
                 {
-                    TeachCRUD.TeacherID = data[i]+"";
+                    TeachCRUD.TeacherID = data[i] + "";
                     i++;
                     TeachCRUD.FName = data[i] + "";
                     i++;
@@ -424,7 +429,7 @@ namespace AutomatedRoomScheduling
                     i++;
                     TeachCRUD.Religion = data[i] + "";
                     i++;
-                    TeachCRUD.Bday = DateTime.Parse(data[i]+"").ToString(bdayFormat);
+                    TeachCRUD.Bday = DateTime.Parse(data[i] + "").ToString(bdayFormat);
                     i++;
                     TeachCRUD.ConNum = data[i] + "";
                     i++;
@@ -436,25 +441,32 @@ namespace AutomatedRoomScheduling
                     i++;
                     TeachCRUD.Department = data[i] + "";
 
+                    if (TeachCRUD.EmpType != "Full-Time")
+                    {
+                        //break;
+                        throw new PartTimeException("You cannot use data migration feature on Part-Time Employees.");
+                        
+                    }
+
 
                     if (MessageBox.Show("Teacher ID(0-9)(a-z):\t" + TeachCRUD.TeacherID +
               "\n\nFirst Name(a-z):\t\t" + TeachCRUD.FName +
               "\n\nMiddle Name(a-z):\t\t" + TeachCRUD.MName +
-              "\n\nLast Name(a-z):\t\t" + TeachCRUD.LName+
+              "\n\nLast Name(a-z):\t\t" + TeachCRUD.LName +
               "\n\nSex:\t\t\t" + TeachCRUD.Sex +
-              "\n\nReligion:\t\t\t" + TeachCRUD.Religion+
+              "\n\nReligion:\t\t\t" + TeachCRUD.Religion +
               "\n\nBirthdate(yyyy-MM-dd):\t" + TeachCRUD.Bday +
               "\n\nContact Number(0-9):\t" + TeachCRUD.ConNum +
               "\n\nDegree:\t\t\t" + TeachCRUD.Deg +
               "\n\nCivil Status:\t\t" + TeachCRUD.CS +
-              "\n\nEmployee Type:\t\t" + TeachCRUD.EmpType+
+              "\n\nEmployee Type:\t\t" + TeachCRUD.EmpType +
               "\n\nDepartment:\t\t" + TeachCRUD.Department, "Confirm",
                                         MessageBoxButtons.YesNo,
                                         MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         TeachCRUD.Create();
                     }
-                    else 
+                    else
                     {
                         break;
                     }
@@ -463,8 +475,15 @@ namespace AutomatedRoomScheduling
 
 
 
-            } catch (Exception ex) {
-                
+            }
+            catch (PartTimeException)
+            {
+                MessageBox.Show("You cannot use data migration feature on Part-Time Employees.", "Warning!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+
 
                 MessageBox.Show("Teacher ID(0-9)(a-z):\t\t2022232485 " +
                     "\n\nFirst Name(a-z):\t\tJay" +
@@ -478,8 +497,8 @@ namespace AutomatedRoomScheduling
               "\n\nCivil Status:\t\tSingle" +
               "\n\nEmployee Type:\t\tFull-Time" +
               "\n\nDepartment:\t\tBSIT"
-             , "Are you sure you followed the right format for data migration?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            
+             , "Please follow the right format for data migration?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
             }
         
         }
