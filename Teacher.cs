@@ -435,14 +435,52 @@ namespace AutomatedRoomScheduling
                     TeachCRUD.EmpType = data[i] + "";
                     i++;
                     TeachCRUD.Department = data[i] + "";
-                    
-                    TeachCRUD.Create();
+
+
+                    if (MessageBox.Show("Teacher ID(0-9)(a-z):\t" + TeachCRUD.TeacherID +
+              "\n\nFirst Name(a-z):\t\t" + TeachCRUD.FName +
+              "\n\nMiddle Name(a-z):\t\t" + TeachCRUD.MName +
+              "\n\nLast Name(a-z):\t\t" + TeachCRUD.LName+
+              "\n\nSex:\t\t\t" + TeachCRUD.Sex +
+              "\n\nReligion:\t\t\t" + TeachCRUD.Religion+
+              "\n\nBirthdate(yyyy-MM-dd):\t" + TeachCRUD.Bday +
+              "\n\nContact Number(0-9):\t" + TeachCRUD.ConNum +
+              "\n\nDegree:\t\t\t" + TeachCRUD.Deg +
+              "\n\nCivil Status:\t\t" + TeachCRUD.CS +
+              "\n\nEmployee Type:\t\t" + TeachCRUD.EmpType+
+              "\n\nDepartment:\t\t" + TeachCRUD.Department, "Confirm",
+                                        MessageBoxButtons.YesNo,
+                                        MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        TeachCRUD.Create();
+                    }
+                    else 
+                    {
+                        break;
+                    }
 
                 }
 
 
 
-            } catch (Exception ex) { MessageBox.Show(""); }
+            } catch (Exception ex) {
+                
+
+                MessageBox.Show("Teacher ID(0-9)(a-z):\t\t2022232485 " +
+                    "\n\nFirst Name(a-z):\t\tJay" +
+              "\n\nMiddle Name(a-z):\t\tHersalia" +
+              "\n\nLast Name(a-z):\t\tDela Cruz" +
+              "\n\nSex:\t\t\tMale" +
+              "\n\nReligion:\t\t\tCatholic" +
+              "\n\nBirthdate(yyyy-MM-dd):\t2001-01-11" +
+              "\n\nContact Number(0-9):\t9217461632" +
+              "\n\nDegree:\t\t\tBachelor" +
+              "\n\nCivil Status:\t\tSingle" +
+              "\n\nEmployee Type:\t\tFull-Time" +
+              "\n\nDepartment:\t\tBSIT"
+             , "Are you sure you followed the right format for data migration?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            
+            }
         
         }
 
