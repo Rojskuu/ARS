@@ -135,9 +135,9 @@ namespace AutomatedRoomScheduling
                 con.Open();
 
                 query = "update Class set " +
-                         "SubCode = '" + SubjectCode + "', "
-                       + "SectionID = '" + SectionID + "', "
-                       + "TeacherID = '" + TeacherID + "' WHERE ClassID = '" + ClassID +"-"+FrmDash.SYSem+"'";
+                         "SubCode = '" + SubjectCode + "-" + FrmDash.SYSem + "', "
+                       + "SectionID = '" + SectionID + "-" + FrmDash.SYSem + "', "
+                       + "TeacherID = '" + TeacherID + "-" + FrmDash.SYSem + "' WHERE ClassID = '" + ClassID +"-"+FrmDash.SYSem+"'";
 
 
                 SqlCommand cmd = new SqlCommand(query, con);
