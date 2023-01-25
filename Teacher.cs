@@ -99,11 +99,11 @@ namespace AutomatedRoomScheduling
             if (TeachCRUD.Sex.Equals("Male"))
             {
                 rbtnMale.Checked = true;
-                rbtnFemale.Checked = false;
+                
             }
             else 
             {
-                rbtnMale.Checked = false;
+                
                 rbtnFemale.Checked = true;
             }
             txtReligion.Text = TeachCRUD.Religion;
