@@ -402,6 +402,10 @@ namespace AutomatedRoomScheduling
                 log.Create();
                 frmSY.ShowDialog();
 
+                cmbSY.Items.Clear();
+                PopSY();
+                
+
             } catch (Exception ex) { MessageBox.Show(ex+""); }
         }
 

@@ -88,7 +88,7 @@ namespace AutomatedRoomScheduling
                 {
                     FrmSection frmSection = new FrmSection();
                     frmSection.ShowDialog();
-                    
+                    PopulatedtgSec();
                 }
                 else 
                 {
@@ -148,7 +148,8 @@ namespace AutomatedRoomScheduling
 
                     FrmSection frmSec = new FrmSection(ID);
                     frmSec.ShowDialog();
-                    
+
+                    PopulatedtgSec();
 
 
 

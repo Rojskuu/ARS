@@ -145,8 +145,7 @@ namespace AutomatedRoomScheduling
             catch (Exception ex) { }
             finally 
             {
-                FrmSubjectList frmSubject = new FrmSubjectList();
-                frmSubject.Show();
+               
                 this.Close(); 
             }
 

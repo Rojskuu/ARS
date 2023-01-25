@@ -36,7 +36,7 @@ namespace AutomatedRoomScheduling
             
             InitializeComponent();
             SectionCRUD = new SectionCRUD();
-            
+            SectionCRUD.SectionID = ID;
             SectionCRUD.Retrieve();
             SectionCRUD.SectionID = ID.Substring(0,ID.IndexOf('-'));
 
@@ -160,8 +160,7 @@ namespace AutomatedRoomScheduling
             catch (Exception ex) { }
             finally 
             { 
-                FrmSectionList frmSection = new FrmSectionList();
-                frmSection.Show();
+                
                 this.Close();
             }
         }
@@ -170,31 +169,32 @@ namespace AutomatedRoomScheduling
         {
             try
             {
-                if (!SectionCRUD.SectionID.Equals(""))
-                {
-                    cmbCourse.SelectedIndexChanged -= cmbCourse_SelectedIndexChanged;
-                }
-                int start = cmbCourse.Text.IndexOf('(')+1;
-                int end = cmbCourse.Text.IndexOf(')') - start;
-                course = cmbCourse.Text.Substring(start, end);
+                //if (SectionCRUD.SectionID.Equals(""))
+                //{
+                //     cmbCourse.SelectedIndexChanged -= cmbCourse_SelectedIndexChanged;
+            
+                //}
+                //int start = cmbCourse.Text.IndexOf('(')+1;
+                //int end = cmbCourse.Text.IndexOf(')') - start;
+                //course = cmbCourse.Text.Substring(start, end);
 
-                txtSectionID.Text = course + "-" + yr;
+            //txtSectionID.Text = course + " " + yr;
 
 
-            } catch (Exception ex) { MessageBox.Show(""); }
+        } catch (Exception ex) { MessageBox.Show(""); }
         }
 
         private void cmbYrlvl_SelectedIndexChanged(object sender, EventArgs e)
         {
             try 
             {
-                if (!SectionCRUD.SectionID.Equals(""))
-                {
-                    cmbYrlvl.SelectedIndexChanged -= cmbYrlvl_SelectedIndexChanged;
-                }
-                yr = cmbYrlvl.SelectedIndex+"";
+                //if (SectionCRUD.SectionID.Equals(""))
+                //{
+                //    cmbYrlvl.SelectedIndexChanged -= cmbYrlvl_SelectedIndexChanged;
+                //}
+                //yr = cmbYrlvl.SelectedIndex+"";
 
-                txtSectionID.Text = course +"-"+ yr;
+                //txtSectionID.Text = course +" "+ yr;
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 

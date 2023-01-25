@@ -24,7 +24,7 @@ namespace AutomatedRoomScheduling
             ", SecCnt AS 'Student Count' , Course AS 'Course' " +
             ", Yearlvl AS 'Year level' from Section  where Archive = 0";
 
-        public static String SectionID { get; set; }
+        public static String SectionID { get; set; } = "";
         public static int SectionCount { get; set; }
         public static String Course { get; set; }
         public static String Yrlvl { get; set; }

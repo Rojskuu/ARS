@@ -20,6 +20,7 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query;
 
+    Random rand = new Random();
         public static String LogID { get; set; }
         public static String Activity { get; set; }
 
@@ -27,8 +28,10 @@ namespace AutomatedRoomScheduling
         {
             con = new SqlConnection(server);
             con.Open();
-             LogID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + "" + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + "";
-            if (LogID.Equals("000000")) 
+            int x = rand.Next(0,int.MaxValue);
+
+            LogID = "" + FrmDash.Yr + "" + FrmDash.Mnth + "" + FrmDash.Day + "" + FrmDash.Hr + "" + FrmDash.Min + "" + FrmDash.Sec + ""+FrmDash.Nanosec+""+x;
+            if (LogID.Equals("0000000")) 
             {
                 LogID = FrmLogin.LogID;
             }

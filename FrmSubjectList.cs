@@ -133,8 +133,9 @@ namespace AutomatedRoomScheduling
 
 
                     FrmSubject frmSub = new FrmSubject(ID);
-                    frmSub.Show();
+                    frmSub.ShowDialog();
 
+                    PopulatedtgSub();
                     
 
                 }

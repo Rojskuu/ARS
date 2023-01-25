@@ -44,8 +44,11 @@ namespace AutomatedRoomScheduling
                 SY.Create();
                 LogHisCRUD.Activity =   " Added new SY / Sem. ";
                 log.Create();
-                dash.PopSY();
+                
+                
 
+                MessageBox.Show("SY / Sem Successfully Added.", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
