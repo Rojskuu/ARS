@@ -64,7 +64,7 @@ namespace AutomatedRoomScheduling
                 con.Open();
 
                 query = "Select SUBSTRING(TeacherID,1,CHARINDEX('-', TeacherID)-1) AS 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
-                    " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type'" +
+                    " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type' ,Department" +
                        " FROM Teacher where Archive = 0 AND TeacherID LIKE '%" + FrmDash.SYSem + "%'";
 
                 adapter = new SqlDataAdapter(query, con);

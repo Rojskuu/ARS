@@ -241,9 +241,9 @@ namespace AutomatedRoomScheduling
                                     {
                                         RoomType = "Kitchen Laboratory";
                                     }
-                                    else if (ClassType.Equals("Lecture"))
+                                    else if (ClassType.Equals("Lecture Room"))
                                     {
-                                        RoomType = "Lecture";
+                                        RoomType = "Lecture Room";
                                     }
                                     getSimilarTime();
                                     PickRDID();

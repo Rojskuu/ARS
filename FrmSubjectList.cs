@@ -71,8 +71,10 @@ namespace AutomatedRoomScheduling
                 if (mess.Trim().Equals(""))
                 {
                     FrmSub = new FrmSubject();
-                    FrmSub.Show();
-                  
+                    FrmSub.ShowDialog();
+                    PopulatedtgSub();
+
+
                 }
                 else 
                 {

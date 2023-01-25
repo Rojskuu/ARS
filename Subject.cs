@@ -36,6 +36,7 @@ namespace AutomatedRoomScheduling
             InitializeComponent();
             SubjectCRUD = new SubjectCRUD();
             SubjectCRUD.SubjectCode = ID;
+            txtSubCode.Enabled = false;
             SubjectCRUD.Retrieve();
             Poptxt();
 
