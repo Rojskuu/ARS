@@ -221,7 +221,7 @@ namespace AutomatedRoomScheduling
 
                         if (TDID.Count != 0)
                         {
-                            for (int i = 0; i <= TDID.Count; i++)
+                            for (int i = 0; i < TDID.Count; i++)
                             {
                                 TeacherD = TDID[i] + "";
                                 TDayNo = Convert.ToInt32(TDay[i]);
