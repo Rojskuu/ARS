@@ -135,7 +135,7 @@ namespace AutomatedRoomScheduling
                 con.Open();
 
                 query = "update Class set " +
-                         "SubCode = '" + SubjectCode + "-" + FrmDash.SYSem + "', "
+                         "SubCode = '" + SubjectCode  + "', "
                        + "SectionID = '" + SectionID + "-" + FrmDash.SYSem + "', "
                        + "TeacherID = '" + TeacherID + "-" + FrmDash.SYSem + "' WHERE ClassID = '" + ClassID +"-"+FrmDash.SYSem+"'";
 

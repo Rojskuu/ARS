@@ -117,6 +117,7 @@
             // 
             // txtSubCode
             // 
+            this.txtSubCode.Enabled = false;
             this.txtSubCode.Location = new System.Drawing.Point(177, 44);
             this.txtSubCode.Name = "txtSubCode";
             this.txtSubCode.Size = new System.Drawing.Size(195, 27);
@@ -181,6 +182,7 @@
             // 
             // txtSectionID
             // 
+            this.txtSectionID.Enabled = false;
             this.txtSectionID.Location = new System.Drawing.Point(177, 110);
             this.txtSectionID.Name = "txtSectionID";
             this.txtSectionID.Size = new System.Drawing.Size(195, 27);
@@ -188,6 +190,7 @@
             // 
             // txtTeacherID
             // 
+            this.txtTeacherID.Enabled = false;
             this.txtTeacherID.Location = new System.Drawing.Point(177, 77);
             this.txtTeacherID.Name = "txtTeacherID";
             this.txtTeacherID.Size = new System.Drawing.Size(195, 27);
