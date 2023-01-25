@@ -118,16 +118,16 @@ namespace AutomatedRoomScheduling
             {
                 con.Open();
 
-                query = "Select concat(T.FName, ' ', T.MName, '. ', T.LName) as 'Name', Sub.SubDescript ,  SUBSTRING(Sec.SectionID, 1, CHARINDEX('-', Sec.SectionID) - 1) AS 'SECTION' ," +
+                query = "Select concat(T.FName, ' ', T.MName, '. ', T.LName) as 'Name', Sub.SubDescript ,  SUBSTRING(Sec.SectionID, 1, CHARINDEX('-', Sec.SectionID) - 1) AS 'SECTION' , " +
                  "SUBSTRING(S.RoomID, 1, CHARINDEX('-', S.RoomID) - 1) AS 'Room', S.SySem, S.araw AS 'Day', S.Timeframe AS 'Time' From SCHED S " +
                  " INNER join Class C " +
-                     " ON s.ClassID = c.ClassID" +
-                     "Inner join Teacher T " +
-                      "On T.TeacherID = c.TeacherID "+
-                       "Inner join Subj Sub "+
-                       "On c.SubCode = Sub.SubCode "+
-                         "Inner join Section Sec " +
-                            "On sec.SectionID = c.SectionID ";
+                     " ON s.ClassID = c.ClassID " +
+                     " Inner join Teacher T " +
+                      " On T.TeacherID = c.TeacherID "+
+                       " Inner join Subj Sub "+
+                       " On c.SubCode = Sub.SubCode "+
+                         " Inner join Section Sec " +
+                            " On sec.SectionID = c.SectionID ";
 
                 adapter = new SqlDataAdapter(query, con);
                 ds = new DataSet();
