@@ -167,8 +167,6 @@
             this.cmbYrlvl.FormattingEnabled = true;
             this.cmbYrlvl.Items.AddRange(new object[] {
             "",
-            "Grade 11",
-            "Grade 12",
             "Freshmen",
             "Sophomore",
             "Junior",
@@ -177,6 +175,7 @@
             this.cmbYrlvl.Name = "cmbYrlvl";
             this.cmbYrlvl.Size = new System.Drawing.Size(291, 28);
             this.cmbYrlvl.TabIndex = 3;
+            this.cmbYrlvl.SelectedIndexChanged += new System.EventHandler(this.cmbYrlvl_SelectedIndexChanged);
             // 
             // cmbCourse
             // 
@@ -194,6 +193,7 @@
             this.cmbCourse.Name = "cmbCourse";
             this.cmbCourse.Size = new System.Drawing.Size(291, 28);
             this.cmbCourse.TabIndex = 2;
+            this.cmbCourse.SelectedIndexChanged += new System.EventHandler(this.cmbCourse_SelectedIndexChanged);
             // 
             // txtSectionCnt
             // 

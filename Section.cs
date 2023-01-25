@@ -21,7 +21,7 @@ namespace AutomatedRoomScheduling
         FrmDash dash;
         SectionCRUD SectionCRUD;
         LogHisCRUD log = new LogHisCRUD();
-        
+        String course = "" , yr= "";
         public FrmSection()
         {
             InitializeComponent();
@@ -158,6 +158,28 @@ namespace AutomatedRoomScheduling
                 frmSection.Show();
                 this.Close();
             }
+        }
+
+        private void cmbCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int start = cmbCourse.Text.IndexOf('(')+1;
+                int end = cmbCourse.Text.IndexOf(')') - start;
+                course = cmbCourse.Text.Substring(start, end);
+
+                txtSectionID.Text = course + "-" + yr;
+            } catch (Exception ex) { MessageBox.Show(""); }
+        }
+
+        private void cmbYrlvl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try 
+            {
+                yr = cmbYrlvl.SelectedIndex+"";
+
+                txtSectionID.Text = course +"-"+ yr;
+            } catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         private void btnElipsis_Click(object sender, EventArgs e)

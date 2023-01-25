@@ -276,6 +276,7 @@ namespace AutomatedRoomScheduling
             rbtnFemale.Checked = false;
             cmbDegree.SelectedIndex = 0;
             cmbEmpType.SelectedIndex = 0;
+            cmbDept.SelectedIndex = 0;
             cmbCS.SelectedIndex = 0;
             dtBday.Value = DateTime.Now;
   
