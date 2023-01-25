@@ -40,7 +40,8 @@ namespace AutomatedRoomScheduling
             {
                 con.Open();
 
-                query = "Select Username AS 'ADMIN', Activity , FORMAT(actTime, 'yyyy-MM-dd HH:mm:ss' ) AS 'Date & Time' from LogHistory ORDER BY actTime";
+                query = "Select Username AS 'ADMIN', Activity , FORMAT(actTime, 'yyyy-MM-dd HH:mm:ss' ) " +
+                    "AS 'Date & Time' from LogHistory ORDER BY actTime Desc";
 
                 adapter = new SqlDataAdapter(query, con);
                 ds = new DataSet();

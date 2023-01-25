@@ -35,8 +35,9 @@ namespace AutomatedRoomScheduling
         {
 
             InitializeComponent();
-           
+            
             con = new SqlConnection(server);
+            PopulatedtgTeach();
         }
         public FrmTeachList(string mess)
         {
@@ -45,6 +46,7 @@ namespace AutomatedRoomScheduling
             con = new SqlConnection(server);
             btnUpdate.Enabled = false;
             this.mess = mess;
+            PopulatedtgTeach();
         }
 
 
@@ -61,7 +63,9 @@ namespace AutomatedRoomScheduling
             {
                 con.Open();
 
-                query = TeachCRUD.TeachDisplay;
+                query = "Select SUBSTRING(TeacherID,1,CHARINDEX('-', TeacherID)-1) AS 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
+                    " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type'" +
+                       " FROM Teacher where Archive = 0 AND TeacherID LIKE '%" + FrmDash.SYSem + "%'";
 
                 adapter = new SqlDataAdapter(query, con);
                 ds = new DataSet();
@@ -94,6 +98,8 @@ namespace AutomatedRoomScheduling
                 WindowChecker.IsRunning = false;
                 LogHisCRUD.Activity = " Closed Teacher form. " ;
                 log.Create();
+                dtgTeach.DataSource = null;
+                dtgTeach.Rows.Clear();
                 this.Close();
             }
             //WindowChecker.IsRunning = false;

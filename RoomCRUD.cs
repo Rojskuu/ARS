@@ -32,8 +32,9 @@ namespace AutomatedRoomScheduling
 
 
         public static String RoomDisplay = "Select SUBSTRING(RoomID,1,CHARINDEX('-', RoomID)-1) AS 'Room ID' , RoomType AS 'Room Type', " +
-            "Cap AS 'Capacity'  FROM ROOM WHERE Archive = 0";
+            "Cap AS 'Capacity'  FROM ROOM WHERE Archive = 0 AND RoomID  LIKE '%" + FrmDash.SYSem + "%'";
 
+        
         public void Create()
         {
             try

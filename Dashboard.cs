@@ -440,15 +440,7 @@ namespace AutomatedRoomScheduling
 
         private void cmbSY_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try 
-            {
-
-                SYSem = cmbSY.SelectedItem+"";
-
-                LogHisCRUD.Activity =  " Selected "+SYSem+" in the Dashboard.";
-                log.Create();
-
-            } catch (Exception ex) { MessageBox.Show(ex+ ""); }
+           
         }
 
         private void btnLogHis_Click(object sender, EventArgs e)
@@ -472,6 +464,21 @@ namespace AutomatedRoomScheduling
 
 
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        private void cmbSY_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+
+                SYSem = cmbSY.Text + "";
+
+                LogHisCRUD.Activity = " Selected " + SYSem + " in the Dashboard.";
+                log.Create();
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+
         }
 
         private void txtSection_KeyUp(object sender, KeyEventArgs e)

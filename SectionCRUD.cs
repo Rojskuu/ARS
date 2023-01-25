@@ -22,7 +22,7 @@ namespace AutomatedRoomScheduling
 
         public static String SecDisplay = "Select SUBSTRING(SectionID,1,CHARINDEX('-', SectionID)-1) AS 'Section ID' " +
             ", SecCnt AS 'Student Count' , Course AS 'Course' " +
-            ", Yearlvl AS 'Year level' from Section  where Archive = 0";
+            ", Yearlvl AS 'Year level' from Section  where Archive = 0 AND SectionID LIKE '%" + FrmDash.SYSem + "%'";
 
         public static String SectionID { get; set; } = "";
         public static int SectionCount { get; set; }

@@ -61,7 +61,9 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = SectionCRUD.SecDisplay;
+                query = "Select SUBSTRING(SectionID,1,CHARINDEX('-', SectionID)-1) AS 'Section ID' " +
+            ", SecCnt AS 'Student Count' , Course AS 'Course' " +
+            ", Yearlvl AS 'Year level' from Section  where Archive = 0 AND SectionID LIKE '%" + FrmDash.SYSem + "%'";
 
                 adapter = new SqlDataAdapter(query, con);
                 ds = new DataSet();
