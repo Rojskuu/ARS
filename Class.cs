@@ -196,8 +196,7 @@ namespace AutomatedRoomScheduling
             catch (Exception ex) { }
             finally 
             {
-                FrmClassList frmClass = new FrmClassList();
-                frmClass.Show();
+                
                 this.Close();
             }
         
