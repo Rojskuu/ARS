@@ -137,7 +137,7 @@ namespace AutomatedRoomScheduling
                 query = "update Class set " +
                          "SubCode = '" + SubjectCode + "', "
                        + "SectionID = '" + SectionID + "', "
-                       + "TeacherID = '" + TeacherID + "' WHERE ClassID = '" + ClassID + "'";
+                       + "TeacherID = '" + TeacherID + "' WHERE ClassID = '" + ClassID + FrmDash.SYSem+"'";
 
 
                 SqlCommand cmd = new SqlCommand(query, con);

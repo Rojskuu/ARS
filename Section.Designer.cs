@@ -186,7 +186,7 @@
             "BS in Information Technology (BSIT)",
             "BS in Hospitality Management (BSHM)",
             "BS in Tourism Management (BSTM)",
-            "BS in Computer Engineering (BSCpE)",
+            "BS in Computer Engineering (BSCPE)",
             "Bachelor of Multimedia Arts (BMMA)",
             "BA in Communication (BACOMM)"});
             this.cmbCourse.Location = new System.Drawing.Point(168, 45);
