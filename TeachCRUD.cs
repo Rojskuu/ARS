@@ -38,7 +38,7 @@ namespace AutomatedRoomScheduling
         public static String ConNum { get; set; }
         public static String Deg { get; set; }
         public static String CS { get; set; }
-        public static String EmpType { get; set; }
+        public static String EmpType { get; set; } = "";
         public static String Department { get; set; }
 
         //For Bday Retrieve
