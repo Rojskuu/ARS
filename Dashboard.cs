@@ -529,6 +529,8 @@ namespace AutomatedRoomScheduling
             {
 
                 Algo algo = new Algo();
+
+                PopulatedtgTeach();
             }
             
             //if (WindowChecker.IsRunning == true)
