@@ -261,7 +261,9 @@ namespace AutomatedRoomScheduling
 
                                     ClassList.Remove(ClassID);
 
+                                    break;
 
+                                   Algo algo = new Algo();
 
 
                                 }
