@@ -130,9 +130,9 @@ namespace AutomatedRoomScheduling
 
 
                     FrmRoom frmRoom = new FrmRoom(ID);
-                    frmRoom.Show();
-                   
+                    frmRoom.ShowDialog();
 
+                    PopulatedtgRoom();
 
 
                 }

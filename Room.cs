@@ -118,8 +118,7 @@ namespace AutomatedRoomScheduling
             catch (Exception ex) { }
             finally 
             { 
-                FrmRoomList roomList = new FrmRoomList();
-                roomList.Show();
+                
                 this.Close();
             }
         }
