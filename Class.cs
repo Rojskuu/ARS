@@ -252,7 +252,7 @@ namespace AutomatedRoomScheduling
 
         public void PoptxtSub() 
         {
-            txtSubCode.Text = ClassCRUD.SubjectCode.Substring(0, ClassCRUD.SubjectCode.IndexOf('-'));
+            txtSubCode.Text = ClassCRUD.SubjectCode;
         }
         public void PoptxtAll() 
         {
