@@ -48,10 +48,10 @@ namespace AutomatedRoomScheduling
 
 
                 query = "insert into CLASS " +
-                "(ClassID, SubCode, SectionID, TeacherID , Archive , Username ) " +
+                "(ClassID, SubCode, SectionID, TeacherID , Archive , Username, isSched ) " +
                 "values('" + ClassID + "', '" + SubjectCode.Replace("'", "''")+ "', '" + SectionID.Replace("'", "''") + "-" + FrmDash.SYSem+
                 "', '" + TeacherID.Replace("'", "''") + "-" + FrmDash.SYSem+ "' ," +
-                "'" + 0 + "', '" + AdminChecker.Admin + "')";
+                "'" + 0 + "', '" + AdminChecker.Admin + "', 0)";
 
 
                 SqlCommand cmd = new SqlCommand(query, con);

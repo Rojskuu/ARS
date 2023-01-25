@@ -154,7 +154,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "Select ClassID from CLASS Where Archive = 0 OR isSched = 0";
+                query = "Select ClassID from CLASS Where isSched = 0";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
