@@ -58,7 +58,7 @@ namespace AutomatedRoomScheduling
                 foreach (DataGridViewRow row in dtgRoom.SelectedRows)
                 {
 
-                    ID = dtgRoom.Rows[e.RowIndex].Cells[0].Value + "";
+                    ID = dtgRoom.Rows[e.RowIndex].Cells[0].Value + "-"+FrmDash.SYSem;
 
                 }
             }
@@ -127,17 +127,13 @@ namespace AutomatedRoomScheduling
                 else
                 {
 
-
-
-                    FrmRoom frmRoom = new FrmRoom(ID);
+                    frmRoom = new FrmRoom(ID);
                     frmRoom.ShowDialog();
-
                     PopulatedtgRoom();
-
 
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         private void txtRoom_KeyUp(object sender, KeyEventArgs e)

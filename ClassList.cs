@@ -29,6 +29,8 @@ namespace AutomatedRoomScheduling
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        FrmClass frmClass;
         public FrmClassList()
         {
             InitializeComponent();
@@ -77,8 +79,8 @@ namespace AutomatedRoomScheduling
             try
             {
                 FrmClass = new FrmClass();
-                FrmClass.Show();
-               
+                FrmClass.ShowDialog();
+                PopdtgClass();               
             }
             catch (Exception) { }
         }
@@ -117,10 +119,10 @@ namespace AutomatedRoomScheduling
 
                     
                     
-                    FrmClass frmClass = new FrmClass(ID);
-                    frmClass.Show();
+                    frmClass = new FrmClass(ID);
+                    frmClass.ShowDialog();
 
-                    
+                    PopdtgClass();
 
                 }
             }

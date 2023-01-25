@@ -105,7 +105,7 @@ namespace AutomatedRoomScheduling
         }
         public void PoptxtTeach()
         {
-            txtTeacherID.Text = ClassCRUD.TeacherID;
+            txtTeacherID.Text = ClassCRUD.TeacherID.Substring(0, ClassCRUD.TeacherID.IndexOf('-'));
         }
 
         private void btnSec_Click(object sender, EventArgs e)
@@ -122,7 +122,9 @@ namespace AutomatedRoomScheduling
 
         public void PoptxtSec() 
         {
-            txtSectionID.Text = ClassCRUD.SectionID;
+            txtSectionID.Text = ClassCRUD.SectionID.Substring(0,ClassCRUD.SectionID.IndexOf('-')); 
+
+
         
         }
 
@@ -250,7 +252,7 @@ namespace AutomatedRoomScheduling
 
         public void PoptxtSub() 
         {
-            txtSubCode.Text = ClassCRUD.SubjectCode;
+            txtSubCode.Text = ClassCRUD.SubjectCode.Substring(0, ClassCRUD.SubjectCode.IndexOf('-'));
         }
         public void PoptxtAll() 
         {
