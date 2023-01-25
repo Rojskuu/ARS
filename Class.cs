@@ -77,7 +77,7 @@ namespace AutomatedRoomScheduling
             if (MessageBox.Show("Are you sure you want to exit? Any unsaved data will be lost.", "Confirm", MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                FrmClassList frmClass = new FrmClassList();
+                
                 
                 
                 this.Close();
