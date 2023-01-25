@@ -42,7 +42,7 @@ namespace AutomatedRoomScheduling
 
                 query = $"insert into TeacherDay " +
                     "(TeacherID,DayNo, TDID)" +
-                    "values('" + TeachCRUD.TeacherID + "', " + TeachCRUD.DayNo
+                    "values('" + TeachCRUD.TeacherID+"-"+FrmDash.SYSem + "', " + TeachCRUD.DayNo
                     + ", '" + TDID + "')";
 
                 SqlCommand cmd = new SqlCommand(query, con);

@@ -24,8 +24,9 @@ namespace AutomatedRoomScheduling
         String query, ID = "", txt , mess="";
         private TeachCRUD TC = new TeachCRUD();
         LogHisCRUD log = new LogHisCRUD();
+        FrmTeach frmTeach;
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+       [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
@@ -138,6 +139,11 @@ namespace AutomatedRoomScheduling
 
         }
 
+        private void dtgTeach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -150,10 +156,7 @@ namespace AutomatedRoomScheduling
                 else
                 {
 
-
-
-                    FrmTeach frmTeach = new FrmTeach(ID);
-                   
+                    frmTeach = new FrmTeach(ID);
                     frmTeach.ShowDialog();
                     PopulatedtgTeach();
 
@@ -161,7 +164,7 @@ namespace AutomatedRoomScheduling
 
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
         }
 
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)

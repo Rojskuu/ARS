@@ -66,8 +66,8 @@ namespace AutomatedRoomScheduling
             btnDataMig.Visible = false;
             btnDataMig.Enabled = false;
 
-           
 
+            TeachCRUD.TeacherID = ID;
             TeachCRUD.Retrieve();
             TeachCRUD.TeacherID = ID.Substring(0, ID.IndexOf('-'));
             Poptxt();

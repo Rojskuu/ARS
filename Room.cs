@@ -30,6 +30,7 @@ namespace AutomatedRoomScheduling
         public FrmRoom(String ID) 
         {
             InitializeComponent();
+            txtRoomID.Enabled = false;
             RoomCRUD = new RoomCRUD();
             RoomCRUD.RoomID = ID;
             RoomCRUD.Retrieve();

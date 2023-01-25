@@ -363,7 +363,7 @@ namespace AutomatedRoomScheduling
                 con.Open();
 
                 query = "Select TDID , DayNo from TeacherDay " +
-                   " where TeacherID = '" + TeacherID +"-"+FrmDash.SYSem+ "'";
+                   " where TeacherID = '" + TeacherID + "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();

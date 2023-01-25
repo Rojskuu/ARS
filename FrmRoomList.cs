@@ -110,6 +110,7 @@ namespace AutomatedRoomScheduling
             {
                 frmRoom = new FrmRoom();
                 frmRoom.ShowDialog();
+                PopulatedtgRoom();
                 
             }
             catch (Exception) { }

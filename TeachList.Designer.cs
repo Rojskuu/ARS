@@ -127,6 +127,7 @@
             this.dtgTeach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgTeach.Size = new System.Drawing.Size(642, 288);
             this.dtgTeach.TabIndex = 2;
+            this.dtgTeach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgTeach_CellContentClick);
             this.dtgTeach.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgTeach_CellMouseClick);
             // 
             // btnConfirm
