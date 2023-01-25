@@ -122,7 +122,7 @@ namespace AutomatedRoomScheduling
                  "SUBSTRING(S.RoomID, 1, CHARINDEX('-', S.RoomID) - 1) AS 'Room', S.SySem, S.araw AS 'Day', S.Timeframe AS 'Time' From SCHED S " +
                  " INNER join Class C" +
                      " ON s.ClassID = c.ClassID" +
-                     "Inner join Teacher T" +
+                     "Inner join Teacher T " +
                       "On T.TeacherID = c.TeacherID"+
                        "Inner join Subj Sub"+
                        "On c.SubCode = Sub.SubCode"+
