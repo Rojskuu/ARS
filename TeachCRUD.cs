@@ -32,7 +32,7 @@ namespace AutomatedRoomScheduling
         public static String FName { get; set; }
         public static String MName { get; set; }
         public static String LName { get; set; }
-        public static String Sex { get; set; }
+        public static String Sex { get; set; } = "";
         public static String Religion { get; set; }
         public static String Bday { get; set; }
         public static String ConNum { get; set; }
