@@ -18,7 +18,7 @@ namespace AutomatedRoomScheduling
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        LogHisCRUD log;
+        LogHisCRUD log = new LogHisCRUD();
 
         RoomCRUD RoomCRUD;
 
