@@ -30,12 +30,17 @@ namespace AutomatedRoomScheduling
 
         public FrmSection(String ID) 
         {
+
+            
+                
             
             InitializeComponent();
             SectionCRUD = new SectionCRUD();
             
             SectionCRUD.Retrieve();
             SectionCRUD.SectionID = ID.Substring(0,ID.IndexOf('-'));
+
+            
             Poptxt();
 
         }
@@ -165,6 +170,10 @@ namespace AutomatedRoomScheduling
         {
             try
             {
+                if (!SectionCRUD.SectionID.Equals(""))
+                {
+                    cmbCourse.SelectedIndexChanged -= cmbCourse_SelectedIndexChanged;
+                }
                 int start = cmbCourse.Text.IndexOf('(')+1;
                 int end = cmbCourse.Text.IndexOf(')') - start;
                 course = cmbCourse.Text.Substring(start, end);
@@ -179,6 +188,10 @@ namespace AutomatedRoomScheduling
         {
             try 
             {
+                if (!SectionCRUD.SectionID.Equals(""))
+                {
+                    cmbYrlvl.SelectedIndexChanged -= cmbYrlvl_SelectedIndexChanged;
+                }
                 yr = cmbYrlvl.SelectedIndex+"";
 
                 txtSectionID.Text = course +"-"+ yr;
