@@ -201,6 +201,7 @@
             this.txtSectionCnt.Name = "txtSectionCnt";
             this.txtSectionCnt.Size = new System.Drawing.Size(291, 27);
             this.txtSectionCnt.TabIndex = 1;
+            this.txtSectionCnt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSectionCnt_KeyUp);
             // 
             // txtSectionID
             // 

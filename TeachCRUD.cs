@@ -27,7 +27,7 @@ namespace AutomatedRoomScheduling
 
         public static String TeachDisplay = "Select SUBSTRING(TeacherID,1,CHARINDEX('-', TeacherID)-1) AS 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
                     " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type'" +
-                       " FROM Teacher where Archive = 0";
+                       " FROM Teacher where Archive = 0 AND TeacherID LIKE '%"+FrmDash.SYSem+"%'";
         public static String TeacherID { get; set; }
         public static String FName { get; set; }
         public static String MName { get; set; }

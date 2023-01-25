@@ -35,12 +35,18 @@ namespace AutomatedRoomScheduling
                 
             
             InitializeComponent();
+
+            txtSectionID.Enabled = false;
+            cmbCourse.Enabled = false;
+            cmbYrlvl.Enabled = false;
+
             SectionCRUD = new SectionCRUD();
             SectionCRUD.SectionID = ID;
             SectionCRUD.Retrieve();
             SectionCRUD.SectionID = ID.Substring(0,ID.IndexOf('-'));
 
             
+
             Poptxt();
 
         }
@@ -98,9 +104,13 @@ namespace AutomatedRoomScheduling
         public void Clear() 
         {
             txtSectionID.Text = "";
+            txtSectionID.Enabled = true;
             txtSectionCnt.Text = "";
+            txtSectionCnt.Enabled = true;
             cmbCourse.SelectedIndex = 0;
+            cmbCourse.Enabled = true;
             cmbYrlvl.SelectedIndex = 0;
+            cmbYrlvl.Enabled = true;
             btnAdd.Text = "ADD";
         }
         public void Poptxt() 
@@ -196,6 +206,17 @@ namespace AutomatedRoomScheduling
 
                 //txtSectionID.Text = course +" "+ yr;
             } catch (Exception ex) { MessageBox.Show(ex + ""); }
+        }
+
+        private void txtSectionCnt_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!char.IsControl(((char)e.KeyCode)) && !char.IsDigit(((char)e.KeyCode)))
+            {
+                MessageBox.Show("Please input number only in this text field.", "Error!",
+                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               txtSectionCnt.Text = "";
+                e.Handled = true;
+            }
         }
 
         private void btnElipsis_Click(object sender, EventArgs e)
