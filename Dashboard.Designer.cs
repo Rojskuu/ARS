@@ -321,7 +321,7 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dtgTeach.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgTeach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgTeach.Size = new System.Drawing.Size(743, 474);
+            this.dtgTeach.Size = new System.Drawing.Size(902, 474);
             this.dtgTeach.TabIndex = 0;
             // 
             // tabSection
