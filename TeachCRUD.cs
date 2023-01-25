@@ -25,7 +25,7 @@ namespace AutomatedRoomScheduling
 
 
 
-        public static String TeachDisplay = "Select TeacherID as 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
+        public static String TeachDisplay = "Select SUBSTRING(TeacherID,1,CHARINDEX('-', TeacherID)-1) AS 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
                     " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type'" +
                        " FROM Teacher where Archive = 0";
         public static String TeacherID { get; set; }
@@ -255,7 +255,7 @@ namespace AutomatedRoomScheduling
 
                 
                 query = "Select TDID from TeacherDay " +
-                    " WHERE TeacherID = '" + TeacherID + "'";
+                    " WHERE TeacherID = '" + TeacherID +"-"+FrmDash.SYSem+"'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -363,7 +363,7 @@ namespace AutomatedRoomScheduling
                 con.Open();
 
                 query = "Select TDID , DayNo from TeacherDay " +
-                   " where TeacherID = '" + TeacherID + "'";
+                   " where TeacherID = '" + TeacherID +"-"+FrmDash.SYSem+ "'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -458,7 +458,7 @@ namespace AutomatedRoomScheduling
                        + "CivilStat = '" + CS + "', "
                        + "EmpType = '" + EmpType + "', " 
                        + "Department = '"+Department+"' " 
-                       + "where TeacherID = '"+TeacherID+"'";
+                       + "where TeacherID = '"+TeacherID+"-"+FrmDash.SYSem+"'";
             
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();

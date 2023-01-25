@@ -47,7 +47,7 @@ namespace AutomatedRoomScheduling
                 foreach (DataGridViewRow row in dtgSec.SelectedRows)
                 {
 
-                    ID = dtgSec.Rows[e.RowIndex].Cells[0].Value + "";
+                    ID = dtgSec.Rows[e.RowIndex].Cells[0].Value +"-" +FrmDash.SYSem;
 
                 }
             }
@@ -173,7 +173,8 @@ namespace AutomatedRoomScheduling
                     con.Open();
 
 
-                    query = "Select SectionID AS 'Section ID' , SecCnt AS 'Student Count' , Course AS 'Course' " +
+                    query = "Select SUBSTRING(SectionID,1,CHARINDEX('-', SectionID)-1) AS 'Section ID' " +
+                            ", SecCnt AS 'Student Count' , Course AS 'Course' " +
                             ", Yearlvl AS 'Year level' from Section  where Archive = 0 " +
                             "AND SectionID LIKE '%" + txt + "%' and Archive = 0 " +
                             "or SecCnt LIKE '%" + txt + "%' and Archive = 0 " +

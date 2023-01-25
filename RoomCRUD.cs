@@ -31,7 +31,7 @@ namespace AutomatedRoomScheduling
         public static int TimeNo { get; set; }
 
 
-        public static String RoomDisplay = "Select RoomID AS 'Room ID' , RoomType AS 'Room Type', " +
+        public static String RoomDisplay = "Select SUBSTRING(RoomID,1,CHARINDEX('-', RoomID)-1) AS 'Room ID' , RoomType AS 'Room Type', " +
             "Cap AS 'Capacity'  FROM ROOM WHERE Archive = 0";
 
         public void Create()
@@ -40,14 +40,15 @@ namespace AutomatedRoomScheduling
             {
 
                 con = new SqlConnection(server);
+
                 con.Open();
 
+                RoomID += "-" + FrmDash.SYSem;
 
                 query = "insert into Room " +
                 "(RoomID, RoomType, Cap , Archive , Username ) " +
-                "values('" + RoomID.Replace("'", "''") +"-"+FrmDash.SYSem+ "', '" + RoomType + "', '" + RoomCap + "', " +
+                "values('" + RoomID.Replace("'", "''") + "', '" + RoomType + "', '" + RoomCap + "', " +
                  + 0 + ", '" + AdminChecker.Admin + "')";
-
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
@@ -149,7 +150,7 @@ namespace AutomatedRoomScheduling
                 query = "update Room set " +
                          "RoomType = '" + RoomType + "', "
                        + "Cap = '" + RoomCap + "' "
-                       + "WHERE RoomID = '" + RoomID + "'";
+                       + "WHERE RoomID = '" + RoomID +"-"+FrmDash.SYSem+ "'";
 
 
                 SqlCommand cmd = new SqlCommand(query, con);

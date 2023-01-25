@@ -179,7 +179,7 @@ namespace AutomatedRoomScheduling
                     con.Open();
 
 
-                    query = "Select TeacherID as 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
+                    query = "Select SUBSTRING(TeacherID,1,CHARINDEX('-', TeacherID)-1) AS 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
                             " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type'" +
                             " FROM Teacher where Archive = 0 " +
                             "AND TeacherID LIKE '%" + txt + "%' and Archive = 0 " +
@@ -209,7 +209,7 @@ namespace AutomatedRoomScheduling
                 foreach (DataGridViewRow row in dtgTeach.SelectedRows)
                 {
                     
-                    ID = dtgTeach.Rows[e.RowIndex].Cells[0].Value + "";
+                    ID = dtgTeach.Rows[e.RowIndex].Cells[0].Value + "-" + FrmDash.SYSem ;
                     
                 }
             }catch (Exception) { }

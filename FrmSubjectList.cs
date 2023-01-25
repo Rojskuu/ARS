@@ -56,7 +56,7 @@ namespace AutomatedRoomScheduling
                 foreach (DataGridViewRow row in dtgSub.SelectedRows)
                 {
 
-                    ID = dtgSub.Rows[e.RowIndex].Cells[0].Value + "";
+                    ID = dtgSub.Rows[e.RowIndex].Cells[0].Value +"" ;
 
                 }
             }
@@ -83,6 +83,7 @@ namespace AutomatedRoomScheduling
                     }
                     else 
                     { 
+
                       ClassCRUD.SubjectCode = ID;
                         
                     }

@@ -33,8 +33,9 @@ namespace AutomatedRoomScheduling
             
             InitializeComponent();
             SectionCRUD = new SectionCRUD();
-            SectionCRUD.SectionID = ID;
+            
             SectionCRUD.Retrieve();
+            SectionCRUD.SectionID = ID.Substring(0,ID.IndexOf('-'));
             Poptxt();
 
         }
@@ -169,6 +170,8 @@ namespace AutomatedRoomScheduling
                 course = cmbCourse.Text.Substring(start, end);
 
                 txtSectionID.Text = course + "-" + yr;
+
+
             } catch (Exception ex) { MessageBox.Show(""); }
         }
 

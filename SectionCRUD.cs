@@ -20,7 +20,8 @@ namespace AutomatedRoomScheduling
         SqlDataReader reader;
         String query;
 
-        public static String SecDisplay = "Select SectionID AS 'Section ID' , SecCnt AS 'Student Count' , Course AS 'Course' " +
+        public static String SecDisplay = "Select SUBSTRING(SectionID,1,CHARINDEX('-', SectionID)-1) AS 'Section ID' " +
+            ", SecCnt AS 'Student Count' , Course AS 'Course' " +
             ", Yearlvl AS 'Year level' from Section  where Archive = 0";
 
         public static String SectionID { get; set; }
@@ -34,11 +35,13 @@ namespace AutomatedRoomScheduling
 
                 con = new SqlConnection(server);
                 con.Open();
+               
+                SectionID += "-" + FrmDash.SYSem;
 
-            
+
                 query = "insert into Section " +
                 "(SectionID, SecCnt, Course, Yearlvl, Archive , Username)" +
-                "values('" + SectionID.Replace("'", "''") +"-"+FrmDash.SYSem+ "', '" + SectionCount + "', '" + Course + "', " +
+                "values('" + SectionID.Replace("'", "''") + "', '" + SectionCount + "', '" + Course + "', " +
                 "'" + Yrlvl + "', '" + 0 + "', '" + AdminChecker.Admin + "')";
 
             
@@ -61,7 +64,7 @@ namespace AutomatedRoomScheduling
                 query = "update Section set " +
                          "SecCnt = '" + SectionCount + "', "
                        + "Course = '" + Course + "', "
-                       + "Yearlvl = '" + Yrlvl + "' WHERE SectionID = '" + SectionID+"'";
+                       + "Yearlvl = '" + Yrlvl + "' WHERE SectionID = '" + SectionID+"-"+FrmDash.SYSem+"'";
                       
 
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -87,7 +90,7 @@ namespace AutomatedRoomScheduling
                 con = new SqlConnection(server);
                 con.Open();
 
-                query = "SELECT * FROM Section WHERE SectionID = '" + txt + "'";
+                query = "SELECT * FROM Section WHERE SectionID = '" + txt +"-"+FrmDash.SYSem+ "'";
 
                 cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@SectionID", txt);

@@ -31,8 +31,9 @@ namespace AutomatedRoomScheduling
         {
             InitializeComponent();
             RoomCRUD = new RoomCRUD();
-            RoomCRUD.RoomID = ID;
+            
             RoomCRUD.Retrieve();
+            RoomCRUD.RoomID = ID.Substring(0,ID.IndexOf('-'));
             Poptxt();
 
         }
