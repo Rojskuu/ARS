@@ -155,11 +155,11 @@ namespace AutomatedRoomScheduling
 
 
                     query = "Select SUBSTRING(RoomID, 1, CHARINDEX('-', RoomID) - 1) AS 'Room ID' , RoomType AS 'Room Type', " +
-                            "Cap AS 'Capacity' , Flooor AS 'Floor' FROM ROOM WHERE RoomID LIKE '%" + FrmDash.SYSem + "%'"  +
+                            "Cap AS 'Capacity'  FROM ROOM WHERE RoomID LIKE '%" + FrmDash.SYSem + "%'"  +
                             "AND RoomID LIKE '%" + txt.Replace("'", "''") + "%' and RoomID LIKE '%" + FrmDash.SYSem + "%'" +
                             "or RoomType LIKE '%" + txt.Replace("'", "''") + "%' and RoomID LIKE '%" + FrmDash.SYSem + "%'" +
-                            "or Cap LIKE '%" + txt.Replace("'", "''") + "%' and RoomID LIKE '%" + FrmDash.SYSem + "%'" +
-                            "or Flooor LIKE '%" + txt.Replace("'", "''") + "%' RoomID LIKE '%" + FrmDash.SYSem + "%'"
+                            "or Cap LIKE '%" + txt.Replace("'", "''") + "%' and RoomID LIKE '%" + FrmDash.SYSem + "%'" 
+                           
                         ;
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();
