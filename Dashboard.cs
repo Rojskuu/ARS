@@ -129,7 +129,8 @@ namespace AutomatedRoomScheduling
                        " Inner join Subj Sub "+
                        " On c.SubCode = Sub.SubCode "+
                          " Inner join Section Sec " +
-                            " On sec.SectionID = c.SectionID ";
+                            " On sec.SectionID = c.SectionID " +
+                            " Where S.SySem = '" +FrmDash.SYSem+"'";
 
                 adapter = new SqlDataAdapter(query, con);
                 ds = new DataSet();
