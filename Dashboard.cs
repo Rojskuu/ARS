@@ -412,6 +412,8 @@ namespace AutomatedRoomScheduling
 
                 LogHisCRUD.Activity = " Selected " + SYSem + " in the Dashboard.";
                 log.Create();
+
+                PopulatedtgTeach();
                 
 
             }
