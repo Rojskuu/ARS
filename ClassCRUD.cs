@@ -23,13 +23,13 @@ namespace AutomatedRoomScheduling
         public static String ClassDisplay = "SELECT ClassID AS 'Class ID', SubCode AS 'Subject Code', " +
             "SectionID AS 'Section ID', TeacherID AS 'Teacher ID' FROM CLASS";
 
-        public static bool Exist { get; set; }
+        public static bool Exist { get; set; } 
 
         public static String ClassID ;
-        public static String RoomID {get;set;}
-        public static String TeacherID {get;set;}
-        public static String SectionID {get;set;}
-        public static String SubjectCode { get; set; }
+        public static String RoomID {get;set;} = "";
+        public static String TeacherID {get;set;} = "";
+        public static String SectionID { get; set; } = "";
+        public static String SubjectCode { get; set; } = "";
 
 
 
