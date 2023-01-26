@@ -98,7 +98,7 @@ namespace AutomatedRoomScheduling
                 }
                
 
-            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+            } catch (Exception ex) { MessageBox.Show("Teacher ID Already Exist!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         public void TeacherDayPopulate()
