@@ -191,13 +191,13 @@ namespace AutomatedRoomScheduling
                     query = "Select SUBSTRING(TeacherID,1,CHARINDEX('-', TeacherID)-1) AS 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
                             " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type'" +
                             " FROM Teacher where Archive = 0 " +
-                            "AND TeacherID LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
-                            "or FName LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
-                            "or MName LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
-                            "or LName LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
-                            "or Sex LIKE '" + txt.Replace("'", "''") + "%' and Archive = 0 " +
-                            "or Degree LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
-                            "or EmpType LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 "
+                            "AND TeacherID LIKE '%" + txt.Replace("'", "''") + "%' SectionID LIKE '%" + FrmDash.SYSem + "%' " +
+                            "or FName LIKE '%" + txt.Replace("'", "''") + "%' and SectionID LIKE '%" + FrmDash.SYSem + "%' " +
+                            "or MName LIKE '%" + txt.Replace("'", "''") + "%' and SectionID LIKE '%" + FrmDash.SYSem + "%'"  +
+                            "or LName LIKE '%" + txt.Replace("'", "''") + "%' and SectionID LIKE '%" + FrmDash.SYSem + "%'"  +
+                            "or Sex LIKE '" + txt.Replace("'", "''") + "%' and SectionID LIKE '%" + FrmDash.SYSem + "%'" +
+                            "or Degree LIKE '%" + txt.Replace("'", "''") + "%' and SectionID LIKE '%" + FrmDash.SYSem + "%'" +
+                            "or EmpType LIKE '%" + txt.Replace("'", "''") + "%' and SectionID LIKE '%" + FrmDash.SYSem + "%'"
                         ;
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();
