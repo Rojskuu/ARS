@@ -46,7 +46,8 @@ namespace AutomatedRoomScheduling
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 con.Close();
-            } catch (Exception ex) { MessageBox.Show(ex + ""); }
+            } catch (Exception ex) { MessageBox.Show("You cannot enter an existing S.Y. / Semester ", "Already existing!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         public void Delete()

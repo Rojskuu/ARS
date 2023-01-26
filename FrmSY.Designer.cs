@@ -66,6 +66,7 @@
             // 
             // cmbSem
             // 
+            this.cmbSem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSem.FormattingEnabled = true;
             this.cmbSem.Items.AddRange(new object[] {
             "",

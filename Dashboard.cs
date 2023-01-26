@@ -484,6 +484,7 @@ namespace AutomatedRoomScheduling
 
                 LogHisCRUD.Activity = " Selected " + SYSem + " in the Dashboard.";
                 log.Create();
+                
 
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
