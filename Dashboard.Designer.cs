@@ -34,15 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnSched = new System.Windows.Forms.Button();
@@ -57,16 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tcDash = new System.Windows.Forms.TabControl();
-            this.tabTeach = new System.Windows.Forms.TabPage();
             this.txtTeach = new System.Windows.Forms.TextBox();
-            this.dtgTeach = new System.Windows.Forms.DataGridView();
-            this.tabSection = new System.Windows.Forms.TabPage();
-            this.txtSection = new System.Windows.Forms.TextBox();
-            this.dtgSec = new System.Windows.Forms.DataGridView();
-            this.tabRoom = new System.Windows.Forms.TabPage();
-            this.txtRoom = new System.Windows.Forms.TextBox();
-            this.dtgRoom = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMini = new System.Windows.Forms.Button();
@@ -79,16 +61,11 @@
             this.nanosec = new System.Windows.Forms.Timer(this.components);
             this.btnLogHis = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.dtgTeach = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tcDash.SuspendLayout();
-            this.tabTeach.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgTeach)).BeginInit();
-            this.tabSection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgSec)).BeginInit();
-            this.tabRoom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgRoom)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTeach)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -254,192 +231,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "TEACHER";
             // 
-            // tcDash
-            // 
-            this.tcDash.Controls.Add(this.tabTeach);
-            this.tcDash.Controls.Add(this.tabSection);
-            this.tcDash.Controls.Add(this.tabRoom);
-            this.tcDash.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcDash.Location = new System.Drawing.Point(97, 87);
-            this.tcDash.Name = "tcDash";
-            this.tcDash.SelectedIndex = 0;
-            this.tcDash.Size = new System.Drawing.Size(1112, 594);
-            this.tcDash.TabIndex = 1;
-            // 
-            // tabTeach
-            // 
-            this.tabTeach.Controls.Add(this.txtTeach);
-            this.tabTeach.Controls.Add(this.dtgTeach);
-            this.tabTeach.Location = new System.Drawing.Point(4, 29);
-            this.tabTeach.Name = "tabTeach";
-            this.tabTeach.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTeach.Size = new System.Drawing.Size(1104, 561);
-            this.tabTeach.TabIndex = 0;
-            this.tabTeach.Text = "Teacher";
-            this.tabTeach.UseVisualStyleBackColor = true;
-            // 
             // txtTeach
             // 
-            this.txtTeach.Location = new System.Drawing.Point(76, 34);
+            this.txtTeach.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTeach.Location = new System.Drawing.Point(189, 109);
             this.txtTeach.Name = "txtTeach";
             this.txtTeach.Size = new System.Drawing.Size(227, 27);
             this.txtTeach.TabIndex = 1;
             this.txtTeach.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTeach_KeyUp);
-            // 
-            // dtgTeach
-            // 
-            this.dtgTeach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgTeach.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgTeach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgTeach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgTeach.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgTeach.GridColor = System.Drawing.Color.Black;
-            this.dtgTeach.Location = new System.Drawing.Point(3, 67);
-            this.dtgTeach.Name = "dtgTeach";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgTeach.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgTeach.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dtgTeach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgTeach.Size = new System.Drawing.Size(902, 474);
-            this.dtgTeach.TabIndex = 0;
-            // 
-            // tabSection
-            // 
-            this.tabSection.Controls.Add(this.txtSection);
-            this.tabSection.Controls.Add(this.dtgSec);
-            this.tabSection.Location = new System.Drawing.Point(4, 29);
-            this.tabSection.Name = "tabSection";
-            this.tabSection.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSection.Size = new System.Drawing.Size(1104, 561);
-            this.tabSection.TabIndex = 1;
-            this.tabSection.Text = "Section";
-            this.tabSection.UseVisualStyleBackColor = true;
-            // 
-            // txtSection
-            // 
-            this.txtSection.Location = new System.Drawing.Point(76, 34);
-            this.txtSection.Name = "txtSection";
-            this.txtSection.Size = new System.Drawing.Size(227, 27);
-            this.txtSection.TabIndex = 3;
-            this.txtSection.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSection_KeyUp);
-            // 
-            // dtgSec
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgSec.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dtgSec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgSec.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgSec.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dtgSec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgSec.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dtgSec.GridColor = System.Drawing.Color.White;
-            this.dtgSec.Location = new System.Drawing.Point(4, 67);
-            this.dtgSec.Name = "dtgSec";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgSec.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgSec.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dtgSec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgSec.Size = new System.Drawing.Size(742, 474);
-            this.dtgSec.TabIndex = 2;
-            // 
-            // tabRoom
-            // 
-            this.tabRoom.Controls.Add(this.txtRoom);
-            this.tabRoom.Controls.Add(this.dtgRoom);
-            this.tabRoom.Location = new System.Drawing.Point(4, 29);
-            this.tabRoom.Name = "tabRoom";
-            this.tabRoom.Size = new System.Drawing.Size(1104, 561);
-            this.tabRoom.TabIndex = 4;
-            this.tabRoom.Text = "Room";
-            this.tabRoom.UseVisualStyleBackColor = true;
-            this.tabRoom.Click += new System.EventHandler(this.tabRoom_Click);
-            // 
-            // txtRoom
-            // 
-            this.txtRoom.Location = new System.Drawing.Point(76, 34);
-            this.txtRoom.Name = "txtRoom";
-            this.txtRoom.Size = new System.Drawing.Size(227, 27);
-            this.txtRoom.TabIndex = 3;
-            this.txtRoom.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRoom_KeyUp);
-            // 
-            // dtgRoom
-            // 
-            this.dtgRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgRoom.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dtgRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgRoom.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dtgRoom.Location = new System.Drawing.Point(3, 67);
-            this.dtgRoom.Name = "dtgRoom";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgRoom.RowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dtgRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgRoom.Size = new System.Drawing.Size(742, 474);
-            this.dtgRoom.TabIndex = 2;
             // 
             // label6
             // 
@@ -559,19 +358,59 @@
             this.label8.TabIndex = 5;
             this.label8.Text = "Log History";
             // 
+            // dtgTeach
+            // 
+            this.dtgTeach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgTeach.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgTeach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgTeach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgTeach.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgTeach.GridColor = System.Drawing.Color.Black;
+            this.dtgTeach.Location = new System.Drawing.Point(97, 142);
+            this.dtgTeach.Name = "dtgTeach";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgTeach.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dtgTeach.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgTeach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgTeach.Size = new System.Drawing.Size(967, 481);
+            this.dtgTeach.TabIndex = 0;
+            this.dtgTeach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgTeach_CellContentClick);
+            // 
             // FrmDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1221, 693);
+            this.Controls.Add(this.dtgTeach);
+            this.Controls.Add(this.txtTeach);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnLogHis);
             this.Controls.Add(this.btnSNT);
             this.Controls.Add(this.cmbSY);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.tcDash);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmDash";
@@ -580,18 +419,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tcDash.ResumeLayout(false);
-            this.tabTeach.ResumeLayout(false);
-            this.tabTeach.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgTeach)).EndInit();
-            this.tabSection.ResumeLayout(false);
-            this.tabSection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgSec)).EndInit();
-            this.tabRoom.ResumeLayout(false);
-            this.tabRoom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgRoom)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTeach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,9 +436,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tcDash;
-        private System.Windows.Forms.TabPage tabTeach;
-        private System.Windows.Forms.TabPage tabSection;
         private System.Windows.Forms.Button btnTeacher;
         private System.Windows.Forms.Button btnRoom;
         private System.Windows.Forms.Button btnClass;
@@ -617,14 +444,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtTeach;
-        private System.Windows.Forms.DataGridView dtgTeach;
-        private System.Windows.Forms.TabPage tabRoom;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMini;
-        private System.Windows.Forms.TextBox txtSection;
-        private System.Windows.Forms.DataGridView dtgSec;
-        private System.Windows.Forms.TextBox txtRoom;
-        private System.Windows.Forms.DataGridView dtgRoom;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label7;
@@ -635,5 +456,6 @@
         private System.Windows.Forms.Timer nanosec;
         private System.Windows.Forms.Button btnLogHis;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dtgTeach;
     }
 }

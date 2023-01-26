@@ -91,8 +91,9 @@ namespace AutomatedRoomScheduling
             Timer timer = new Timer();
             PopulatedtgTeach();
             //PopulateDayTime();
-            PopulatedtgRoom();
-            PopulatedtgSec();
+            
+            
+
             cmbSY.Items.Clear();
             PopSY();
         }
@@ -144,51 +145,9 @@ namespace AutomatedRoomScheduling
             catch (Exception e) { MessageBox.Show(e + ""); }
             finally { con.Close(); }
         }
-        public void PopulatedtgSec()
-        {
-            try
-            {
-                con.Open();
-
-                query = SectionCRUD.SecDisplay;
-
-                adapter = new SqlDataAdapter(query, con);
-                ds = new DataSet();
-                ds.Clear();
-                adapter.Fill(ds);
-                dtgSec.DataSource = ds.Tables[0];
-
-                con.Close();
-
-            }
-            catch (Exception e) { MessageBox.Show(e + ""); }
-            finally { con.Close(); }
-        }
-
        
-        public void PopulatedtgRoom()
-        {
-            try
-            {
-                con.Open();
-
-                query = RoomCRUD.RoomDisplay;
-
-                adapter = new SqlDataAdapter(query, con);
-                ds = new DataSet();
-                ds.Clear();
-                adapter.Fill(ds);
-                dtgRoom.DataSource = ds.Tables[0];
-
-                con.Close();
-
-
-
-            }
-            catch (Exception e) { MessageBox.Show(e + ""); }
-            finally { con.Close(); }
-        }
        
+      
 
         private void Populate_FrmCollection() 
         {
@@ -368,40 +327,7 @@ namespace AutomatedRoomScheduling
 
         }
 
-        private void txtRoom_KeyUp(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                txt = txtRoom.Text.Trim();
-
-                if (txtRoom.Text.Equals(""))
-                {
-                    PopulatedtgRoom();
-                }
-                else
-                {
-
-                    con.Open();
-
-
-                    query = "Select RoomID AS 'Room ID' , RoomType AS 'Room Type', " +
-                            "Cap AS 'Capacity' , Flooor AS 'Floor' FROM ROOM WHERE Archive = 0 " +
-                            "AND RoomID LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or RoomType LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Cap LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Flooor LIKE '%" + txt + "%' and Archive = 0 "
-                        ;
-                    adapter = new SqlDataAdapter(query, con);
-                    ds = new DataSet();
-                    ds.Clear();
-                    adapter.Fill(ds);
-                    dtgRoom.DataSource = ds.Tables[0];
-                    con.Close();
-                }
-            }
-            catch (Exception ex) { MessageBox.Show(ex+""); }
-            finally { con.Close(); }
-        }
+       
 
         private void btnSNT_Click(object sender, EventArgs e)
         {
@@ -492,38 +418,12 @@ namespace AutomatedRoomScheduling
 
         }
 
-        private void txtSection_KeyUp(object sender, KeyEventArgs e)
+        private void dtgTeach_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                txt = txtSection.Text.Trim();
 
-                if (txtSection.Text.Trim().Equals(""))
-                {
-                    PopulatedtgSec();
-                }
-                else
-                {
-                    con.Open();
-
-                    query = "Select SectionID AS 'Section ID' , SecCnt AS 'Student Count' , Course AS 'Course' " +
-                            ", Yearlvl AS 'Year level' from Section  where Archive = 0 " +
-                            "AND SectionID LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or SecCnt LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Course LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Yearlvl LIKE '%" + txt + "%' and Archive = 0 ";
-
-                    adapter = new SqlDataAdapter(query, con);
-                    ds = new DataSet();
-                    ds.Clear();
-                    adapter.Fill(ds);
-                    dtgSec.DataSource = ds.Tables[0];
-                    con.Close();
-                }
-            }
-            catch (Exception ex) { }
-            finally { con.Close(); }
         }
+
+       
 
        
 
