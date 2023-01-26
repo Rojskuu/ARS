@@ -189,9 +189,9 @@ namespace AutomatedRoomScheduling
 
 
                     query = "Select SUBSTRING(TeacherID,1,CHARINDEX('-', TeacherID)-1) AS 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
-                            " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type'" +
+                            " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type' , Department" +
                             " FROM Teacher where Archive = 0 " +
-                            "AND TeacherID LIKE '%" + txt.Replace("'", "''") + "%' TeacherID LIKE '%" + FrmDash.SYSem + "%' " +
+                            "AND TeacherID LIKE '%" + txt.Replace("'", "''") + "%' AND TeacherID LIKE '%" + FrmDash.SYSem + "%' " +
                             "or FName LIKE '%" + txt.Replace("'", "''") + "%' and TeacherID LIKE '%" + FrmDash.SYSem + "%' " +
                             "or MName LIKE '%" + txt.Replace("'", "''") + "%' and TeacherID LIKE '%" + FrmDash.SYSem + "%'"  +
                             "or LName LIKE '%" + txt.Replace("'", "''") + "%' and TeacherID LIKE '%" + FrmDash.SYSem + "%'"  +
