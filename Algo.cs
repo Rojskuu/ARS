@@ -248,7 +248,7 @@ namespace AutomatedRoomScheduling
                                     getSimilarTime();
                                     PickRDID();
                                     getRoomID();
-                                   
+
                                     getTimeFrame();
 
                                     getDay();
@@ -260,16 +260,17 @@ namespace AutomatedRoomScheduling
                                     UpdateClass();
 
                                     ClassList.Remove(ClassID);
-
+                                    Clear();
                                     break;
 
-                                   Algo algo = new Algo();
+                                    Algo algo = new Algo();
 
 
                                 }
 
                             }
                         }
+                       
 
 
                     }
@@ -284,6 +285,26 @@ namespace AutomatedRoomScheduling
             } catch (Exception ex) 
             { MessageBox.Show(ex + ""); }
         
+        }
+
+        public void Clear() 
+        {
+            TDID.Clear();
+            RDID.Clear();
+            RoomType = "";
+            getEndTeach = 0;
+            getStartTeach = 0;
+            getStartRoom = 0;
+            RoomD = "";
+            ClassID = "";
+            ClassType = "";
+            SubjectCRUD.SubjectCode = "";
+            SectionCRUD.SectionID = "";
+            TeachCRUD.TeacherID = "";
+            TotalTimeNo = 0;
+
+
+
         }
 
         public void getDay() 
@@ -453,6 +474,7 @@ namespace AutomatedRoomScheduling
 
                 for (int i = getStartTeach; i <= getEndTeach; i++)
                 {
+                    
                     con.Open();
 
                     query = "update RDTime set " +
