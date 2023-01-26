@@ -35,7 +35,7 @@ namespace AutomatedRoomScheduling
         public static ArrayList RoomKitList { get; set; } = new ArrayList();
 
         public static ArrayList RDID { get; set; } = new ArrayList();
-        public static ArrayList RDTID { get; set; } = new ArrayList();
+      
         
         public static ArrayList TDID { get; set; } = new ArrayList();
         public static ArrayList TDay { get; set; } = new ArrayList();
@@ -50,10 +50,9 @@ namespace AutomatedRoomScheduling
         public static String RoomID { get; set; }
         public static String RoomType { get; set; }
         public static String RoomD { get; set; }
-        public static String RoomDT { get; set; }
-        public static String TeacherID { get; set; }
+      
         public static String TeacherD { get; set; }
-        public static String TeacherDT { get; set; }
+     
         public static String TimeFrame { get; set; }
         public static String SubjectHr { get; set; }
         public static String SubjectMin{ get; set; }
@@ -291,10 +290,16 @@ namespace AutomatedRoomScheduling
         {
             TDID.Clear();
             RDID.Clear();
+            TDay.Clear();
+            TDayNo = 0;
+            TeacherD = "";
             RoomType = "";
             getEndTeach = 0;
             getStartTeach = 0;
             getStartRoom = 0;
+            getEndRoom = 0;
+            SubjectHr = "";
+            SubjectMin = "";
             RoomD = "";
             ClassID = "";
             ClassType = "";
@@ -302,6 +307,7 @@ namespace AutomatedRoomScheduling
             SectionCRUD.SectionID = "";
             TeachCRUD.TeacherID = "";
             TotalTimeNo = 0;
+            TimeFrame = "";
 
 
 
@@ -755,7 +761,7 @@ namespace AutomatedRoomScheduling
         public void isTeachConsec()
         {
             int temp = 0;
-            for (int i = 1; i < TeachTimeNo.Count; i++)
+            for (int i = 0; i < TeachTimeNo.Count; i++)
             {
 
                 if (getStartTeach == 0)
