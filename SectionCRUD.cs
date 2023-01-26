@@ -51,7 +51,7 @@ namespace AutomatedRoomScheduling
                 con.Close();
 
 
-        } catch (Exception) { }
+        } catch (Exception) { MessageBox.Show("Section ID Already Exist!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
 }
         public void Update() 

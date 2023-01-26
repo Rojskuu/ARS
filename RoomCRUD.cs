@@ -60,7 +60,7 @@ namespace AutomatedRoomScheduling
                 RoomDayPopulate();
 
             }
-            catch (Exception ex) { MessageBox.Show(ex + ""); }
+            catch (Exception ex) { MessageBox.Show("Room ID Already Exist!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         public void RoomDayPopulate() 

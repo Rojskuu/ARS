@@ -120,17 +120,19 @@ namespace AutomatedRoomScheduling
             {
                 con.Open();
 
-                query = "Select concat(T.FName, ' ', T.MName, '. ', T.LName) as 'Name', Sub.SubDescript ,  SUBSTRING(Sec.SectionID, 1, CHARINDEX('-', Sec.SectionID) - 1) AS 'SECTION' , " +
-                 "SUBSTRING(S.RoomID, 1, CHARINDEX('-', S.RoomID) - 1) AS 'Room', S.SySem, S.araw AS 'Day', S.Timeframe AS 'Time' From SCHED S " +
+                query = "Select concat(T.FName, ' ', T.MName, '. ', T.LName) as 'NAME', Sub.SubDescript AS 'SUBJECT',  SUBSTRING(Sec.SectionID, 1, CHARINDEX('-', Sec.SectionID) - 1) AS 'SECTION' , " +
+                " SUBSTRING(S.RoomID, 1, CHARINDEX('-', S.RoomID) - 1) AS 'ROOM', R.RoomType AS 'ROOM TYPE', S.araw AS 'DAY', S.Timeframe AS 'TIME' From SCHED S "+
+                 " Inner join Room R "+
+                " On R.RoomID = S.RoomID " +
                  " INNER join Class C " +
                      " ON s.ClassID = c.ClassID " +
                      " Inner join Teacher T " +
                       " On T.TeacherID = c.TeacherID "+
-                       " Inner join Subj Sub "+
-                       " On c.SubCode = Sub.SubCode "+
-                         " Inner join Section Sec " +
-                            " On sec.SectionID = c.SectionID " +
-                            " Where S.SySem = '" +FrmDash.SYSem+"'";
+                      " Inner join Subj Sub " +
+                       " On c.SubCode = Sub.SubCode " +
+                        " Inner join Section Sec "+
+                          "  On sec.SectionID = c.SectionID " +
+                          "  Where S.SySem = '" + FrmDash.SYSem+"'";
 
                 adapter = new SqlDataAdapter(query, con);
                 ds = new DataSet();
@@ -419,6 +421,64 @@ namespace AutomatedRoomScheduling
             }
             catch (Exception ex) { MessageBox.Show(ex + ""); }
 
+        }
+
+        private void txtTeach_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                txt = txtTeach.Text.Trim();
+
+                if (txtTeach.Text.Trim().Equals(""))
+                {
+                    PopulatedtgTeach();
+                }
+                else
+                {
+                    con.Open();
+
+                    query = "Select concat(T.FName, ' ', T.MName, '. ', T.LName) as 'NAME', Sub.SubDescript AS 'SUBJECT', " +
+                        " SUBSTRING(Sec.SectionID, 1, CHARINDEX('-', Sec.SectionID) - 1) AS 'SECTION' , " +
+                    " SUBSTRING(S.RoomID, 1, CHARINDEX('-', S.RoomID) - 1) AS 'ROOM', R.RoomType AS 'ROOM TYPE', S.araw AS 'DAY'," +
+                    " S.Timeframe AS 'TIME' From SCHED S " +
+                     " Inner join Room R " +
+                    " On R.RoomID = S.RoomID " +
+                     " INNER join Class C " +
+                         " ON s.ClassID = c.ClassID " +
+                         " Inner join Teacher T " +
+                          " On T.TeacherID = c.TeacherID " +
+                          " Inner join Subj Sub " +
+                           " On c.SubCode = Sub.SubCode " +
+                            " Inner join Section Sec " +
+                              "  On sec.SectionID = c.SectionID " +
+                              "  Where S.SySem = '" + FrmDash.SYSem + "' " +
+                              "AND T.Fname LIKE '%"+ txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' "+
+                              "Or T.Mname LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                               "Or T.Lname LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or Sub.SubDescript LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' "+
+                                "Or Sec.SectionID LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or S.RoomID LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or R.RoomType LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or S.araw LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or S.Timeframe LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " 
+
+
+                              ;
+
+                    adapter = new SqlDataAdapter(query, con);
+                    ds = new DataSet();
+                    ds.Clear();
+                    adapter.Fill(ds);
+                    dtgTeach.DataSource = ds.Tables[0];
+
+                    con.Close();
+
+                }
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
+            finally { con.Close(); }
         }
 
         private void dtgTeach_CellContentClick(object sender, DataGridViewCellEventArgs e)
