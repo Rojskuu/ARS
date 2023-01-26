@@ -170,12 +170,12 @@ namespace AutomatedRoomScheduling
                             " Inner join Section Sec " +
                             " On Sec.SectionID = C.SectionID " +
                             " WHERE ClassID LIKE '%" + FrmDash.SYSem + "%' AND " +
-                            " C.ClassID LIKE '%" + txt.Replace("'", "''") + "%' " +
-                            " OR S.SubDescript '%" + txt.Replace("'", "''") + "%'  " +
-                            " OR T.FName '%" + txt.Replace("'", "''") + "%'  " +
-                            " OR T.MName '%" + txt.Replace("'", "''") + "%'  " +
-                            " OR T.LName '%" + txt.Replace("'", "''") + "%' " +
-                            " OR Sec.SectionID '%" + txt.Replace("'", "''") + "%'  " 
+                            " C.ClassID LIKE '%" + txt.Replace("'", "''") + " AND SectionID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " OR S.SubDescript '%" + txt.Replace("'", "''") + "AND SectionID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " OR T.FName '%" + txt.Replace("'", "''") + "AND SectionID LIKE '%" + FrmDash.SYSem + "%' " + 
+                            " OR T.MName '%" + txt.Replace("'", "''") + "AND SectionID LIKE '%" + FrmDash.SYSem + "%' " + 
+                            " OR T.LName '%" + txt.Replace("'", "''") + "AND SectionID LIKE '%" + FrmDash.SYSem + "%' " + 
+                            " OR Sec.SectionID '%" + txt.Replace("'", "''") + "AND SectionID LIKE '%" + FrmDash.SYSem + "%' " 
                         ;
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();
