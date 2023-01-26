@@ -170,13 +170,13 @@ namespace AutomatedRoomScheduling
                             " Inner join Section Sec " +
                             " On Sec.SectionID = C.SectionID " +
                             " WHERE ClassID LIKE '%" + FrmDash.SYSem + "%' " +
-                            " OR " +
+                            " AND " +
                             " C.ClassID LIKE '%" + txt.Replace("'", "''") + "%' AND C.ClassID LIKE '%" + FrmDash.SYSem + "%' " +
                             " OR S.SubDescript LIKE '%" + txt.Replace("'", "''") + "%' AND C.ClassID LIKE '%" + FrmDash.SYSem + "%' " +
                             " OR T.FName LIKE '%" + txt.Replace("'", "''") + "%' AND C.ClassID LIKE '%" + FrmDash.SYSem + "%' " +
                             " OR T.MName  LIKE '%" + txt.Replace("'", "''") + "%' AND C.ClassID LIKE '%" + FrmDash.SYSem + "%' " +
-                            " OR T.LName LIKE '%" + txt.Replace("'", "''") + "%' AND C.ClassID LIKE '%" + FrmDash.SYSem + "%' " + 
-                            " OR Sec.SectionID '%" + txt.Replace("'", "''") + "%' AND C.ClassID LIKE '%" + FrmDash.SYSem + "%' " 
+                            " OR T.LName LIKE '%" + txt.Replace("'", "''") + "%' AND C.ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " OR Sec.SectionID LIKE '%" + txt.Replace("'", "''") + "%' AND C.ClassID LIKE '%" + FrmDash.SYSem + "%' " 
                         ;
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();
