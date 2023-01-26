@@ -303,7 +303,11 @@
             "2",
             "3",
             "4",
-            "5"});
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
             this.cmbSubUnit.Location = new System.Drawing.Point(217, 173);
             this.cmbSubUnit.Name = "cmbSubUnit";
             this.cmbSubUnit.Size = new System.Drawing.Size(262, 28);
