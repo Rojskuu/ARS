@@ -162,7 +162,7 @@ namespace AutomatedRoomScheduling
 
                     query = " Select C.ClassID, S.SubDescript AS 'Subject' , " +
                             " concat(T.FName, ' ', T.MName, '. ', T.LName) as 'Teacher Name' , " +
-                            " Sec.SectionID AS 'Section ID' From Class C " +
+                            " SUBSTRING(Sec.SectionID,1,CHARINDEX('-', Sec.SectionID)-1) AS 'Section ID' From Class C " +
                             " Inner Join Subj S " +
                             " On C.SubCode = S.SubCode " +
                             " Inner join Teacher T " +
