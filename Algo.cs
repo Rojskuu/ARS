@@ -86,6 +86,8 @@ namespace AutomatedRoomScheduling
 
         public Algo()
         {
+            Clear();
+
             PopClassList();
             
             MainAlgo();
@@ -157,7 +159,7 @@ namespace AutomatedRoomScheduling
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader rdr = cmd.ExecuteReader();
-                
+                ClassList.Clear();
                 while (rdr.Read())
                 {
                    ClassList.Add(rdr.GetString(rdr.GetOrdinal("ClassID")));
@@ -294,6 +296,7 @@ namespace AutomatedRoomScheduling
             TDayNo = 0;
             TeacherD = "";
             RoomType = "";
+            TeachTimeNo.Clear();
             getEndTeach = 0;
             getStartTeach = 0;
             getStartRoom = 0;
