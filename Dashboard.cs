@@ -524,6 +524,7 @@ namespace AutomatedRoomScheduling
         {
             try
             {
+
                 txt = txtTeach.Text.Trim();
 
                 if (txtTeach.Text.Trim().Equals(""))
@@ -534,27 +535,46 @@ namespace AutomatedRoomScheduling
                 {
                     con.Open();
 
+                    query = "Select concat(T.FName, ' ', T.MName, '. ', T.LName) as 'NAME', Sub.SubDescript AS 'SUBJECT', " +
+                        " SUBSTRING(Sec.SectionID, 1, CHARINDEX('-', Sec.SectionID) - 1) AS 'SECTION' , " +
+                    " SUBSTRING(S.RoomID, 1, CHARINDEX('-', S.RoomID) - 1) AS 'ROOM', R.RoomType AS 'ROOM TYPE', S.araw AS 'DAY'," +
+                    " S.Timeframe AS 'TIME' From SCHED S " +
+                     " Inner join Room R " +
+                    " On R.RoomID = S.RoomID " +
+                     " INNER join Class C " +
+                         " ON s.ClassID = c.ClassID " +
+                         " Inner join Teacher T " +
+                          " On T.TeacherID = c.TeacherID " +
+                          " Inner join Subj Sub " +
+                           " On c.SubCode = Sub.SubCode " +
+                            " Inner join Section Sec " +
+                              "  On sec.SectionID = c.SectionID " +
+                              "  Where S.SySem = '" + FrmDash.SYSem + "' " +
+                              "AND T.Fname LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                              "Or T.Mname LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                               "Or T.Lname LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or Sub.SubDescript LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or Sec.SectionID LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or S.RoomID LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or R.RoomType LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or S.araw LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' " +
+                                "Or S.Timeframe LIKE '%" + txt.Replace("'", "''") + "%' AND S.SySem = '" + FrmDash.SYSem + "' "
 
-                    query = "Select TeacherID as 'Teacher ID', concat(FName, ' ', MName, '. ', LName) as Name," +
-                            " Sex, Degree AS 'Highest form of Education', EmpType As 'Employee Type'" +
-                            " FROM Teacher where Archive = 0 " +
-                            "AND TeacherID LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or FName LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or MName LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or LName LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Sex LIKE '" + txt + "%' and Archive = 0 " +
-                            "or Degree LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or EmpType LIKE '%" + txt + "%' and Archive = 0 "
-                        ;
+
+                              ;
+
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();
                     ds.Clear();
                     adapter.Fill(ds);
                     dtgTeach.DataSource = ds.Tables[0];
+
                     con.Close();
+
                 }
+
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex + ""); }
             finally { con.Close(); }
 
         }
