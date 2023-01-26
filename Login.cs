@@ -21,7 +21,7 @@ namespace AutomatedRoomScheduling
         FrmDash dash;
         FrmSuperAdmin superAdmin;
         LogHisCRUD log = new LogHisCRUD();
-        int attempt = 1, Status;
+        int attempt = 3, Status;
 
         SqlConnection con;
         SqlDataReader reader;
