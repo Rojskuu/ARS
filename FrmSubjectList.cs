@@ -161,12 +161,11 @@ namespace AutomatedRoomScheduling
 
 
                     query = "Select SubCode AS 'Subject Code', SubDescript AS 'Subject Description'," +
-                            "SubType AS 'Subject Type', unit AS 'Subject Unit' , Hrs AS 'Hours Required' From Subj Where Archive = 0 " +
+                            " unit AS 'Subject Unit'   From Subj Where Archive = 0 " +
                             "AND SubCode LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
                             "or SubDescript LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
-                            "or SubType LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
-                            "or unit LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
-                            "or Hrs LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 "
+                            "or unit LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " 
+                          
                         ;
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();

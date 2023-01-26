@@ -154,7 +154,7 @@ namespace AutomatedRoomScheduling
                     con.Open();
 
 
-                    query = "Select RoomID AS 'Room ID' , RoomType AS 'Room Type', " +
+                    query = "Select SUBSTRING(RoomIDID, 1, CHARINDEX('-', RoomID) - 1) AS 'Room ID' , RoomType AS 'Room Type', " +
                             "Cap AS 'Capacity' , Flooor AS 'Floor' FROM ROOM WHERE Archive = 0 " +
                             "AND RoomID LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
                             "or RoomType LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
