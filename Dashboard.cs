@@ -93,6 +93,7 @@ namespace AutomatedRoomScheduling
             //PopulateDayTime();
             PopulatedtgRoom();
             PopulatedtgSec();
+            cmbSY.Items.Clear();
             PopSY();
         }
 

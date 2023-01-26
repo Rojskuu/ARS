@@ -46,6 +46,11 @@ namespace AutomatedRoomScheduling
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 con.Close();
+
+
+                MessageBox.Show("SY / Sem Successfully Added.", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+
             } catch (Exception ex) { MessageBox.Show("You cannot enter an existing S.Y. / Semester ", "Already existing!",
                 MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
