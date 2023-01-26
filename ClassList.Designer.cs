@@ -53,7 +53,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(451, 41);
+            this.panel1.Size = new System.Drawing.Size(704, 41);
             this.panel1.TabIndex = 4;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -62,7 +62,7 @@
             this.btnMini.BackColor = System.Drawing.Color.White;
             this.btnMini.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMini.BackgroundImage")));
             this.btnMini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMini.Location = new System.Drawing.Point(381, 7);
+            this.btnMini.Location = new System.Drawing.Point(630, 7);
             this.btnMini.Name = "btnMini";
             this.btnMini.Size = new System.Drawing.Size(28, 26);
             this.btnMini.TabIndex = 4;
@@ -73,7 +73,7 @@
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExit.Location = new System.Drawing.Point(415, 7);
+            this.btnExit.Location = new System.Drawing.Point(664, 7);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(28, 26);
             this.btnExit.TabIndex = 3;
@@ -125,14 +125,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgClass.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgClass.Size = new System.Drawing.Size(429, 249);
+            this.dtgClass.Size = new System.Drawing.Size(684, 249);
             this.dtgClass.TabIndex = 5;
             this.dtgClass.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgClass_CellMouseClick);
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(92, 365);
+            this.btnAdd.Location = new System.Drawing.Point(186, 365);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(85, 31);
             this.btnAdd.TabIndex = 6;
@@ -152,7 +152,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(252, 365);
+            this.btnUpdate.Location = new System.Drawing.Point(428, 365);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(85, 31);
             this.btnUpdate.TabIndex = 8;
@@ -177,7 +177,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(449, 404);
+            this.ClientSize = new System.Drawing.Size(704, 404);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtClass);

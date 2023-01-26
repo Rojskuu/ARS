@@ -54,7 +54,22 @@ namespace AutomatedRoomScheduling
             {
                 con.Open();
 
-                query = ClassCRUD.ClassDisplay;
+                query =  "Select C.ClassID, S.SubDescript AS 'Subject' , " +
+						" concat(T.FName, ' ', T.MName, '. ', T.LName) as 'Teacher Name' , " +
+						"	Sec.SectionID AS 'Section ID' From Class C " +
+                           " Inner Join Subj S " +
+                           " On C.SubCode = S.SubCode "+
+
+                            "Inner join Teacher T "+
+
+                            "On T.TeacherID = C.TeacherID "+
+
+                            " Inner join Section Sec " +
+
+                            "On Sec.SectionID = C.SectionID "+
+
+                            " WHERE ClassID LIKE '%" + FrmDash.SYSem + "%'"
+                            ;
 
                 adapter = new SqlDataAdapter(query, con);
                 ds = new DataSet();
@@ -145,12 +160,22 @@ namespace AutomatedRoomScheduling
                     con.Open();
 
 
-                    query = "SELECT ClassID AS 'Class ID', SubCode AS 'Subject Code', " +
-                            "SectionID AS 'Section ID', TeacherID AS 'Teacher ID' FROM CLASS where Archive = 0 " +
-                            "AND ClassID LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or SubCode LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or SectionID LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or TeacherID LIKE '%" + txt + "%' and Archive = 0 "
+                    query = " Select C.ClassID, S.SubDescript AS 'Subject' , " +
+                            " concat(T.FName, ' ', T.MName, '. ', T.LName) as 'Teacher Name' , " +
+                            " Sec.SectionID AS 'Section ID' From Class C " +
+                            " Inner Join Subj S " +
+                            " On C.SubCode = S.SubCode " +
+                            " Inner join Teacher T " +
+                            " On T.TeacherID = C.TeacherID " +
+                            " Inner join Section Sec " +
+                            " On Sec.SectionID = C.SectionID " +
+                            " WHERE ClassID LIKE '%" + FrmDash.SYSem + "%' AND " +
+                            " C.ClassID LIKE '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " S.SubDescript '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " T.FName '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " T.MName '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " T.LName '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " Sec.SectionID '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " 
                         ;
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();

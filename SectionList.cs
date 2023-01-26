@@ -179,10 +179,10 @@ namespace AutomatedRoomScheduling
                     query = "Select SUBSTRING(SectionID,1,CHARINDEX('-', SectionID)-1) AS 'Section ID' " +
                             ", SecCnt AS 'Student Count' , Course AS 'Course' " +
                             ", Yearlvl AS 'Year level' from Section  where Archive = 0 " +
-                            "AND SectionID LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or SecCnt LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Course LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Yearlvl LIKE '%" + txt + "%' and Archive = 0 "
+                            "AND SectionID LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
+                            "or SecCnt LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
+                            "or Course LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
+                            "or Yearlvl LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 "
 
                         ;
                     adapter = new SqlDataAdapter(query, con);

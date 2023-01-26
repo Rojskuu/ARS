@@ -156,10 +156,10 @@ namespace AutomatedRoomScheduling
 
                     query = "Select RoomID AS 'Room ID' , RoomType AS 'Room Type', " +
                             "Cap AS 'Capacity' , Flooor AS 'Floor' FROM ROOM WHERE Archive = 0 " +
-                            "AND RoomID LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or RoomType LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Cap LIKE '%" + txt + "%' and Archive = 0 " +
-                            "or Flooor LIKE '%" + txt + "%' and Archive = 0 "
+                            "AND RoomID LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
+                            "or RoomType LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
+                            "or Cap LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 " +
+                            "or Flooor LIKE '%" + txt.Replace("'", "''") + "%' and Archive = 0 "
                         ;
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();
