@@ -303,6 +303,7 @@ namespace AutomatedRoomScheduling
             getEndRoom = 0;
             SubjectHr = "";
             SubjectMin = "";
+           
             RoomD = "";
             ClassID = "";
             ClassType = "";
@@ -764,7 +765,7 @@ namespace AutomatedRoomScheduling
         public void isTeachConsec()
         {
             int temp = 0;
-            for (int i = 0; i < TeachTimeNo.Count; i++)
+            for (int i = 1; i < TeachTimeNo.Count; i++)
             {
 
                 if (getStartTeach == 0)
