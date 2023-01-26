@@ -171,11 +171,11 @@ namespace AutomatedRoomScheduling
                             " On Sec.SectionID = C.SectionID " +
                             " WHERE ClassID LIKE '%" + FrmDash.SYSem + "%' AND " +
                             " C.ClassID LIKE '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
-                            " S.SubDescript '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
-                            " T.FName '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
-                            " T.MName '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
-                            " T.LName '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
-                            " Sec.SectionID '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " 
+                            " OR S.SubDescript '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " OR T.FName '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " OR T.MName '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " OR T.LName '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " +
+                            " OR Sec.SectionID '%" + txt.Replace("'", "''") + "%' AND ClassID LIKE '%" + FrmDash.SYSem + "%' " 
                         ;
                     adapter = new SqlDataAdapter(query, con);
                     ds = new DataSet();
